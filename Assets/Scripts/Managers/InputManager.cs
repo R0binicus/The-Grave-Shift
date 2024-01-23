@@ -59,44 +59,14 @@ public class InputManager : MonoBehaviour, InputActions.IGameplayActions
         {
             if (context.started)
             {
-                EventManager.EventTrigger(EventType.PAUSE_TOGGLE, null);
+                //EventManager.EventTrigger(EventType.PAUSE_TOGGLE, null);
             }
         }
     }
 
-    // If WSAD or Arrows are pressed
-    public void OnMove(InputAction.CallbackContext context)
+    // If LeftMouse is pressed
+    public void OnSelectClick(InputAction.CallbackContext context)
     {
-        EventManager.EventTrigger(EventType.PLAYER_MOVE_VECT2D, _inputs.Gameplay.Move.ReadValue<Vector2>());
-
-        if (context.performed)
-        {
-            EventManager.EventTrigger(EventType.PLAYER_MOVE_BOOL, true);
-        }
-        else
-        {
-            EventManager.EventTrigger(EventType.PLAYER_MOVE_BOOL, false); 
-        }
-    }
-
-    // If M is pressed
-    public void OnMuteMusic(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            EventManager.EventTrigger(EventType.MUTEMUSIC_TOGGLE, null);
-        }
-    }
-
-    // If K is pressed in debug mode
-    public void OnDebugKillAllEnemies(InputAction.CallbackContext context)
-    {
-        if (_debugging)
-        {
-            if (context.started)
-            {
-                EventManager.EventTrigger(EventType.KILL_ALL_ENEMIES, null);
-            }
-        }
+        
     }
 }
