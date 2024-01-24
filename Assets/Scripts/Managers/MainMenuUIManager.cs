@@ -9,7 +9,9 @@ public class MainMenuUIManager : MonoBehaviour
 {
     [Header("Sound")]
     [SerializeField] SoundType _titleMusic; 
-    [SerializeField] SoundType _buttonSFX;
+    [SerializeField] SoundType _buttonSFX01;
+    [SerializeField] SoundType _buttonSFX02;
+    [SerializeField] SoundType _buttonSFX03;
 
     private bool _buttonPressed = false; // Stops multiple clicking of same button
 
@@ -38,9 +40,16 @@ public class MainMenuUIManager : MonoBehaviour
         }
     }
 
-
-    public void ButtonSFX()
+    public void ButtonSFX01()
     {
-        EventManager.EventTrigger(EventType.SFX, _buttonSFX);
+        EventManager.EventTrigger(EventType.SFX, _buttonSFX01);
+    }
+    public void ButtonSFX02()
+    {
+        EventManager.EventTrigger(EventType.SFX, _buttonSFX02);
+    }
+    public void ButtonSFX03()
+    {
+        EventManager.EventTrigger(EventType.SFX, _buttonSFX03);
     }
 }
