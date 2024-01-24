@@ -18,7 +18,7 @@ public class SceneSystemManager : MonoBehaviour
     Scene _currentLevel;
     int _numOfScenes; // Number of total scenes in the game
     int _mainMenuIndex;
-    int _gameplayIndex;
+    //int _gameplayIndex;
     const int _lastMainLevelIndex = 14;
 
     private void Awake()
@@ -32,7 +32,7 @@ public class SceneSystemManager : MonoBehaviour
         // Get total number of scenes in game and indexes for main menu and gameplay scenes
         _numOfScenes = SceneManager.sceneCountInBuildSettings;
         _mainMenuIndex = GetBuildIndex("MainMenu");
-        _gameplayIndex = GetBuildIndex("Gameplay");
+        //_gameplayIndex = GetBuildIndex("Gameplay");
 
         // Create level events
         EventManager.EventInitialise(EventType.LEVEL_STARTED);
@@ -65,31 +65,37 @@ public class SceneSystemManager : MonoBehaviour
     // After Services Scene is loaded in, additively load in the MainMenu scene
     private void Start()
     {
-        if (!_editingLevel)
-        {
-            StartCoroutine(LoadScene(_mainMenuIndex));
-            //StartCoroutine(_fader.NormalFadeIn());
-        }
-        // Make sure current level loaded in editor is assigned as the current level
-        else
-        {
-            int count = SceneManager.loadedSceneCount;
-
-            for (int i = 0; i < count; i++)
+        
+        #if UNITY_EDITOR
+            if (!_editingLevel)
             {
-                Scene scene = SceneManager.GetSceneAt(i);
-
-                if (scene.name != "Gameplay" && scene.name != "Services")
-                {
-                    _currentLevel = scene;
-                }
+                StartCoroutine(LoadScene(_mainMenuIndex));
+                //StartCoroutine(_fader.NormalFadeIn());
             }
+            // Make sure current level loaded in editor is assigned as the current level
+            else
+            {
+                int count = SceneManager.loadedSceneCount;
+                Debug.Log(count);
 
-            EventManager.EventTrigger(EventType.FADING, true);
-            EventManager.EventTrigger(EventType.LEVEL_STARTED, null);
-            CheckLevelIndex(_currentLevel.buildIndex);
+                for (int i = 0; i < count; i++)
+                {
+                    Scene scene = SceneManager.GetSceneAt(i);
 
-        }
+                    if (scene.name != "Gameplay" && scene.name != "Services")
+                    {
+                        _currentLevel = scene;
+                    }
+                }
+
+                EventManager.EventTrigger(EventType.FADING, true);
+                EventManager.EventTrigger(EventType.LEVEL_STARTED, null);
+                CheckLevelIndex(_currentLevel.buildIndex);
+            }
+        #else
+            StartCoroutine(LoadScene(_mainMenuIndex));
+            StartCoroutine(_fader.NormalFadeIn());
+        #endif
     }
 
     #region Game UI Response
@@ -147,7 +153,7 @@ public class SceneSystemManager : MonoBehaviour
         //yield return StartCoroutine(_fader.NormalFadeOut());
         yield return StartCoroutine(UnloadLevel(prevLevel));
         yield return StartCoroutine(LoadLevel(newLevel));
-        //yield return StartCoroutine(_fader.CircleFadeIn());
+        //yield return StartCoroutine(_fader.NormalFadeIn());
         EventManager.EventTrigger(EventType.FADING, true);
     }
 
@@ -156,7 +162,7 @@ public class SceneSystemManager : MonoBehaviour
         EventManager.EventTrigger(EventType.FADING, false);
         //yield return StartCoroutine(_fader.NormalFadeOut());
         yield return StartCoroutine(UnloadLevel(_currentLevel.buildIndex));
-        yield return StartCoroutine(UnloadScene(_gameplayIndex));
+        //yield return StartCoroutine(UnloadScene(_gameplayIndex));
         yield return StartCoroutine(LoadScene(_mainMenuIndex));
         //yield return StartCoroutine(_fader.NormalFadeIn());
         EventManager.EventTrigger(EventType.FADING, true);
@@ -167,9 +173,9 @@ public class SceneSystemManager : MonoBehaviour
         EventManager.EventTrigger(EventType.FADING, false);
         //yield return StartCoroutine(_fader.NormalFadeOut());
         yield return StartCoroutine(UnloadScene(_mainMenuIndex));
-        yield return StartCoroutine(LoadScene(_gameplayIndex));
+        //yield return StartCoroutine(LoadScene(_gameplayIndex));
         yield return StartCoroutine(LoadLevel(levelSelected));
-        //yield return StartCoroutine(_fader.CircleFadeIn());
+        //yield return StartCoroutine(_fader.NormalFadeIn());
         EventManager.EventTrigger(EventType.FADING, true);
     }
     #endregion
@@ -203,7 +209,7 @@ public class SceneSystemManager : MonoBehaviour
         }
 
         // Send event that says if this is the last level in the build
-        if (index == _numOfScenes - 1 && (index != _mainMenuIndex || index != _gameplayIndex))
+        if (index == _numOfScenes - 1 && (index != _mainMenuIndex))
         {
             EventManager.EventTrigger(EventType.SCENE_COUNT, true);
         }
