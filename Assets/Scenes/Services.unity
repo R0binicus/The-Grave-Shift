@@ -798,7 +798,7 @@ GameObject:
   - component: {fileID: 1184168858}
   - component: {fileID: 1184168861}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: CameraMain
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -931,49 +931,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1397267136}
-  - component: {fileID: 1397267135}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: AudioSources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1397267135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397267134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a53f32be71040e4d8e550d2a790502b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MusicSource: {fileID: 142332107}
-  AudioSourceArray:
-  - {fileID: 1572094199}
-  - {fileID: 318269010}
-  - {fileID: 1687421072}
-  - {fileID: 1137891597}
-  SoundAudioClipArray:
-  - sound: 0
-    audioClip: {fileID: 8300000, guid: d281efd631401db428b67bc76b35e444, type: 3}
-    volume: 1
-  - sound: 1
-    audioClip: {fileID: 8300000, guid: 8a1bf0a99c0279f48be64954b4689477, type: 3}
-    volume: 1
-  - sound: 2
-    audioClip: {fileID: 8300000, guid: cff684512d45c974a973a3b301ef5503, type: 3}
-    volume: 1
-  MusicAudioClipArray:
-  - sound: 3
-    audioClip: {fileID: 0}
-    volume: 1
-  - sound: 4
-    audioClip: {fileID: 0}
-    volume: 1
 --- !u!4 &1397267136
 Transform:
   m_ObjectHideFlags: 0
@@ -1260,8 +1224,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1775386243}
   - component: {fileID: 1775386242}
+  - component: {fileID: 1775386244}
   m_Layer: 0
-  m_Name: SceneSystemManager
+  m_Name: ServicesManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1296,6 +1261,41 @@ Transform:
   - {fileID: 850212472}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1775386244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775386241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a53f32be71040e4d8e550d2a790502b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicSource: {fileID: 142332107}
+  AudioSourceArray:
+  - {fileID: 1572094199}
+  - {fileID: 318269010}
+  - {fileID: 1687421072}
+  - {fileID: 1137891597}
+  SoundAudioClipArray:
+  - sound: 0
+    audioClip: {fileID: 8300000, guid: d281efd631401db428b67bc76b35e444, type: 3}
+    volume: 1
+  - sound: 1
+    audioClip: {fileID: 8300000, guid: 8a1bf0a99c0279f48be64954b4689477, type: 3}
+    volume: 1
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: cff684512d45c974a973a3b301ef5503, type: 3}
+    volume: 1
+  MusicAudioClipArray:
+  - sound: 3
+    audioClip: {fileID: 0}
+    volume: 1
+  - sound: 4
+    audioClip: {fileID: 0}
+    volume: 1
 --- !u!1 &2084579423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,8 +1388,8 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 706556007}
-  - {fileID: 1184168860}
   - {fileID: 1775386243}
-  - {fileID: 619394802}
+  - {fileID: 706556007}
   - {fileID: 1397267136}
+  - {fileID: 1184168860}
+  - {fileID: 619394802}
