@@ -16,6 +16,11 @@ public class GameplayManager : MonoBehaviour
 {
     private GameplayState _state;
 
+    private void Awake()
+    {
+        EventManager.EventInitialise(EventType.INTRO);
+    }
+
     private void Start()
     {
         Intro();
@@ -24,6 +29,6 @@ public class GameplayManager : MonoBehaviour
     private void Intro()
     {
         _state = GameplayState.INTRO;
-        
+        EventManager.EventTrigger(EventType.INTRO, null);
     }
 }

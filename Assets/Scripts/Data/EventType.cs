@@ -1,12 +1,7 @@
 public enum EventType
 {
-    PAUSE_TOGGLE,           // Broadcasts when pause is toggled on or off
-
-
-
     // SceneManagement           
     QUIT_LEVEL,             
-    SCENE_LOAD,   
     FADING,
     SCENE_COUNT,
     LEVEL_SELECTED,
@@ -30,5 +25,6 @@ public enum EventType
     DIALOGUE,
     QUESTIONS,
     DECISION,
-    END
+    END,
+    PAUSE_TOGGLE,           // Broadcasts when pause is toggled on or off
 };
