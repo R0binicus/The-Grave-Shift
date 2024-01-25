@@ -18,12 +18,14 @@ public class InkManager : MonoBehaviour
     {
         EventManager.EventSubscribe(EventType.INK_INTRO, SetScript);
         EventManager.EventSubscribe(EventType.GAMEPLAYUI_NEXTLINE, NextLineHandler);
+        EventManager.EventSubscribe(EventType.GAMEPLAYUI_QUESTIONSELECTED, QuestionSelectedHandler);
     }
 
     private void OnDisable()
     {
         EventManager.EventUnsubscribe(EventType.INK_INTRO, SetScript);
         EventManager.EventUnsubscribe(EventType.GAMEPLAYUI_NEXTLINE, NextLineHandler);
+        EventManager.EventUnsubscribe(EventType.GAMEPLAYUI_QUESTIONSELECTED, QuestionSelectedHandler);
     }
 
     // Set the Ink script to process
@@ -51,17 +53,36 @@ public class InkManager : MonoBehaviour
         if (_currentScript.canContinue)
         {
             string line = _currentScript.Continue();
-            //SetDialogue(line);
-            //SetChoices(_currentScript.currentChoices);
-            string speaker = HandleTag(_currentScript.currentTags);
-            EventManager.EventTrigger(EventType.INK_SPEAKER, speaker);
-            EventManager.EventTrigger(EventType.INK_TEXTSEND, line);
 
+            // If no questions are to be displayed
+            Debug.Log(_currentScript.currentChoices.Count);
+            if (_currentScript.currentChoices.Count == 0)
+            {
+                string speaker = HandleTag(_currentScript.currentTags);
+                EventManager.EventTrigger(EventType.INK_SPEAKER, speaker);
+                EventManager.EventTrigger(EventType.INK_TEXTSEND, line);
+            }
+            // Display questions
+            else
+            {
+                EventManager.EventTrigger(EventType.INK_QUESTIONS, _currentScript.currentChoices);
+            }
         }
         else
         {
             EventManager.EventTrigger(EventType.INK_TEXTEND, null);
         }
+    }
+
+    public void QuestionSelectedHandler(object data)
+    {
+        if (data == null)
+        {
+            Debug.LogError("QuestionSelectedHandler has not received an int!");
+        }
+
+        _currentScript.ChooseChoiceIndex((int)data);
+        NextLineHandler(null);
     }
 
     public string HandleTag(List<string> currentTags)

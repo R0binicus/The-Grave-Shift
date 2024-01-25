@@ -30,10 +30,12 @@ public enum EventType
     // GameplayUIManager
     GAMEPLAYUI_INTRO,
     GAMEPLAYUI_NEXTLINE,
+    GAMEPLAYUI_QUESTIONSELECTED,
 
     // InkManager
     INK_INTRO,
     INK_SPEAKER,
     INK_TEXTSEND,
-    INK_TEXTEND
+    INK_TEXTEND,
+    INK_QUESTIONS
 };
