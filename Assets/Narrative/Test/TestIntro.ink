@@ -1,2 +1,2 @@
-You've returned. # gravedigger
-Welcome back. # grim
+You've returned. #gravedigger
+Welcome back. #grim

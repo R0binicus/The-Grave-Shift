@@ -1,11 +1,11 @@
 -> Intro
 
 === Intro ===
-This one was interesting... # grim
+This one was interesting... #grim
 -> Questions
 
 === Questions ===
-Ask and ye shall receive. # gravedigger
+Ask and ye shall receive. #gravedigger
 
  * [Question 1]
     -> Question1
@@ -20,25 +20,25 @@ Ask and ye shall receive. # gravedigger
  * -> End
 
 === Question1 ===
-Answer 1. # grim
+Answer 1. #grim
 -> Questions
 
 === Question2 ===
-Answer 2. # gravedigger
+Answer 2. #gravedigger
 -> Questions
 
 === Question3 ===
-Answer 3. # grim
+Answer 3. #grim
 -> Questions
 
 === Question4 ===
-Answer 4. # grim
+Answer 4. #grim
 -> Questions
 
 === Question5 ===
-Answer 5. # gravedigger
+Answer 5. #gravedigger
 -> Questions
 
 === End ===
-Make your choice. Heaven or hell? # grim
+Make your choice. Heaven or hell? #grim
 -> END

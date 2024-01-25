@@ -27,16 +27,13 @@ public enum EventType
     END,
     PAUSE_TOGGLE,    
 
-    // Intro
-    INTRO_GAMEPLAYUI,
-    INTRO_INK,
-    // Soul Select
+    // GameplayUIManager
+    GAMEPLAYUI_INTRO,
+    GAMEPLAYUI_NEXTLINE,
 
-    // Dialogue
-
-    // Questions
-
-    // Decisions
-
-    // End
+    // InkManager
+    INK_INTRO,
+    INK_SPEAKER,
+    INK_TEXTSEND,
+    INK_TEXTEND
 };

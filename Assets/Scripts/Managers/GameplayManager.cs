@@ -21,8 +21,8 @@ public class GameplayManager : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.EventInitialise(EventType.INTRO_INK);
-        EventManager.EventInitialise(EventType.INTRO_GAMEPLAYUI);
+        EventManager.EventInitialise(EventType.INK_INTRO);
+        EventManager.EventInitialise(EventType.GAMEPLAYUI_INTRO);
     }
 
     private void Start()
@@ -33,7 +33,7 @@ public class GameplayManager : MonoBehaviour
     private void Intro()
     {
         _state = GameplayState.INTRO;
-        EventManager.EventTrigger(EventType.INTRO_INK, null);
-        EventManager.EventTrigger(EventType.INTRO_GAMEPLAYUI, null);
+        EventManager.EventTrigger(EventType.INK_INTRO, _introText);
+        EventManager.EventTrigger(EventType.GAMEPLAYUI_INTRO, null);
     }
 }
