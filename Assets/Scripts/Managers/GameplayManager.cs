@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameplayState
+{
+    INTRO,
+    SOULSELECT,
+    DIALOGUE,
+    QUESTIONS,
+    DECISION,
+    END
+}
+
 public class GameplayManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameplayState _state;
+
+    private void Start()
     {
-        
+        Intro();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Intro()
     {
+        _state = GameplayState.INTRO;
         
     }
 }

@@ -52,5 +52,13 @@ public enum EventType
 
     // Debugging
     DEBUG_GAME,
-    KILL_ALL_ENEMIES
+    KILL_ALL_ENEMIES,
+
+    // Game States
+    INTRO,
+    SOULSELECT,
+    DIALOGUE,
+    QUESTIONS,
+    DECISION,
+    END
 };
