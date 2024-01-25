@@ -8,9 +8,6 @@ using UnityEditor;
 
 public class SceneSystemManager : MonoBehaviour
 {
-    [Header("Debugging")]
-    [SerializeField] bool _editingLevel = false;
-
     // Scene Fader
     Fader _fader;
 
@@ -31,12 +28,11 @@ public class SceneSystemManager : MonoBehaviour
 
         // Get total number of scenes in game and indexes for main menu and gameplay scenes
         _numOfScenes = SceneManager.sceneCountInBuildSettings;
-        _mainMenuIndex = GetBuildIndex("MainMenu");
+        _mainMenuIndex = 1;
 
         // Create level events
         EventManager.EventInitialise(EventType.LEVEL_STARTED);
         EventManager.EventInitialise(EventType.LEVEL_ENDED);
-        EventManager.EventInitialise(EventType.SCENE_COUNT);
         EventManager.EventInitialise(EventType.FADING);
     }
 
@@ -57,31 +53,17 @@ public class SceneSystemManager : MonoBehaviour
     // After Services Scene is loaded in, additively load in the MainMenu scene
     private void Start()
     {
-        
         #if UNITY_EDITOR
-            if (!_editingLevel)
+            int count = SceneManager.loadedSceneCount;
+
+            if (count > 1)
+            {
+                StartCoroutine(_fader.NormalFadeIn());
+            }
+            else
             {
                 StartCoroutine(LoadScene(_mainMenuIndex));
                 StartCoroutine(_fader.NormalFadeIn());
-            }
-            // Make sure current level loaded in editor is assigned as the current level
-            else
-            {
-                int count = SceneManager.loadedSceneCount;
-
-                for (int i = 0; i < count; i++)
-                {
-                    Scene scene = SceneManager.GetSceneAt(i);
-
-                    if (scene.name != "Gameplay" && scene.name != "Services")
-                    {
-                        _currentLevel = scene;
-                    }
-                }
-
-                EventManager.EventTrigger(EventType.FADING, true);
-                EventManager.EventTrigger(EventType.LEVEL_STARTED, null);
-                CheckLevelIndex(_currentLevel.buildIndex);
             }
         #else
             StartCoroutine(LoadScene(_mainMenuIndex));
@@ -90,22 +72,6 @@ public class SceneSystemManager : MonoBehaviour
     }
 
     #region Game UI Response
-    // Listens for when NextLevelButton is pressed
-    public void NextLevelHandler(object data)
-    {
-        // Check if last level
-        if (_currentLevel.buildIndex < _numOfScenes - 1)
-        {
-            StartCoroutine(LevelChanger(_currentLevel.buildIndex, _currentLevel.buildIndex + 1));
-        }
-    }
-
-    // Listens for when ReplayLevelButton is pressed
-    public void RestartLevelHandler(object data)
-    {
-        StartCoroutine(LevelChanger(_currentLevel.buildIndex, _currentLevel.buildIndex));
-    }
-
     // Listens for when UIManager QuitButton is pressed
     public void QuitLevelHandler(object data)
     {
@@ -127,16 +93,6 @@ public class SceneSystemManager : MonoBehaviour
     #endregion
 
     #region Scene Loading/Unloading/Ordering
-    IEnumerator LevelChanger(int prevLevel, int newLevel)
-    {
-        EventManager.EventTrigger(EventType.FADING, false);
-        yield return StartCoroutine(_fader.NormalFadeOut());
-        yield return StartCoroutine(UnloadLevel(prevLevel));
-        yield return StartCoroutine(LoadLevel(newLevel));
-        yield return StartCoroutine(_fader.NormalFadeIn());
-        EventManager.EventTrigger(EventType.FADING, true);
-    }
-
     IEnumerator LevelToMenu()
     {
         EventManager.EventTrigger(EventType.FADING, false);
@@ -175,19 +131,6 @@ public class SceneSystemManager : MonoBehaviour
         EventManager.EventTrigger(EventType.LEVEL_ENDED, null);
         yield return StartCoroutine(UnloadScene(index));
     }
-
-    void CheckLevelIndex(int index)
-    {
-        // Send event that says if this is the last level in the build
-        if (index == _numOfScenes - 1 && (index != _mainMenuIndex))
-        {
-            EventManager.EventTrigger(EventType.SCENE_COUNT, true);
-        }
-        else
-        {
-            EventManager.EventTrigger(EventType.SCENE_COUNT, false);
-        }
-    }
     #endregion
 
     #region Scene Functions
@@ -204,8 +147,6 @@ public class SceneSystemManager : MonoBehaviour
         Scene scene = SceneManager.GetSceneAt(SceneManager.loadedSceneCount - 1);
         SceneManager.SetActiveScene(scene);
         _currentLevel = scene;
-
-        CheckLevelIndex(index);
     }
 
     IEnumerator UnloadScene(int index)
@@ -229,27 +170,11 @@ public class SceneSystemManager : MonoBehaviour
         yield return StartCoroutine(_fader.NormalFadeOut());
         yield return null;
 
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#else
-		Application.Quit();
-#endif
-    }
-
-    public int GetBuildIndex(string name)
-    {
-        for (int index = 0; index < _numOfScenes; index++)
-        {
-            string sceneName = System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(index));
-
-            if (sceneName == name)
-            {
-                return index;
-            }
-        }
-
-        Debug.LogError("Scene name not found");
-        return -1;
+        #if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+        #else
+	    	Application.Quit();
+        #endif
     }
     #endregion
 }

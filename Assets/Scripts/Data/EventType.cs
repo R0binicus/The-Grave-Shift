@@ -3,7 +3,6 @@ public enum EventType
     // SceneManagement           
     QUIT_LEVEL,             
     FADING,
-    SCENE_COUNT,
     LEVEL_SELECTED,
     LEVEL_STARTED,
     LEVEL_ENDED,
