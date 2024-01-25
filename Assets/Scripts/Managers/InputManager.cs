@@ -57,7 +57,7 @@ public class InputManager : MonoBehaviour, InputActions.IGameplayActions
         {
             if (context.started)
             {
-                //EventManager.EventTrigger(EventType.PAUSE_TOGGLE, null);
+                EventManager.EventTrigger(EventType.QUIT_LEVEL, null);
             }
         }
     }
