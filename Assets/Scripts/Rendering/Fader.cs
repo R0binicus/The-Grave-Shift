@@ -17,26 +17,6 @@ public class Fader : MonoBehaviour
         _fadeOutBG = GetComponentInChildren<CanvasGroup>();
     }
 
-    //private void OnEnable()
-    //{
-    //    EventManager.EventSubscribe(EventType.INIT_PLAYER, CachePlayer);
-    //}
-//
-    //private void OnDisable()
-    //{
-    //    EventManager.EventUnsubscribe(EventType.INIT_PLAYER, CachePlayer);
-    //}
-
-    //public void CachePlayer(object data)
-    //{
-    //    if (data == null)
-    //    {
-    //        Debug.LogError("Player has not been assigned to Fader");
-    //    }
-//
-    //    _player = (Player)data;
-    //}
-
     public IEnumerator NormalFadeOut()
     {
         LeanTween.alphaCanvas(_fadeOutBG, 1f, _fadeOutTime).setFrom(0f);
@@ -56,25 +36,6 @@ public class Fader : MonoBehaviour
             yield return null;
         }
     }
-
-    //public IEnumerator CircleFadeIn()
-    //{
-    //    _fadeInCircle.LeanScale(Vector3.zero, 0f);
-    //    _fadeInCircle.gameObject.SetActive(true);
-    //    _fadeInCircle.position = WorldToUI(_player.transform.position);
-    //    LeanTween.scale(_fadeInCircle as RectTransform, new Vector3(10, 10, 10), _fadeInCircleTime).setFrom(Vector3.zero).setEase(LeanTweenType.easeInSine).setOnComplete(DisableCircle);
-    //    
-    //    while (LeanTween.isTweening(_fadeInCircle.gameObject))
-    //    {
-    //        yield return null;
-    //    }
-    //}
-
-    //public void DisableCircle()
-    //{
-    //    _fadeInCircle.gameObject.SetActive(false);
-    //    _fadeOutBG.alpha = 0;
-    //}
 
     private Vector3 WorldToUI(Vector3 worldPos)
     {

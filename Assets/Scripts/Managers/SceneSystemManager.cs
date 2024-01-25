@@ -32,12 +32,10 @@ public class SceneSystemManager : MonoBehaviour
         // Get total number of scenes in game and indexes for main menu and gameplay scenes
         _numOfScenes = SceneManager.sceneCountInBuildSettings;
         _mainMenuIndex = GetBuildIndex("MainMenu");
-        //_gameplayIndex = GetBuildIndex("Gameplay");
 
         // Create level events
         EventManager.EventInitialise(EventType.LEVEL_STARTED);
         EventManager.EventInitialise(EventType.LEVEL_ENDED);
-        EventManager.EventInitialise(EventType.SAVE_GAME);
         EventManager.EventInitialise(EventType.SCENE_COUNT);
         EventManager.EventInitialise(EventType.FADING);
     }
@@ -45,9 +43,6 @@ public class SceneSystemManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.EventSubscribe(EventType.LEVEL_SELECTED, LevelSelected);
-        EventManager.EventSubscribe(EventType.NEXT_LEVEL, NextLevelHandler);
-        EventManager.EventSubscribe(EventType.RESTART_LEVEL, RestartLevelHandler);
-        EventManager.EventSubscribe(EventType.WIN, WinHandler);
         EventManager.EventSubscribe(EventType.QUIT_LEVEL, QuitLevelHandler);
         EventManager.EventSubscribe(EventType.QUIT_GAME, QuitGameHandler);
     }
@@ -55,9 +50,6 @@ public class SceneSystemManager : MonoBehaviour
     private void OnDisable()
     {
         EventManager.EventUnsubscribe(EventType.LEVEL_SELECTED, LevelSelected);
-        EventManager.EventUnsubscribe(EventType.NEXT_LEVEL, NextLevelHandler);
-        EventManager.EventUnsubscribe(EventType.RESTART_LEVEL, RestartLevelHandler);
-        EventManager.EventUnsubscribe(EventType.WIN, WinHandler);
         EventManager.EventUnsubscribe(EventType.QUIT_LEVEL, QuitLevelHandler);
         EventManager.EventUnsubscribe(EventType.QUIT_GAME, QuitGameHandler);
     }
@@ -98,16 +90,6 @@ public class SceneSystemManager : MonoBehaviour
     }
 
     #region Game UI Response
-    // Listens for when game is won
-    public void WinHandler(object data)
-    {
-        // Check if last level
-        if (_currentLevel.buildIndex < _numOfScenes - 1)
-        {
-            EventManager.EventTrigger(EventType.SAVE_GAME, _currentLevel.buildIndex + 1);
-        }
-    }
-
     // Listens for when NextLevelButton is pressed
     public void NextLevelHandler(object data)
     {
@@ -127,7 +109,6 @@ public class SceneSystemManager : MonoBehaviour
     // Listens for when UIManager QuitButton is pressed
     public void QuitLevelHandler(object data)
     {
-        EventManager.EventTrigger(EventType.SAVE_GAME, _currentLevel.buildIndex);
         StartCoroutine(LevelToMenu());
     }
     #endregion
@@ -197,16 +178,6 @@ public class SceneSystemManager : MonoBehaviour
 
     void CheckLevelIndex(int index)
     {
-        // Send event that says if this is the last main level before bonus levels start
-        if (index == _lastMainLevelIndex)
-        {
-            EventManager.EventTrigger(EventType.BONUS_LEVEL_START, true);
-        }
-        else
-        {
-            EventManager.EventTrigger(EventType.BONUS_LEVEL_START, false);
-        }
-
         // Send event that says if this is the last level in the build
         if (index == _numOfScenes - 1 && (index != _mainMenuIndex))
         {

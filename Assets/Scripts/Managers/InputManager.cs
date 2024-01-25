@@ -14,8 +14,6 @@ public class InputManager : MonoBehaviour, InputActions.IGameplayActions
         _inputs.Gameplay.SetCallbacks(this);
 
         EventManager.EventInitialise(EventType.PAUSE_TOGGLE);
-        EventManager.EventInitialise(EventType.PLAYER_MOVE_BOOL);
-        EventManager.EventInitialise(EventType.PLAYER_MOVE_VECT2D);
     }
 
     void OnEnable()
