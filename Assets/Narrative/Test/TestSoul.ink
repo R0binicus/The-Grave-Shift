@@ -1,3 +1,5 @@
+VAR questionsAsked = 0
+
 -> Intro
 
 === Intro ===
@@ -8,36 +10,69 @@ This one was interesting... #grim
 Ask and ye shall receive. #gravedigger
 
  + [Question 1]
+    ~ questionsAsked = questionsAsked + 1
     -> Question1
+
  + [Question 2]
-     -> Question2
+    ~ questionsAsked = questionsAsked + 1
+    -> Question2
+
  + [Question 3]
-      -> Question3
+    ~ questionsAsked = questionsAsked + 1
+    -> Question3
+
  + [Question 4]
-      -> Question4
+    ~ questionsAsked = questionsAsked + 1
+    -> Question4
+
  + [Question 5]
-      -> Question5
- * -> End
+    ~ questionsAsked = questionsAsked + 1
+    -> Question5
 
 === Question1 ===
 Answer 1. #grim
--> Questions
+
+{questionsAsked == 3:
+    -> End
+  - else:
+    -> Questions
+}
 
 === Question2 ===
 Answer 2. #gravedigger
--> Questions
+
+{questionsAsked == 3:
+    -> End
+  - else:
+    -> Questions
+}
 
 === Question3 ===
 Answer 3. #grim
--> Questions
+
+{questionsAsked == 3:
+    -> End
+  - else:
+    -> Questions
+}
 
 === Question4 ===
 Answer 4. #grim
--> Questions
+
+{questionsAsked == 3:
+    -> End
+  - else:
+    -> Questions
+}
 
 === Question5 ===
 Answer 5. #gravedigger
--> Questions
+
+{questionsAsked == 3:
+    -> End
+  - else:
+    -> Questions
+}
 
 === End ===
 Make your choice. Heaven or hell? #grim
