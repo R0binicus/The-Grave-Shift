@@ -25,5 +25,18 @@ public enum EventType
     QUESTIONS,
     DECISION,
     END,
-    PAUSE_TOGGLE,           // Broadcasts when pause is toggled on or off
+    PAUSE_TOGGLE,    
+
+    // Intro
+    INTRO_GAMEPLAYUI,
+    INTRO_INK,
+    // Soul Select
+
+    // Dialogue
+
+    // Questions
+
+    // Decisions
+
+    // End
 };

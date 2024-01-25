@@ -861,6 +861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97f3e8c9e0bb184cbf955ea0a1fe8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _introText: {fileID: 4900000, guid: 233238429bee467498166fe2b8aa3173, type: 3}
+  _endText: {fileID: 4900000, guid: b5f72c98f8f999940898ebbdfd5037d6, type: 3}
 --- !u!114 &952960296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,7 +1054,7 @@ GameObject:
   - component: {fileID: 1490285493}
   - component: {fileID: 1490285494}
   m_Layer: 0
-  m_Name: Soul
+  m_Name: TestSoul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1085,7 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soulText: {fileID: 0}
+  _soulText: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
 --- !u!1 &1639332367
 GameObject:
   m_ObjectHideFlags: 0
