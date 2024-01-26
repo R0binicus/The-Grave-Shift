@@ -17,6 +17,21 @@ public class MainMenuUIManager : MonoBehaviour
 
     #region Init
 
+    private void Awake()
+    {
+        EventManager.EventInitialise(EventType.MAINMENUEVENT);
+    }
+
+    private void OnEnable()
+    {
+        EventManager.EventSubscribe(EventType.MAINMENUEVENT, MainMenuEventHandler);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.EventUnsubscribe(EventType.MAINMENUEVENT, MainMenuEventHandler);
+    }
+
     private void Start()
     {
         _buttonPressed = false;
@@ -51,5 +66,34 @@ public class MainMenuUIManager : MonoBehaviour
     public void ButtonSFX03()
     {
         EventManager.EventTrigger(EventType.SFX, _buttonSFX03);
+    }
+
+    public void MainMenuEventHandler(object data)
+    {
+        if (data == null)
+        {
+            Debug.LogError("MainMenuEventHandler hasn't received a string");
+        }
+
+        int code = (int)data;
+
+        switch (code)
+        {
+            case 1:
+                // Quit
+                EventManager.EventTrigger(EventType.QUIT_GAME, null);
+                break;
+            case 2:
+                // Play
+                if (!_buttonPressed)
+                {
+                    EventManager.EventTrigger(EventType.LEVEL_SELECTED, 0);
+                    _buttonPressed = true;
+                }
+                break;
+            default:
+                
+                break;
+        }
     }
 }

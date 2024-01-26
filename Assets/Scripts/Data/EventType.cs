@@ -27,6 +27,9 @@ public enum EventType
     END,
     PAUSE_TOGGLE,    
 
+    // MainMenuUIManager
+    MAINMENUEVENT,
+
     // GameplayUIManager
     GAMEPLAYUI_INTRO,
     GAMEPLAYUI_NEXTLINE,
