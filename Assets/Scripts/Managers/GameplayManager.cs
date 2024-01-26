@@ -23,6 +23,7 @@ public class GameplayManager : MonoBehaviour
     {
         EventManager.EventInitialise(EventType.INK_INTRO);
         EventManager.EventInitialise(EventType.GAMEPLAYUI_INTRO);
+        EventManager.EventInitialise(EventType.DIALOGUE);
     }
 
     private void Start()

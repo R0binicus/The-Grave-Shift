@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
 
-struct InkData
+public struct InkData
 {
     public string Speaker;
     public string Line;

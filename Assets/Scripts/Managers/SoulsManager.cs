@@ -21,7 +21,7 @@ public class SoulsManager : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.EventInitialise(EventType.DIALOGUE);
+        _soulsParent.SetActive(false);
     }
 
     private void OnEnable()
@@ -56,11 +56,12 @@ public class SoulsManager : MonoBehaviour
     {
         if (IsFinishedJudging())
         {
+            _soulsParent.SetActive(false);
             EventManager.EventTrigger(EventType.END, null);
         }
         else
         {
-            //Display souls
+            _soulsParent.SetActive(true);
         }
     }
 
