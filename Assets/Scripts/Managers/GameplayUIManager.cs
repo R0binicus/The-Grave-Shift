@@ -28,19 +28,17 @@ public class GameplayUIManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.EventSubscribe(EventType.INK_INTRO, IntroHandler);
-        EventManager.EventSubscribe(EventType.INK_SPEAKER, SpeakerHandler);
-        EventManager.EventSubscribe(EventType.INK_TEXTSEND, TextSendHandler);
-        EventManager.EventSubscribe(EventType.INK_TEXTEND, TextEndHandler);
+        EventManager.EventSubscribe(EventType.DECISION, DialogueEndHandler);
         EventManager.EventSubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
+        EventManager.EventSubscribe(EventType.DIALOGUE, DialogueHandler);
     }
 
     private void OnDisable()
     {
         EventManager.EventUnsubscribe(EventType.INK_INTRO, IntroHandler);
-        EventManager.EventUnsubscribe(EventType.INK_SPEAKER, SpeakerHandler);
-        EventManager.EventUnsubscribe(EventType.INK_TEXTSEND, TextSendHandler);
-        EventManager.EventUnsubscribe(EventType.INK_TEXTEND, TextEndHandler);
+        EventManager.EventUnsubscribe(EventType.DECISION, DialogueEndHandler);
         EventManager.EventUnsubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
+        EventManager.EventUnsubscribe(EventType.DIALOGUE, DialogueHandler);
     }
 
     private void InitUI()
@@ -84,27 +82,19 @@ public class GameplayUIManager : MonoBehaviour
         _dialoguePanel.SetActive(true);
     }
 
-    public void SpeakerHandler(object data)
+    public void DialogueHandler(object data)
     {
         if (data == null)
         {
-            Debug.LogError("TextSendHandler hasn't received a string");
+            Debug.LogError("TextSendHandler hasn't received an InkData");
         }
 
-        _speakerText.text = (string)data;
+        InkData dialogue = (InkData)data;
+        _speakerText.text = dialogue.Speaker;
+        _dialogueText.text = dialogue.Line;
     }
 
-    public void TextSendHandler(object data)
-    {
-        if (data == null)
-        {
-            Debug.LogError("TextSendHandler hasn't received a string");
-        }
-
-        _dialogueText.text = (string)data;
-    }
-
-    public void TextEndHandler(object data)
+    public void DialogueEndHandler(object data)
     {
         _dialogueText.text = "";
 
@@ -137,6 +127,11 @@ public class GameplayUIManager : MonoBehaviour
         }
 
         _questionsPanel.SetActive(true);
+    }
+
+    public void DecisionHandler(object data)
+    {
+        
     }
     #endregion
 }

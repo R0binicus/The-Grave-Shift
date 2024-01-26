@@ -36,6 +36,4 @@ public class GameplayManager : MonoBehaviour
         EventManager.EventTrigger(EventType.INK_INTRO, _introText);
         EventManager.EventTrigger(EventType.GAMEPLAYUI_INTRO, null);
     }
-
-    
 }

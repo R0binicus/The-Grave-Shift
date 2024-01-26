@@ -26,12 +26,12 @@ public class SoulsManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.EventSubscribe(EventType.SOULSELECT, IsFinishedJudging);
+        EventManager.EventSubscribe(EventType.SOULSELECT, SoulSelectHandler);
     }
 
     private void OnDisable()
     {
-        EventManager.EventUnsubscribe(EventType.SOULSELECT, IsFinishedJudging);
+        EventManager.EventUnsubscribe(EventType.SOULSELECT, SoulSelectHandler);
     }
 
     public void SoulsSetup()
@@ -52,14 +52,28 @@ public class SoulsManager : MonoBehaviour
         EventManager.EventTrigger(EventType.DIALOGUE, _currentSoul.Script);
     }
 
-    public void IsFinishedJudging(object data)
+    public void SoulSelectHandler(object data)
+    {
+        if (IsFinishedJudging())
+        {
+            EventManager.EventTrigger(EventType.END, null);
+        }
+        else
+        {
+            //Display souls
+        }
+    }
+
+    public bool IsFinishedJudging()
     {
         foreach (Soul soul in _souls)
         {
             if (soul.Status == SoulStatus.UNJUDGED)
             {
-                EventManager.EventTrigger(EventType.END, null);
+                return false;
             }
         }
+
+        return true;
     }
 }

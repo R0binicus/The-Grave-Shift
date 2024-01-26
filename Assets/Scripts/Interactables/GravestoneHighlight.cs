@@ -30,7 +30,7 @@ public class GravestoneHighlight : MonoBehaviour
     void OnMouseExit()
     {
         LeanTween.cancel(gameObject);
-        LeanTween.value( gameObject, updateLight, _spotlight.intensity, 0f, 0.5f);
+        LeanTween.value(gameObject, updateLight, _spotlight.intensity, 0f, 0.5f);
     }
 
     private void updateLight(float newValue)

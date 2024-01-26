@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
 
+struct InkData
+{
+    public string Speaker;
+    public string Line;
+}
+
 public class InkManager : MonoBehaviour
 {
     private Story _currentScript;
+    private InkData _dialogue;
 
     private void Awake()
     {
@@ -47,6 +54,22 @@ public class InkManager : MonoBehaviour
     {
         NextLineHandler(null);
     }
+    
+    public void IntroHandler(object data)
+    {
+        if (_currentScript.canContinue)
+        {
+            string line = _currentScript.Continue();
+            string speaker = HandleTag(_currentScript.currentTags);
+            _dialogue.Speaker = speaker;
+            _dialogue.Line = line;
+            EventManager.EventTrigger(EventType.DIALOGUE, _dialogue);
+        }
+        else
+        {
+            EventManager.EventTrigger(EventType.SOULSELECT, _dialogue);
+        }
+    }
 
     public void NextLineHandler(object data)
     {
@@ -58,8 +81,10 @@ public class InkManager : MonoBehaviour
             if (_currentScript.currentChoices.Count == 0)
             {
                 string speaker = HandleTag(_currentScript.currentTags);
-                EventManager.EventTrigger(EventType.INK_SPEAKER, speaker);
-                EventManager.EventTrigger(EventType.INK_TEXTSEND, line);
+
+                _dialogue.Speaker = speaker;
+                _dialogue.Line = line;
+                EventManager.EventTrigger(EventType.DIALOGUE, _dialogue);
             }
             // Display questions
             else
@@ -69,7 +94,7 @@ public class InkManager : MonoBehaviour
         }
         else
         {
-            EventManager.EventTrigger(EventType.INK_TEXTEND, null);
+            EventManager.EventTrigger(EventType.DECISION, null);
         }
     }
 
