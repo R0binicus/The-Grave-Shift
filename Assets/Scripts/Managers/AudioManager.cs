@@ -17,6 +17,9 @@ public class AudioManager : MonoBehaviour
 
     private bool _musicMuted = false;
 
+    private float _sfxVolume = 1;
+    private float _musicVolume = 1;
+
     private void Awake()
     {
         EventManager.EventInitialise(EventType.SFX);
@@ -30,6 +33,9 @@ public class AudioManager : MonoBehaviour
         EventManager.EventSubscribe(EventType.STOP_MUSIC, StopMusic);
         EventManager.EventSubscribe(EventType.PAUSE_MUSIC, PauseMusic);
         EventManager.EventSubscribe(EventType.MUTEMUSIC_TOGGLE, MuteMusic);
+        EventManager.EventSubscribe(EventType.SFXVOLUME, SFXVolumeHandler);
+        EventManager.EventSubscribe(EventType.MUSICVOLUME, MusicVolumeHandler);
+        EventManager.EventSubscribe(EventType.REQUESTSETTING, SettingsRequestHandler);
     }
 
     private void OnDisable()
@@ -39,6 +45,9 @@ public class AudioManager : MonoBehaviour
         EventManager.EventUnsubscribe(EventType.STOP_MUSIC, StopMusic);
         EventManager.EventUnsubscribe(EventType.PAUSE_MUSIC, PauseMusic);
         EventManager.EventUnsubscribe(EventType.MUTEMUSIC_TOGGLE, MuteMusic);
+        EventManager.EventUnsubscribe(EventType.SFXVOLUME, SFXVolumeHandler);
+        EventManager.EventUnsubscribe(EventType.MUSICVOLUME, MusicVolumeHandler);
+        EventManager.EventUnsubscribe(EventType.REQUESTSETTING, SettingsRequestHandler);
         StopAllCoroutines();
     }
 
@@ -68,7 +77,7 @@ public class AudioManager : MonoBehaviour
             {
                 if (!CurrentSoundsList.Contains(sound))
                 {
-                    source.PlayOneShot(clipSound.audioClip, clipSound.volume);
+                    source.PlayOneShot(clipSound.audioClip, clipSound.volume * _sfxVolume);
                     StartCoroutine(DoNotPlayMultipleOfSame(sound));
                 }
             }
@@ -145,6 +154,45 @@ public class AudioManager : MonoBehaviour
         CurrentSoundsList.Add(sound);
         yield return new WaitForSeconds(0.1f);
         CurrentSoundsList.Remove(sound);
+    }
+
+    public void SFXVolumeHandler(object data)
+    {
+        if (data == null)
+        {
+            Debug.LogError("SFXVolumeHandler is null!");
+        }
+
+        _sfxVolume = (float)data;
+    }
+
+    public void MusicVolumeHandler(object data)
+    {
+        if (data == null)
+        {
+            Debug.LogError("MusicVolumeHandler is null!");
+        }
+
+        _musicVolume = (float)data;
+    }
+
+    public void SettingsRequestHandler(object data)
+    {
+        if (data == null)
+        {
+            Debug.LogError("SettingsRequestHandler is null!");
+        }
+
+        int setting = (int)data;
+        
+        if (setting == 0)
+        {
+            EventManager.EventTrigger(EventType.SENDSETTING, _sfxVolume);
+        }
+        else
+        {
+            EventManager.EventTrigger(EventType.SENDSETTING, _musicVolume);
+        }
     }
 }
 

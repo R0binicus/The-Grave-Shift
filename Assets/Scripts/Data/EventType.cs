@@ -27,8 +27,13 @@ public enum EventType
     END,
     PAUSE_TOGGLE,    
 
-    // MainMenuUIManager
+    // MainMenu
     MAINMENUEVENT,
+    SFXVOLUME,
+    MUSICVOLUME,
+    REQUESTSETTING,
+    SENDSETTING,
+
 
     // GameplayUIManager
     GAMEPLAYUI_INTRO,
