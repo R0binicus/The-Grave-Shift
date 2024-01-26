@@ -57,10 +57,18 @@ public class SoulsManager : MonoBehaviour
 
     public void SoulSelectHandler(object data)
     {
+        Debug.Log(data);
+        // If last soul has been judged, set its status
+        if (data != null)
+        {
+            _currentSoul.SetStatus((SoulStatus)data);
+        }
+
         if (IsFinishedJudging())
         {
             _soulsParent.SetActive(false);
             EventManager.EventTrigger(EventType.END, null);
+            Debug.Log("ENDING");
         }
         else
         {

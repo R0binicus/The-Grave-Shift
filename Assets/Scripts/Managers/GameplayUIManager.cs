@@ -3,6 +3,7 @@ using System.Linq;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GameplayUIManager : MonoBehaviour
@@ -12,7 +13,7 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject _soulSelectPanel;
     [SerializeField] private GameObject _dialoguePanel;
     [SerializeField] private GameObject _questionsPanel;
-    [SerializeField] private GameObject _choicePanel;
+    [SerializeField] private GameObject _decisionPanel;
 
     // Internal Data
     private TextMeshProUGUI _speakerText;
@@ -32,7 +33,7 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventSubscribe(EventType.DIALOGUE, DialogueHandler);
         EventManager.EventSubscribe(EventType.INK_LINES, LineHandler);
         EventManager.EventSubscribe(EventType.SOULSELECT, SoulSelectHandler);
-        EventManager.EventSubscribe(EventType.DECISION, DialogueEndHandler);
+        EventManager.EventSubscribe(EventType.DECISION, DecisionHandler);
         EventManager.EventSubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
     }
 
@@ -42,7 +43,7 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventUnsubscribe(EventType.DIALOGUE, DialogueHandler);
         EventManager.EventUnsubscribe(EventType.SOULSELECT, SoulSelectHandler);
         EventManager.EventUnsubscribe(EventType.INK_LINES, LineHandler);
-        EventManager.EventUnsubscribe(EventType.DECISION, DialogueEndHandler);
+        EventManager.EventUnsubscribe(EventType.DECISION, DecisionHandler);
         EventManager.EventUnsubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
     }
 
@@ -79,6 +80,16 @@ public class GameplayUIManager : MonoBehaviour
         _dialoguePanel.SetActive(true);
         EventManager.EventTrigger(EventType.GAMEPLAYUI_QUESTIONSELECTED, question);
     }
+
+    public void HeavenButton()
+    {
+        EventManager.EventTrigger(EventType.SOULSELECT, SoulStatus.HEAVEN);
+    }
+
+    public void HellButton()
+    {
+        EventManager.EventTrigger(EventType.SOULSELECT, SoulStatus.HELL);
+    }
     #endregion
 
     #region HANDLERS
@@ -87,6 +98,7 @@ public class GameplayUIManager : MonoBehaviour
         _soulSelectPanel.SetActive(false);
         _speakerPanel.SetActive(true);
         _dialoguePanel.SetActive(true);
+        _decisionPanel.SetActive(false);
     }
 
     public void DialogueHandler(object data)
@@ -94,6 +106,7 @@ public class GameplayUIManager : MonoBehaviour
         _soulSelectPanel.SetActive(false);
         _speakerPanel.SetActive(true);
         _dialoguePanel.SetActive(true);
+        _decisionPanel.SetActive(false);
     }
 
     public void SoulSelectHandler(object data)
@@ -101,6 +114,7 @@ public class GameplayUIManager : MonoBehaviour
         _speakerPanel.SetActive(false);
         _dialoguePanel.SetActive(false);
         _soulSelectPanel.SetActive(true);
+        _decisionPanel.SetActive(false);
     }
 
     public void LineHandler(object data)
@@ -113,16 +127,6 @@ public class GameplayUIManager : MonoBehaviour
         InkData dialogue = (InkData)data;
         _speakerText.text = dialogue.Speaker;
         _dialogueText.text = dialogue.Line;
-    }
-
-    public void DialogueEndHandler(object data)
-    {
-        _dialogueText.text = "";
-
-        foreach (TextMeshProUGUI text in _questionsText)
-        {
-            text.text = "";
-        }
     }
 
     public void QuestionsHandler(object data)
@@ -152,7 +156,17 @@ public class GameplayUIManager : MonoBehaviour
 
     public void DecisionHandler(object data)
     {
+        _dialogueText.text = "";
 
+        foreach (TextMeshProUGUI text in _questionsText)
+        {
+            text.text = "";
+        }
+
+        _speakerPanel.SetActive(false);
+        _dialoguePanel.SetActive(false);
+        _soulSelectPanel.SetActive(false);
+        _decisionPanel.SetActive(true);
     }
     #endregion
 }
