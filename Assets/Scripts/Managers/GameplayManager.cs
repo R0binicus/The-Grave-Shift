@@ -21,9 +21,11 @@ public class GameplayManager : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.EventInitialise(EventType.INK_INTRO);
-        EventManager.EventInitialise(EventType.GAMEPLAYUI_INTRO);
+        EventManager.EventInitialise(EventType.INTRO);
         EventManager.EventInitialise(EventType.DIALOGUE);
+        EventManager.EventInitialise(EventType.SOULSELECT);
+        EventManager.EventInitialise(EventType.DECISION);
+        EventManager.EventInitialise(EventType.END);
     }
 
     private void Start()
@@ -34,7 +36,6 @@ public class GameplayManager : MonoBehaviour
     private void Intro()
     {
         _state = GameplayState.INTRO;
-        EventManager.EventTrigger(EventType.INK_INTRO, _introText);
-        EventManager.EventTrigger(EventType.GAMEPLAYUI_INTRO, null);
+        EventManager.EventTrigger(EventType.INTRO, _introText);
     }
 }

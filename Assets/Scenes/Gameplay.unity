@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 0}
+  <Script>k__BackingField: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
 --- !u!1 &629749072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 0}
+  <Script>k__BackingField: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
 --- !u!1001 &912214708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1256,8 +1256,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.026549995, y: 0.04915005, z: 0}
-    m_Extent: {x: 1.48635, y: 1.8972499, z: 0}
+    m_Center: {x: 0.023450017, y: 0.04794997, z: 0}
+    m_Extent: {x: 1.48025, y: 1.89645, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -1326,6 +1326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speakerPanel: {fileID: 735041293}
+  _soulSelectPanel: {fileID: 1639332367}
   _dialoguePanel: {fileID: 629749072}
   _questionsPanel: {fileID: 1848514925}
   _choicePanel: {fileID: 0}
@@ -1341,7 +1342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97f3e8c9e0bb184cbf955ea0a1fe8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _introText: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
+  _introText: {fileID: 4900000, guid: 233238429bee467498166fe2b8aa3173, type: 3}
   _endText: {fileID: 4900000, guid: b5f72c98f8f999940898ebbdfd5037d6, type: 3}
 --- !u!114 &952960296
 MonoBehaviour:
@@ -1664,8 +1665,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.025849998, y: 0.04859996, z: 0}
-    m_Extent: {x: 1.47525, y: 1.9022, z: 0}
+    m_Center: {x: 0.026300013, y: 0.0528, z: 0}
+    m_Extent: {x: 1.4751999, y: 1.9007001, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -1843,7 +1844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 0}
+  <Script>k__BackingField: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
 --- !u!1 &1467557864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,7 +1995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 0}
+  <Script>k__BackingField: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
 --- !u!212 &1490285495
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2171,8 +2172,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.025999963, y: 0.042349994, z: 0}
-    m_Extent: {x: 1.4811001, y: 1.9028499, z: 0}
+    m_Center: {x: 0.02245003, y: 0.05465001, z: 0}
+    m_Extent: {x: 1.4807501, y: 1.90065, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -2209,7 +2210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1639332368
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2370,8 +2371,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.02915001, y: 0.04100001, z: 0}
-    m_Extent: {x: 1.48195, y: 1.8959, z: 0}
+    m_Center: {x: 0.02884996, y: 0.043500006, z: 0}
+    m_Extent: {x: 1.48525, y: 1.8984001, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -3050,7 +3051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 0}
+  <Script>k__BackingField: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
 --- !u!224 &2088367864 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 730949985555135156, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
@@ -3122,8 +3123,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.030600011, y: 0.047100008, z: 0}
-    m_Extent: {x: 1.4862001, y: 1.8938999, z: 0}
+    m_Center: {x: 0.03369999, y: 0.053299963, z: 0}
+    m_Extent: {x: 1.4793, y: 1.9019, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1

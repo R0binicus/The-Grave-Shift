@@ -21,17 +21,20 @@ public class SoulsManager : MonoBehaviour
 
     private void Awake()
     {
+        SoulsSetup();
         _soulsParent.SetActive(false);
     }
 
     private void OnEnable()
     {
         EventManager.EventSubscribe(EventType.SOULSELECT, SoulSelectHandler);
+        EventManager.EventSubscribe(EventType.DIALOGUE, DialogueHandler);
     }
 
     private void OnDisable()
     {
         EventManager.EventUnsubscribe(EventType.SOULSELECT, SoulSelectHandler);
+        EventManager.EventUnsubscribe(EventType.DIALOGUE, DialogueHandler);
     }
 
     public void SoulsSetup()
@@ -63,6 +66,11 @@ public class SoulsManager : MonoBehaviour
         {
             _soulsParent.SetActive(true);
         }
+    }
+
+    public void DialogueHandler(object data)
+    {
+        _soulsParent.SetActive(false);
     }
 
     public bool IsFinishedJudging()

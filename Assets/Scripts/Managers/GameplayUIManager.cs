@@ -9,6 +9,7 @@ public class GameplayUIManager : MonoBehaviour
 {
     [Header("UI Panels")]
     [SerializeField] private GameObject _speakerPanel;
+    [SerializeField] private GameObject _soulSelectPanel;
     [SerializeField] private GameObject _dialoguePanel;
     [SerializeField] private GameObject _questionsPanel;
     [SerializeField] private GameObject _choicePanel;
@@ -27,18 +28,22 @@ public class GameplayUIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.EventSubscribe(EventType.INK_INTRO, IntroHandler);
+        EventManager.EventSubscribe(EventType.INTRO, IntroHandler);
+        EventManager.EventSubscribe(EventType.DIALOGUE, DialogueHandler);
+        EventManager.EventSubscribe(EventType.INK_LINES, LineHandler);
+        EventManager.EventSubscribe(EventType.SOULSELECT, SoulSelectHandler);
         EventManager.EventSubscribe(EventType.DECISION, DialogueEndHandler);
         EventManager.EventSubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
-        EventManager.EventSubscribe(EventType.DIALOGUE, DialogueHandler);
     }
 
     private void OnDisable()
     {
-        EventManager.EventUnsubscribe(EventType.INK_INTRO, IntroHandler);
+        EventManager.EventUnsubscribe(EventType.INTRO, IntroHandler);
+        EventManager.EventUnsubscribe(EventType.DIALOGUE, DialogueHandler);
+        EventManager.EventUnsubscribe(EventType.SOULSELECT, SoulSelectHandler);
+        EventManager.EventUnsubscribe(EventType.INK_LINES, LineHandler);
         EventManager.EventUnsubscribe(EventType.DECISION, DialogueEndHandler);
         EventManager.EventUnsubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
-        EventManager.EventUnsubscribe(EventType.DIALOGUE, DialogueHandler);
     }
 
     private void InitUI()
@@ -58,6 +63,7 @@ public class GameplayUIManager : MonoBehaviour
         _speakerPanel.SetActive(false);
         _dialoguePanel.SetActive(false);
         _questionsPanel.SetActive(false);
+        _soulSelectPanel.SetActive(false);
     }
 
 
@@ -78,11 +84,26 @@ public class GameplayUIManager : MonoBehaviour
     #region HANDLERS
     public void IntroHandler(object data)
     {
+        _soulSelectPanel.SetActive(false);
         _speakerPanel.SetActive(true);
         _dialoguePanel.SetActive(true);
     }
 
     public void DialogueHandler(object data)
+    {
+        _soulSelectPanel.SetActive(false);
+        _speakerPanel.SetActive(true);
+        _dialoguePanel.SetActive(true);
+    }
+
+    public void SoulSelectHandler(object data)
+    {
+        _speakerPanel.SetActive(false);
+        _dialoguePanel.SetActive(false);
+        _soulSelectPanel.SetActive(true);
+    }
+
+    public void LineHandler(object data)
     {
         if (data == null)
         {
@@ -131,7 +152,7 @@ public class GameplayUIManager : MonoBehaviour
 
     public void DecisionHandler(object data)
     {
-        
+
     }
     #endregion
 }

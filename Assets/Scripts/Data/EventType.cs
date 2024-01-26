@@ -38,7 +38,7 @@ public enum EventType
     // InkManager
     INK_INTRO,
     INK_SPEAKER,
-    INK_TEXTSEND,
+    INK_LINES,
     INK_TEXTEND,
     INK_QUESTIONS
 };

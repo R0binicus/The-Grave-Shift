@@ -3,72 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
 
-public struct InkData
+public class InkData
 {
     public string Speaker;
     public string Line;
+
+    public InkData(string speaker, string line)
+    {   
+        Speaker = speaker;
+        Line = line;
+    }
 }
 
 public class InkManager : MonoBehaviour
 {
     private Story _currentScript;
     private InkData _dialogue;
+    private GameplayState _state;
 
     private void Awake()
     {
-        EventManager.EventInitialise(EventType.INK_SPEAKER);
-        EventManager.EventInitialise(EventType.INK_TEXTSEND);
-        EventManager.EventInitialise(EventType.INK_TEXTEND);
+        _dialogue = new InkData("", "");
     }
 
     private void OnEnable()
     {
-        EventManager.EventSubscribe(EventType.INK_INTRO, SetScript);
+        EventManager.EventSubscribe(EventType.INTRO, IntroHandler);
+        EventManager.EventSubscribe(EventType.DIALOGUE, DialogueHandler);
         EventManager.EventSubscribe(EventType.GAMEPLAYUI_NEXTLINE, NextLineHandler);
         EventManager.EventSubscribe(EventType.GAMEPLAYUI_QUESTIONSELECTED, QuestionSelectedHandler);
+        EventManager.EventSubscribe(EventType.END, EndHandler);
     }
 
     private void OnDisable()
     {
-        EventManager.EventUnsubscribe(EventType.INK_INTRO, SetScript);
+        EventManager.EventUnsubscribe(EventType.INTRO, IntroHandler);
+        EventManager.EventUnsubscribe(EventType.DIALOGUE, DialogueHandler);
         EventManager.EventUnsubscribe(EventType.GAMEPLAYUI_NEXTLINE, NextLineHandler);
         EventManager.EventUnsubscribe(EventType.GAMEPLAYUI_QUESTIONSELECTED, QuestionSelectedHandler);
+        EventManager.EventUnsubscribe(EventType.END, EndHandler);
+    }
+
+    public void SetScript(TextAsset script)
+    {
+        _currentScript = new Story(script.text);
     }
 
     // Set the Ink script to process
-    public void SetScript(object data)
+    public void IntroHandler(object data)
     {
+        _state = GameplayState.INTRO;
+
         if (data == null)
         {
             Debug.LogError("InkManager SetScript has not received a text file!");
         }
 
         TextAsset script = (TextAsset)data;
-
-        _currentScript = new Story(script.text);
-
-        StartScript();
-    }
-
-    public void StartScript()
-    {
+        SetScript(script);
         NextLineHandler(null);
     }
-    
-    public void IntroHandler(object data)
+
+    public void EndHandler(object data)
     {
-        if (_currentScript.canContinue)
-        {
-            string line = _currentScript.Continue();
-            string speaker = HandleTag(_currentScript.currentTags);
-            _dialogue.Speaker = speaker;
-            _dialogue.Line = line;
-            EventManager.EventTrigger(EventType.DIALOGUE, _dialogue);
-        }
-        else
-        {
-            EventManager.EventTrigger(EventType.SOULSELECT, _dialogue);
-        }
+        _state = GameplayState.END;
+    }
+
+    public void DialogueHandler(object data)
+    {
+        _state = GameplayState.DIALOGUE;
+        TextAsset script = (TextAsset)data;
+        SetScript(script);
+        NextLineHandler(null);
     }
 
     public void NextLineHandler(object data)
@@ -84,7 +90,7 @@ public class InkManager : MonoBehaviour
 
                 _dialogue.Speaker = speaker;
                 _dialogue.Line = line;
-                EventManager.EventTrigger(EventType.DIALOGUE, _dialogue);
+                EventManager.EventTrigger(EventType.INK_LINES, _dialogue);
             }
             // Display questions
             else
@@ -94,7 +100,18 @@ public class InkManager : MonoBehaviour
         }
         else
         {
-            EventManager.EventTrigger(EventType.DECISION, null);
+            if (_state == GameplayState.INTRO)
+            {
+                EventManager.EventTrigger(EventType.SOULSELECT, null);
+            }
+            else if (_state == GameplayState.END)
+            {
+                //EventManager.EventTrigger(Event)
+            }
+            else 
+            {
+                EventManager.EventTrigger(EventType.DECISION, null);
+            }
         }
     }
 
