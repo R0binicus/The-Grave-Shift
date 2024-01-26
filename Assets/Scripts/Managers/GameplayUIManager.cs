@@ -65,6 +65,7 @@ public class GameplayUIManager : MonoBehaviour
         _dialoguePanel.SetActive(false);
         _questionsPanel.SetActive(false);
         _soulSelectPanel.SetActive(false);
+        _decisionPanel.SetActive(false);
     }
 
 

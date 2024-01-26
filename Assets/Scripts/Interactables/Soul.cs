@@ -16,7 +16,6 @@ public class Soul : MonoBehaviour
     private void Awake()
     {
         _grave = GetComponent<GravestoneHighlight>();
-        ToggleGraveHighlight(true);
     }
 
     public void SetManager(SoulsManager manager)
@@ -27,7 +26,7 @@ public class Soul : MonoBehaviour
     public void SelectedToJudge()
     {
         SetStatus(SoulStatus.JUDGING);
-        ToggleGraveHighlight(false);
+        Judged(true);
         _manager.SoulSelected(this);
     }
 
@@ -36,8 +35,8 @@ public class Soul : MonoBehaviour
         Status = status;
     }
 
-    public void ToggleGraveHighlight(bool toggle)
+    public void Judged(bool toggle)
     {
-        _grave.enabled = toggle;
+        _grave.Judged(toggle);
     }
 }

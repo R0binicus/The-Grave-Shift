@@ -8,6 +8,7 @@ public class GravestoneHighlight : MonoBehaviour
     [SerializeField] private Light2D _spotlight; 
     private float _initialIntensity; 
     private Soul _soul;
+    private bool _judged = false;
     
     void Awake()
     {
@@ -18,23 +19,37 @@ public class GravestoneHighlight : MonoBehaviour
 
     void OnMouseEnter()
     {
-        LeanTween.cancel(gameObject);
-        LeanTween.value(gameObject, updateLight, _spotlight.intensity, _initialIntensity, 1f);
+        if (!_judged)
+        {
+            LeanTween.cancel(gameObject);
+            LeanTween.value(gameObject, UpdateLight, _spotlight.intensity, _initialIntensity, 1f);
+        }
     }
 
     void OnMouseDown()
     {
-        _soul.SelectedToJudge();
+        if (!_judged)
+        {
+            _soul.SelectedToJudge();
+        }
     }
 
     void OnMouseExit()
     {
-        LeanTween.cancel(gameObject);
-        LeanTween.value(gameObject, updateLight, _spotlight.intensity, 0f, 0.5f);
+        if (!_judged)
+        {
+            LeanTween.cancel(gameObject);
+            LeanTween.value(gameObject, UpdateLight, _spotlight.intensity, 0f, 0.5f);
+        }
     }
 
-    private void updateLight(float newValue)
+    private void UpdateLight(float newValue)
     {
         _spotlight.intensity = newValue;
+    }
+
+    public void Judged(bool toggle)
+    {
+        _judged = toggle;
     }
 }

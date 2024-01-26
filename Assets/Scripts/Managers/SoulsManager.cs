@@ -57,7 +57,6 @@ public class SoulsManager : MonoBehaviour
 
     public void SoulSelectHandler(object data)
     {
-        Debug.Log(data);
         // If last soul has been judged, set its status
         if (data != null)
         {
