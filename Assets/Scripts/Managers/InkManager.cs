@@ -55,7 +55,6 @@ public class InkManager : MonoBehaviour
             string line = _currentScript.Continue();
 
             // If no questions are to be displayed
-            Debug.Log(_currentScript.currentChoices.Count);
             if (_currentScript.currentChoices.Count == 0)
             {
                 string speaker = HandleTag(_currentScript.currentTags);

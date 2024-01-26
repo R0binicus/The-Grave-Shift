@@ -4,13 +4,40 @@ using UnityEngine;
 
 public class Soul : MonoBehaviour
 {
-    [Header("Script")]
-    [SerializeField] private TextAsset _soulText;
+    [field: Header("Script")]
+    [field: SerializeField] public TextAsset Script { get; private set; }
 
-    public Judging Status { get; private set; } = Judging.UNJUDGED;
+    // Internal Data
+    public SoulStatus Status { get; private set; } = SoulStatus.UNJUDGED;
 
-    public void SetStatus(Judging status)
+    private GravestoneHighlight _grave;
+    private SoulsManager _manager;
+
+    private void Awake()
+    {
+        _grave = GetComponent<GravestoneHighlight>();
+        ToggleGraveHighlight(true);
+    }
+
+    public void SetManager(SoulsManager manager)
+    {
+        _manager = manager;
+    }
+
+    public void SelectedToJudge()
+    {
+        SetStatus(SoulStatus.JUDGING);
+        ToggleGraveHighlight(false);
+        _manager.SoulSelected(this);
+    }
+
+    public void SetStatus(SoulStatus status)
     {
         Status = status;
+    }
+
+    public void ToggleGraveHighlight(bool toggle)
+    {
+        _grave.enabled = toggle;
     }
 }
