@@ -8,6 +8,7 @@ using System.Linq;
 public class MainMenuUIManager : MonoBehaviour
 {
     [Header("UI Elements")]
+    [SerializeField] GameObject _settingsPanel; 
     [SerializeField] Toggle _fullscreenToggle; 
     [SerializeField] Slider _sfxSlider; 
     [SerializeField] Slider _musicSlider; 
@@ -63,6 +64,11 @@ public class MainMenuUIManager : MonoBehaviour
         else 
         { 
            _fullscreenToggle.SetIsOnWithoutNotify(false);
+        }
+
+        foreach (var child in transform)
+        {
+            
         }
     }
     #endregion
@@ -143,9 +149,30 @@ public class MainMenuUIManager : MonoBehaviour
                     _buttonPressed = true;
                 }
                 break;
+            case 3:
+                // Options
+                if (!_buttonPressed)
+                {
+                    EventManager.EventTrigger(EventType.SFX, _buttonSFX02);
+                    ShowHideSettings();
+                }
+                break;
             default:
                 
                 break;
+        }
+    }
+
+    public void ShowHideSettings()
+    {
+        _buttonPressed = !_buttonPressed;
+        if (_settingsPanel.activeInHierarchy)
+        {
+            _settingsPanel.SetActive(false);
+        }
+        else
+        {
+            _settingsPanel.SetActive(true);
         }
     }
 }

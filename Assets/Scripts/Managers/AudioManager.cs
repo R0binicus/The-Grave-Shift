@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class AudioManager : MonoBehaviour
     public SoundAudioClip[] SoundAudioClipArray;
 
     public SoundAudioClip[] MusicAudioClipArray;
+
+    [SerializeField] AudioMixer _mixer; 
 
     private List<SoundType> CurrentSoundsList = new List<SoundType>();
 
@@ -174,6 +177,7 @@ public class AudioManager : MonoBehaviour
         }
 
         _musicVolume = (float)data;
+        _mixer.SetFloat("MusicVolume", Mathf.Log10(_musicVolume)*20);
     }
 
     public void SettingsRequestHandler(object data)
@@ -184,7 +188,7 @@ public class AudioManager : MonoBehaviour
         }
 
         int setting = (int)data;
-        
+
         if (setting == 0)
         {
             EventManager.EventTrigger(EventType.SENDSETTING, _sfxVolume);
