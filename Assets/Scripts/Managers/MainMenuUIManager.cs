@@ -81,12 +81,18 @@ public class MainMenuUIManager : MonoBehaviour
         {
             case 1:
                 // Quit
-                EventManager.EventTrigger(EventType.QUIT_GAME, null);
+                if (!_buttonPressed)
+                {
+                    EventManager.EventTrigger(EventType.SFX, _buttonSFX01);
+                    EventManager.EventTrigger(EventType.QUIT_GAME, null);
+                    _buttonPressed = true;
+                }
                 break;
             case 2:
                 // Play
                 if (!_buttonPressed)
                 {
+                    EventManager.EventTrigger(EventType.SFX, _buttonSFX03);
                     EventManager.EventTrigger(EventType.LEVEL_SELECTED, 0);
                     _buttonPressed = true;
                 }
