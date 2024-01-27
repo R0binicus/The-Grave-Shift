@@ -16,6 +16,11 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject _questionsPanel;
     [SerializeField] private GameObject _decisionPanel;
 
+    [Header("UI Objects")]
+    [SerializeField] private GameObject _heavenButton;
+    [SerializeField] private GameObject _hellbutton;
+    [SerializeField] private GameObject _redPointer;
+
     // Internal Data
     private TextMeshProUGUI _speakerText;
     private TextMeshProUGUI _dialogueText;
@@ -81,6 +86,24 @@ public class GameplayUIManager : MonoBehaviour
         _questionsPanel.SetActive(false);
         _soulSelectPanel.SetActive(false);
         _decisionPanel.SetActive(false);
+    }
+
+    public void MoveDecisionPointer(int destination)
+    {
+        LeanTween.cancel(_redPointer);
+        if (destination == 1)
+        {
+            LeanTween.moveX(_redPointer, _heavenButton.transform.position.x, 1);
+        }
+        else if (destination == 2)
+        {
+            LeanTween.moveX(_redPointer, _hellbutton.transform.position.x, 1);
+        }
+        else
+        {
+            LeanTween.moveX(_redPointer, _decisionPanel.transform.position.x, 1);
+        }
+        
     }
 
     #region BUTTONS
