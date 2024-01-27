@@ -21,6 +21,8 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject _hellbutton;
     [SerializeField] private GameObject _redPointer;
 
+    
+
     // Internal Data
     private TextMeshProUGUI _speakerText;
     private TextMeshProUGUI _dialogueText;
@@ -33,6 +35,8 @@ public class GameplayUIManager : MonoBehaviour
 
     private WaitForSeconds _simpleDelay;
     private WaitForSeconds _interpunctuationWait;
+
+    private LeanTweenType easeType = LeanTweenType.easeOutBounce;
 
     [Header("TypeWriter Settings")]
     [SerializeField] private float _charactersPerSec = 20;
@@ -93,15 +97,15 @@ public class GameplayUIManager : MonoBehaviour
         LeanTween.cancel(_redPointer);
         if (destination == 1)
         {
-            LeanTween.moveX(_redPointer, _heavenButton.transform.position.x, 1);
+            LeanTween.moveX(_redPointer, _heavenButton.transform.position.x, 1).setEase(easeType);
         }
         else if (destination == 2)
         {
-            LeanTween.moveX(_redPointer, _hellbutton.transform.position.x, 1);
+            LeanTween.moveX(_redPointer, _hellbutton.transform.position.x, 1).setEase(easeType);
         }
         else
         {
-            LeanTween.moveX(_redPointer, _decisionPanel.transform.position.x, 1);
+            LeanTween.moveX(_redPointer, _decisionPanel.transform.position.x, 2);
         }
         
     }
