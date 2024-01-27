@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Ink.Runtime;
@@ -21,10 +22,24 @@ public class GameplayUIManager : MonoBehaviour
     private List<Button> _questionsButtons;
     private List<TextMeshProUGUI> _questionsText;
 
+    // Typewriter data
+    private int _currentCharacterIndex;
+    private Coroutine _typewriterCorutine;
+
+    private WaitForSeconds _simpleDelay;
+    private WaitForSeconds _interpunctuationWait;
+
+    [Header("TypeWriter Settings")]
+    [SerializeField] private float _charactersPerSec = 20;
+    [SerializeField] private float _interpunctuationDelay = 0.5f;
+
     private void Awake()
     {
         InitUI();
         EventManager.EventInitialise(EventType.GAMEPLAYUI_NEXTLINE);
+
+        _simpleDelay = new WaitForSeconds(1/_charactersPerSec);
+        _interpunctuationWait = new WaitForSeconds(_interpunctuationDelay);
     }
 
     private void OnEnable()
@@ -67,7 +82,6 @@ public class GameplayUIManager : MonoBehaviour
         _soulSelectPanel.SetActive(false);
         _decisionPanel.SetActive(false);
     }
-
 
     #region BUTTONS
     public void NextLineButton()
@@ -127,7 +141,44 @@ public class GameplayUIManager : MonoBehaviour
 
         InkData dialogue = (InkData)data;
         _speakerText.text = dialogue.Speaker;
+
+        //Typewriter stuff
+
+        if (_typewriterCorutine != null)
+        {
+            StopCoroutine(_typewriterCorutine);
+        }
         _dialogueText.text = dialogue.Line;
+        _dialogueText.maxVisibleCharacters = 0;
+        _currentCharacterIndex = 0;
+
+        _typewriterCorutine = StartCoroutine(Typewriter());
+    }
+
+    private IEnumerator Typewriter()
+    {
+        TMP_TextInfo textInfo = _dialogueText.textInfo;
+        yield return new WaitForSeconds(0.1f);
+    
+        while (_currentCharacterIndex < textInfo.characterCount)
+        {
+            char character = textInfo.characterInfo[_currentCharacterIndex].character;
+
+            _dialogueText.maxVisibleCharacters++;
+
+            if (character == '?' || character == '.' || character == ',' || character == ':' ||
+                     character == ';' || character == '!' || character == '-') 
+            {
+                yield return _interpunctuationDelay;
+            }
+            else
+            {
+                yield return _simpleDelay;
+            }
+
+            _currentCharacterIndex++;
+        }
+        yield return null;
     }
 
     public void QuestionsHandler(object data)
