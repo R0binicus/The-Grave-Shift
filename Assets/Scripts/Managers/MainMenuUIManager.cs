@@ -31,6 +31,8 @@ public class MainMenuUIManager : MonoBehaviour
         EventManager.EventInitialise(EventType.MAINMENUEVENT);
         EventManager.EventInitialise(EventType.REQUESTSETTING);
         EventManager.EventInitialise(EventType.SENDSETTING);
+        EventManager.EventInitialise(EventType.SFXVOLUME);
+        EventManager.EventInitialise(EventType.MUSICVOLUME);
     }
 
     private void OnEnable()
@@ -174,5 +176,14 @@ public class MainMenuUIManager : MonoBehaviour
         {
             _settingsPanel.SetActive(true);
         }
+    }
+    public void SFXChanger(float UpdatedRange)
+    {
+        EventManager.EventTrigger(EventType.SFXVOLUME, UpdatedRange);
+    }
+
+    public void MusicChanger(float UpdatedRange)
+    {
+        EventManager.EventTrigger(EventType.MUSICVOLUME, UpdatedRange);
     }
 }
