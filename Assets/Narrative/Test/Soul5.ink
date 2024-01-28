@@ -3,12 +3,16 @@ VAR questionsAsked5 = 0
 -> Intro5
 
 === Intro5 ===
-This one was interesting... #grim
+You touch a headstone, and call forth the spirit that resides within.
+A young woman grabs upwards, hauling herself back towards the land of the living.
+This one's death was meant to have been tragic. #gravedigger #portait: pout
+She certainly ain't happy about it. #gravedigger #portrait: look away stressed
+That isn't terribly uncommon. #grim #portrait: neutral
+I'm sure she will have more to say on the matter. #grim #portrait: displeased
 -> Questions5
 
 === Questions5 ===
-Ask and ye shall receive. #gravedigger
-
+What can I do you for, then? Come to help me out at all? #diane
  + [Who were you?]
     ~ questionsAsked5 = questionsAsked5 + 1
     -> Question1_5
