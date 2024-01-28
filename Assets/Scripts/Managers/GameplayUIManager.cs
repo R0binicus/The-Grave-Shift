@@ -15,6 +15,7 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject _dialoguePanel;
     [SerializeField] private GameObject _questionsPanel;
     [SerializeField] private GameObject _decisionPanel;
+    [SerializeField] private GameObject _quotaPanel;
 
     [Header("UI Objects")]
     [SerializeField] private GameObject _heavenButton;
@@ -33,6 +34,7 @@ public class GameplayUIManager : MonoBehaviour
     private TextMeshProUGUI _dialogueText;
     private List<Button> _questionsButtons;
     private List<TextMeshProUGUI> _questionsText;
+    private List<TextMeshProUGUI> _quotaText;
 
     // Typewriter data
     private int _currentCharacterIndex;
@@ -104,6 +106,7 @@ public class GameplayUIManager : MonoBehaviour
         _questionsPanel.SetActive(false);
         _soulSelectPanel.SetActive(false);
         _decisionPanel.SetActive(false);
+        _quotaPanel.SetActive(false);
     }
 
     public void MoveDecisionPointer(int destination)
@@ -175,26 +178,17 @@ public class GameplayUIManager : MonoBehaviour
     #region HANDLERS
     public void IntroHandler(object data)
     {
-        _soulSelectPanel.SetActive(false);
-        _speakerPanel.SetActive(true);
-        _dialoguePanel.SetActive(true);
-        _decisionPanel.SetActive(false);
+        ShowDialoguePanel();
     }
 
     public void DialogueHandler(object data)
     {
-        _soulSelectPanel.SetActive(false);
-        _speakerPanel.SetActive(true);
-        _dialoguePanel.SetActive(true);
-        _decisionPanel.SetActive(false);
+        ShowDialoguePanel();
     }
 
     public void SoulSelectHandler(object data)
     {
-        _speakerPanel.SetActive(false);
-        _dialoguePanel.SetActive(false);
-        _soulSelectPanel.SetActive(true);
-        _decisionPanel.SetActive(false);
+        ShowSoulSelectPanel();
     }
 
     public void LineHandler(object data)
@@ -243,7 +237,7 @@ public class GameplayUIManager : MonoBehaviour
             _questionsText[i].text = questions[i].text;
         }
 
-        _questionsPanel.SetActive(true);
+        ShowQuestionsPanel();
     }
 
     public void DecisionHandler(object data)
@@ -255,18 +249,12 @@ public class GameplayUIManager : MonoBehaviour
             text.text = "";
         }
 
-        _speakerPanel.SetActive(false);
-        _dialoguePanel.SetActive(false);
-        _soulSelectPanel.SetActive(false);
-        _decisionPanel.SetActive(true);
+        ShowDecisionPanel();
     }
 
     public void EndHandler(object data)
     {
-        _soulSelectPanel.SetActive(false);
-        _speakerPanel.SetActive(true);
-        _dialoguePanel.SetActive(true);
-        _decisionPanel.SetActive(false);
+        ShowDialoguePanel();
     }
 
     public void SettingsSendHandler(object data)
@@ -279,6 +267,58 @@ public class GameplayUIManager : MonoBehaviour
         _charactersPerSec = (float)data;
         _simpleDelay = new WaitForSeconds(1/_charactersPerSec);
         _interpunctuationWait = new WaitForSeconds(_interpunctuationDelay);
+    }
+    #endregion
+
+    #region PANELS
+    private void ShowDialoguePanel()
+    {
+        _speakerPanel.SetActive(true);
+        _dialoguePanel.SetActive(true);
+        _questionsPanel.SetActive(false);
+        _soulSelectPanel.SetActive(false);
+        _decisionPanel.SetActive(false);
+        _quotaPanel.SetActive(false);
+    }
+
+    private void ShowQuestionsPanel()
+    {
+        _speakerPanel.SetActive(false);
+        _dialoguePanel.SetActive(true);
+        _questionsPanel.SetActive(true);
+        _soulSelectPanel.SetActive(false);
+        _decisionPanel.SetActive(false);
+        _quotaPanel.SetActive(false);
+    }
+
+    private void ShowSoulSelectPanel()
+    {
+        _speakerPanel.SetActive(false);
+        _dialoguePanel.SetActive(false);
+        _questionsPanel.SetActive(false);
+        _soulSelectPanel.SetActive(true);
+        _decisionPanel.SetActive(false);
+        _quotaPanel.SetActive(false);
+    }
+
+    private void ShowDecisionPanel()
+    {
+        _speakerPanel.SetActive(false);
+        _dialoguePanel.SetActive(false);
+        _questionsPanel.SetActive(false);
+        _soulSelectPanel.SetActive(false);
+        _decisionPanel.SetActive(true);
+        _quotaPanel.SetActive(false);
+    }
+
+    private void ShowQuotaPanel()
+    {
+        _speakerPanel.SetActive(false);
+        _dialoguePanel.SetActive(false);
+        _questionsPanel.SetActive(false);
+        _soulSelectPanel.SetActive(true);
+        _decisionPanel.SetActive(false);
+        _quotaPanel.SetActive(true);
     }
     #endregion
 
