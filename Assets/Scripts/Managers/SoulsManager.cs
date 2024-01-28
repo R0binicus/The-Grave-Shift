@@ -66,8 +66,7 @@ public class SoulsManager : MonoBehaviour
         if (IsFinishedJudging())
         {
             _soulsParent.SetActive(false);
-            EventManager.EventTrigger(EventType.END, null);
-            Debug.Log("ENDING");
+            EventManager.EventTrigger(EventType.END, SoulsInHell());
         }
         else
         {
@@ -91,5 +90,20 @@ public class SoulsManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    public int SoulsInHell()
+    {
+        int hellSouls = 0;
+
+        foreach (Soul soul in _souls)
+        {
+            if (soul.Status == SoulStatus.HELL)
+            {
+                hellSouls++;
+            }
+        }
+
+        return hellSouls;
     }
 }
