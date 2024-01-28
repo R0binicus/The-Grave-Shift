@@ -59,6 +59,7 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventSubscribe(EventType.SOULSELECT, SoulSelectHandler);
         EventManager.EventSubscribe(EventType.DECISION, DecisionHandler);
         EventManager.EventSubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
+        EventManager.EventSubscribe(EventType.SENDSETTING, SettingsSendHandler);
     }
 
     private void OnDisable()
@@ -69,6 +70,12 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventUnsubscribe(EventType.INK_LINES, LineHandler);
         EventManager.EventUnsubscribe(EventType.DECISION, DecisionHandler);
         EventManager.EventUnsubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
+        EventManager.EventUnsubscribe(EventType.SENDSETTING, SettingsSendHandler);
+    }
+
+    private void Start()
+    {
+        EventManager.EventTrigger(EventType.REQUESTSETTING, "SPEED");
     }
 
     private void InitUI()
@@ -246,6 +253,18 @@ public class GameplayUIManager : MonoBehaviour
         _dialoguePanel.SetActive(false);
         _soulSelectPanel.SetActive(false);
         _decisionPanel.SetActive(true);
+    }
+
+    public void SettingsSendHandler(object data)
+    {
+        if (data == null)
+        {
+            Debug.LogError("SettingsSendHandler is null!");
+        }
+
+        _charactersPerSec = (float)data;
+        _simpleDelay = new WaitForSeconds(1/_charactersPerSec);
+        _interpunctuationWait = new WaitForSeconds(_interpunctuationDelay);
     }
     #endregion
 }

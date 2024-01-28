@@ -187,13 +187,13 @@ public class AudioManager : MonoBehaviour
             Debug.LogError("SettingsRequestHandler is null!");
         }
 
-        int setting = (int)data;
+        string setting = (string)data;
 
-        if (setting == 0)
+        if (setting == "SFX")
         {
             EventManager.EventTrigger(EventType.SENDSETTING, _sfxVolume);
         }
-        else
+        else if (setting == "MUSIC")
         {
             EventManager.EventTrigger(EventType.SENDSETTING, _musicVolume);
         }

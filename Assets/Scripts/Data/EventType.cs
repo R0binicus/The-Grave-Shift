@@ -31,6 +31,7 @@ public enum EventType
     MAINMENUEVENT,
     SFXVOLUME,
     MUSICVOLUME,
+    TEXTSPEED,
     REQUESTSETTING,
     SENDSETTING,
 

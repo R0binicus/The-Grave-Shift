@@ -1225,6 +1225,7 @@ GameObject:
   - component: {fileID: 1775386243}
   - component: {fileID: 1775386242}
   - component: {fileID: 1775386244}
+  - component: {fileID: 1775386245}
   m_Layer: 0
   m_Name: ServicesManager
   m_TagString: Untagged
@@ -1296,6 +1297,18 @@ MonoBehaviour:
     audioClip: {fileID: 0}
     volume: 1
   _mixer: {fileID: 24100000, guid: d4520651c58a56f43989f6571f86d3ec, type: 2}
+--- !u!114 &1775386245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775386241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0bb87935140394e9c8934fabdd79b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2084579423
 GameObject:
   m_ObjectHideFlags: 0

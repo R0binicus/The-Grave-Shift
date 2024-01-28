@@ -1763,7 +1763,6 @@ MonoBehaviour:
   _heavenButton: {fileID: 401400926}
   _hellbutton: {fileID: 943534034}
   _redPointer: {fileID: 1037112657}
-  easeType: 24
   _charactersPerSec: 20
   _interpunctuationDelay: 0.5
 --- !u!114 &952960295

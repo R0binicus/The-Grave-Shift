@@ -12,6 +12,8 @@ public class MainMenuUIManager : MonoBehaviour
     [SerializeField] Toggle _fullscreenToggle; 
     [SerializeField] Slider _sfxSlider; 
     [SerializeField] Slider _musicSlider; 
+    [SerializeField] Slider _textSpeedSlider; 
+    [SerializeField] TextMeshProUGUI _textSpeedDisplay; 
 
 
     [Header("Sound")]
@@ -21,7 +23,7 @@ public class MainMenuUIManager : MonoBehaviour
     [SerializeField] SoundType _buttonSFX03;
 
     
-    private bool _receiver = true;
+    private string _receiver;
     private bool _buttonPressed = false; // Stops multiple clicking of same button
 
     #region Init
@@ -33,6 +35,7 @@ public class MainMenuUIManager : MonoBehaviour
         EventManager.EventInitialise(EventType.SENDSETTING);
         EventManager.EventInitialise(EventType.SFXVOLUME);
         EventManager.EventInitialise(EventType.MUSICVOLUME);
+        EventManager.EventInitialise(EventType.TEXTSPEED);
     }
 
     private void OnEnable()
@@ -54,8 +57,8 @@ public class MainMenuUIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        _receiver = true;
-        EventManager.EventTrigger(EventType.REQUESTSETTING, 0);
+        _receiver = "SFX";
+        EventManager.EventTrigger(EventType.REQUESTSETTING, _receiver);
 
         //_sfxSlider.value = ;
         //_musicSlider.value = ;
@@ -108,17 +111,29 @@ public class MainMenuUIManager : MonoBehaviour
         {
             Debug.LogError("SettingsSendHandler is null!");
         }
-
+        
         float setting = (float)data;
-        if (_receiver)
+        Debug.Log(_receiver);
+        Debug.Log(setting);
+        if (_receiver == "SFX")
         {
-            _receiver = false;
+            _receiver = "MUSIC";
             _sfxSlider.value = setting;
-            EventManager.EventTrigger(EventType.REQUESTSETTING, 1);
+            EventManager.EventTrigger(EventType.REQUESTSETTING, _receiver);
+        }
+        else if (_receiver == "MUSIC")
+        {
+            _receiver = "SPEED";
+            _musicSlider.value = setting;
+            EventManager.EventTrigger(EventType.REQUESTSETTING, _receiver);
+        }
+        else if (_receiver == "SPEED")
+        {
+            _textSpeedSlider.value = setting;
         }
         else
         {
-            _musicSlider.value = setting;
+            Debug.Log("WTF SettingsSendHandler");
         }
     }
 
@@ -185,5 +200,11 @@ public class MainMenuUIManager : MonoBehaviour
     public void MusicChanger(float UpdatedRange)
     {
         EventManager.EventTrigger(EventType.MUSICVOLUME, UpdatedRange);
+    }
+
+    public void TextSpeedChanger(float UpdatedRange)
+    {
+        EventManager.EventTrigger(EventType.TEXTSPEED, UpdatedRange);
+        _textSpeedDisplay.text = UpdatedRange.ToString();
     }
 }
