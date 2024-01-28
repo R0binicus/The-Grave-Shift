@@ -215,6 +215,15 @@ public class GameplayUIManager : MonoBehaviour
         InkData dialogue = (InkData)data;
         _speakerText.text = dialogue.Speaker;
 
+        if (_speakerText.text == null)
+        {
+            _speakerPanel.SetActive(false);
+        }
+        else
+        {
+            _speakerPanel.SetActive(true);
+        }
+
         //Typewriter stuff
 
         if (_typewriterCorutine != null)

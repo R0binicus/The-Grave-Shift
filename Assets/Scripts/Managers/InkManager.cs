@@ -146,6 +146,18 @@ public class InkManager : MonoBehaviour
                     return "Gravedigger";
                 case "grim":
                     return "Church Grim";
+                case "nina":
+                    return "Soul";
+                case "edward":
+                    return "Soul";
+                case "diane":
+                    return "Soul";
+                case "maureen":
+                    return "Soul";
+                case "kenneth":
+                    return "Soul";
+                default:
+                    return "";
             }
         }
 
