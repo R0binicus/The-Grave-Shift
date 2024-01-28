@@ -34,7 +34,8 @@ public class GameplayUIManager : MonoBehaviour
     private TextMeshProUGUI _dialogueText;
     private List<Button> _questionsButtons;
     private List<TextMeshProUGUI> _questionsText;
-    private List<TextMeshProUGUI> _quotaText;
+    private TextMeshProUGUI _quotaText;
+    private int _hellQuota;
 
     // Typewriter data
     private int _currentCharacterIndex;
@@ -56,6 +57,7 @@ public class GameplayUIManager : MonoBehaviour
 
         _simpleDelay = new WaitForSeconds(1/_charactersPerSec);
         _interpunctuationWait = new WaitForSeconds(_interpunctuationDelay);
+        _quotaText = _quotaPanel.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void OnEnable()
@@ -69,6 +71,7 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventSubscribe(EventType.SENDSETTING, SettingsSendHandler);
         EventManager.EventSubscribe(EventType.QUOTA, QuotaHandler);
         EventManager.EventSubscribe(EventType.END, EndHandler);
+        EventManager.EventSubscribe(EventType.QUOTASEND, QuotaSendHandler);
     }
 
     private void OnDisable()
@@ -82,6 +85,7 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventUnsubscribe(EventType.SENDSETTING, SettingsSendHandler);
         EventManager.EventUnsubscribe(EventType.QUOTA, QuotaHandler);
         EventManager.EventUnsubscribe(EventType.END, EndHandler);
+        EventManager.EventUnsubscribe(EventType.QUOTASEND, QuotaSendHandler);
     }
 
     private void Start()
@@ -274,12 +278,39 @@ public class GameplayUIManager : MonoBehaviour
 
     public void QuotaHandler(object data)
     {
+        Debug.Log("yes");
+        if (data == null)
+        {
+            Debug.LogError("QuotaHandler did not receive Questions!");
+        }
+
+        int soulsInHell = (int)data;
+
+        if (soulsInHell >= _hellQuota)
+        {
+            _quotaText.text = "Quota was met...";
+        }
+        else 
+        {
+            _quotaText.text = "Quota was NOT met...";
+        }
+
         ShowQuotaPanel();
+    }
+
+    public void QuotaSendHandler(object data)
+    {
+        if (data == null)
+        {
+            Debug.LogError("QuotaSendHandler did not receive Questions!");
+        }
+
+        _hellQuota = (int)data;
     }
 
     public void EndHandler(object data)
     {
-        ShowDialoguePanel();
+        //ShowDialoguePanel();
     }
 
     public void SettingsSendHandler(object data)
@@ -336,6 +367,8 @@ public class GameplayUIManager : MonoBehaviour
     {
         HideAllPanels();
         _quotaPanel.SetActive(true);
+        _speakerPanel.SetActive(true);
+        _dialoguePanel.SetActive(true);
     }
     #endregion
 

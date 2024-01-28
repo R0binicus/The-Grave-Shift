@@ -25,6 +25,7 @@ public enum EventType
     QUESTIONS,
     DECISION,
     QUOTA,
+    QUOTASEND,
     END,
     PAUSE_TOGGLE,    
 

@@ -33,6 +33,7 @@ public class GameplayManager : MonoBehaviour
         EventManager.EventInitialise(EventType.DECISION);
         EventManager.EventInitialise(EventType.QUOTA);
         EventManager.EventInitialise(EventType.END);
+        EventManager.EventInitialise(EventType.QUOTASEND);
     }
 
     private void OnEnable()
@@ -48,6 +49,7 @@ public class GameplayManager : MonoBehaviour
     private void Start()
     {
         Intro();
+        EventManager.EventTrigger(EventType.QUOTASEND, _hellQuota);
     }
 
     private void Intro()
