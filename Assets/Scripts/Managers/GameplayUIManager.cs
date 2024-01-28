@@ -29,8 +29,6 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] SoundType _nextDialogueSound;
     [SerializeField] SoundType _nextDialogueSound2;
 
-    
-
     // Internal Data
     private TextMeshProUGUI _speakerText;
     private TextMeshProUGUI _dialogueText;
