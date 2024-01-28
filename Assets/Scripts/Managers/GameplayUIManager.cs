@@ -21,6 +21,10 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject _hellbutton;
     [SerializeField] private GameObject _redPointer;
 
+    [Header("Sound")]
+    [SerializeField] SoundType _nextDialogueSound;
+    [SerializeField] SoundType _nextDialogueSound2;
+
     
 
     // Internal Data
@@ -267,4 +271,14 @@ public class GameplayUIManager : MonoBehaviour
         _interpunctuationWait = new WaitForSeconds(_interpunctuationDelay);
     }
     #endregion
+
+    public void NextDialogueSound()
+    {
+        EventManager.EventTrigger(EventType.SFX, _nextDialogueSound);
+    }
+
+    public void NextDialogueSound2()
+    {
+        EventManager.EventTrigger(EventType.SFX, _nextDialogueSound2);
+    }
 }

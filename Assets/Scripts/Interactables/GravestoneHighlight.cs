@@ -9,6 +9,9 @@ public class GravestoneHighlight : MonoBehaviour
     private float _initialIntensity; 
     private Soul _soul;
     private bool _judged = false;
+
+    [Header("Sound")]
+    [SerializeField] SoundType _nextDialogueSound;
     
     void Awake()
     {
@@ -31,6 +34,7 @@ public class GravestoneHighlight : MonoBehaviour
         if (!_judged)
         {
             _soul.SelectedToJudge();
+            EventManager.EventTrigger(EventType.SFX, _nextDialogueSound);
         }
     }
 

@@ -18,6 +18,9 @@ public class SceneSystemManager : MonoBehaviour
     //int _gameplayIndex;
     const int _lastMainLevelIndex = 14;
 
+    [Header("Sound")]
+    [SerializeField] SoundType _escSound;
+
     private void Awake()
     {
         // If using the Unity editor or development build, enable debug logs
@@ -95,6 +98,7 @@ public class SceneSystemManager : MonoBehaviour
     #region Scene Loading/Unloading/Ordering
     IEnumerator LevelToMenu()
     {
+        EventManager.EventTrigger(EventType.SFX, _escSound);
         EventManager.EventTrigger(EventType.FADING, false);
         yield return StartCoroutine(_fader.NormalFadeOut());
         yield return StartCoroutine(UnloadLevel(_currentLevel.buildIndex));

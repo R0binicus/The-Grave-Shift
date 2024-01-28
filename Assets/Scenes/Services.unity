@@ -1245,6 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732a664c8172fdb44b11ea4ea6e82c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _escSound: 0
 --- !u!4 &1775386243
 Transform:
   m_ObjectHideFlags: 0
@@ -1288,6 +1289,12 @@ MonoBehaviour:
     volume: 1
   - sound: 2
     audioClip: {fileID: 8300000, guid: cff684512d45c974a973a3b301ef5503, type: 3}
+    volume: 1
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: c60682aea0c45a143b0a32a076bbe79c, type: 3}
+    volume: 1
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: e775038f95a9a2a44a1d2cb67ecf782e, type: 3}
     volume: 1
   MusicAudioClipArray:
   - sound: 3
