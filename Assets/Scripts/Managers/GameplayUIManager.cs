@@ -20,6 +20,7 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject _heavenButton;
     [SerializeField] private GameObject _hellbutton;
     [SerializeField] private GameObject _redPointer;
+    [SerializeField] private Image _redPointerSprite;
 
     [Header("Sound")]
     [SerializeField] SoundType _nextDialogueSound;
@@ -111,16 +112,32 @@ public class GameplayUIManager : MonoBehaviour
         if (destination == 1)
         {
             LeanTween.moveX(_redPointer, _heavenButton.transform.position.x, 1).setEase(easeType);
+            
+            Color fromColor = _redPointerSprite.color;
+            Color toColor = Color.HSVToRGB(240/360f, 1f, 1f);
+            LeanTween.value( _redPointer, setColorCallback, fromColor, toColor, 0.625f );
         }
         else if (destination == 2)
         {
             LeanTween.moveX(_redPointer, _hellbutton.transform.position.x, 1).setEase(easeType);
+
+            Color fromColor = _redPointerSprite.color;
+            Color toColor = Color.HSVToRGB(0/360f, 1f, 1f);
+            LeanTween.value( _redPointer, setColorCallback, fromColor, toColor, 0.625f );
         }
         else
         {
             LeanTween.moveX(_redPointer, _decisionPanel.transform.position.x, 2);
+
+            Color fromColor = _redPointerSprite.color;
+            Color toColor = Color.HSVToRGB(0/360f, 0f, 1f);
+            LeanTween.value( _redPointer, setColorCallback, fromColor, toColor, 1.25f );
         }
-        
+    }
+
+    private void setColorCallback( Color c )
+    {
+        _redPointerSprite.color = c;
     }
 
     #region BUTTONS
@@ -139,11 +156,19 @@ public class GameplayUIManager : MonoBehaviour
     public void HeavenButton()
     {
         EventManager.EventTrigger(EventType.SOULSELECT, SoulStatus.HEAVEN);
+        LeanTween.moveX(_redPointer, _decisionPanel.transform.position.x, .25f);
+        Color fromColor = _redPointerSprite.color;
+        Color toColor = Color.HSVToRGB(0/360f, 0f, 1f);
+        LeanTween.value( _redPointer, setColorCallback, fromColor, toColor, .25f );
     }
 
     public void HellButton()
     {
         EventManager.EventTrigger(EventType.SOULSELECT, SoulStatus.HELL);
+        LeanTween.moveX(_redPointer, _decisionPanel.transform.position.x, .25f);
+        Color fromColor = _redPointerSprite.color;
+        Color toColor = Color.HSVToRGB(0/360f, 0f, 1f);
+        LeanTween.value( _redPointer, setColorCallback, fromColor, toColor, .25f );
     }
     #endregion
 

@@ -65,7 +65,6 @@ public class GravestoneHighlight : MonoBehaviour
     public void Judged(bool toggle)
     {
         _judged = toggle;
-        Debug.Log(_soul.Status);
         if (_soul.Status == SoulStatus.HELL)
         {
             _spotlight.color = Color.HSVToRGB(0f/360f, 1, 1f);
