@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
+  <Script>k__BackingField: {fileID: 4900000, guid: 2dc45013af1ab44459484981099c8cc8, type: 3}
 --- !u!1001 &196935026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -775,8 +775,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.020399928, y: 0.12094998, z: 0}
-    m_Extent: {x: 2.2924, y: 4.0525503, z: 0}
+    m_Center: {x: 0.0273, y: 0.11979997, z: 0}
+    m_Extent: {x: 2.2996998, y: 4.0543, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -1929,8 +1929,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39049995, y: -0.12759995, z: 0}
-    m_Extent: {x: 3.6548, y: 5.9168997, z: 0}
+    m_Center: {x: -0.38274992, y: -0.12199998, z: 0}
+    m_Extent: {x: 3.6480498, y: 5.9222, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -2615,7 +2615,7 @@ GameObject:
   - component: {fileID: 1069437366}
   - component: {fileID: 1069437365}
   m_Layer: 0
-  m_Name: Soul
+  m_Name: Soul (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2889,7 +2889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
+  <Script>k__BackingField: {fileID: 4900000, guid: 989c37c1c75486c419d94af2dd51543d, type: 3}
 --- !u!1 &1128239082
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,7 +3127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
+  <Script>k__BackingField: {fileID: 4900000, guid: d2f4c9fcc03ac9d4d9348f42d092deb8, type: 3}
 --- !u!1 &1194923394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3194,8 +3194,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.3953501, y: 0.08250022, z: 0}
-    m_Extent: {x: 3.16355, y: 5.3485003, z: 0}
+    m_Center: {x: 0.39565003, y: 0.088100195, z: 0}
+    m_Extent: {x: 3.16265, y: 5.3445997, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -3311,8 +3311,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.18369997, y: 0.31104994, z: 0}
-    m_Extent: {x: 3.1446, y: 6.03405, z: 0}
+    m_Center: {x: -0.17935002, y: 0.3145001, z: 0}
+    m_Extent: {x: 3.1473498, y: 6.0406, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -4244,7 +4244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
+  <Script>k__BackingField: {fileID: 4900000, guid: 62a8bee3e390a2d4d9ac857afb250816, type: 3}
 --- !u!1 &1612959827
 GameObject:
   m_ObjectHideFlags: 0
@@ -4311,8 +4311,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.31624997, y: 0.0632, z: 0}
-    m_Extent: {x: 4.21465, y: 5.9182, z: 0}
+    m_Center: {x: -0.3220501, y: 0.061749935, z: 0}
+    m_Extent: {x: 4.20615, y: 5.91535, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -4738,7 +4738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 4900000, guid: 6563bc7b950033b468aa24aa4b4d12d4, type: 3}
+  <Script>k__BackingField: {fileID: 4900000, guid: b5f56d94512797149b704538d367c7f3, type: 3}
 --- !u!1 &1719045457
 GameObject:
   m_ObjectHideFlags: 0
