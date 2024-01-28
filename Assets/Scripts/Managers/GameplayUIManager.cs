@@ -67,6 +67,7 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventSubscribe(EventType.DECISION, DecisionHandler);
         EventManager.EventSubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
         EventManager.EventSubscribe(EventType.SENDSETTING, SettingsSendHandler);
+        EventManager.EventSubscribe(EventType.QUOTA, QuotaHandler);
         EventManager.EventSubscribe(EventType.END, EndHandler);
     }
 
@@ -79,6 +80,7 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventUnsubscribe(EventType.DECISION, DecisionHandler);
         EventManager.EventUnsubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
         EventManager.EventUnsubscribe(EventType.SENDSETTING, SettingsSendHandler);
+        EventManager.EventUnsubscribe(EventType.QUOTA, QuotaHandler);
         EventManager.EventUnsubscribe(EventType.END, EndHandler);
     }
 
@@ -101,12 +103,7 @@ public class GameplayUIManager : MonoBehaviour
             _questionsText.Add(_questionsButtons[i].GetComponentInChildren<TextMeshProUGUI>());
         }
 
-        _speakerPanel.SetActive(false);
-        _dialoguePanel.SetActive(false);
-        _questionsPanel.SetActive(false);
-        _soulSelectPanel.SetActive(false);
-        _decisionPanel.SetActive(false);
-        _quotaPanel.SetActive(false);
+        HideAllPanels();
     }
 
     public void MoveDecisionPointer(int destination)
@@ -224,7 +221,6 @@ public class GameplayUIManager : MonoBehaviour
 
         List<Choice> questions = (List<Choice>)data;
 
-        _dialoguePanel.SetActive(false);
         _speakerText.text = "Questions";
 
         if (questions.Count > _questionsText.Count)
@@ -252,6 +248,11 @@ public class GameplayUIManager : MonoBehaviour
         ShowDecisionPanel();
     }
 
+    public void QuotaHandler(object data)
+    {
+        ShowQuotaPanel();
+    }
+
     public void EndHandler(object data)
     {
         ShowDialoguePanel();
@@ -271,53 +272,45 @@ public class GameplayUIManager : MonoBehaviour
     #endregion
 
     #region PANELS
-    private void ShowDialoguePanel()
+    private void HideAllPanels()
     {
-        _speakerPanel.SetActive(true);
-        _dialoguePanel.SetActive(true);
+        _speakerPanel.SetActive(false);
+        _dialoguePanel.SetActive(false);
         _questionsPanel.SetActive(false);
         _soulSelectPanel.SetActive(false);
         _decisionPanel.SetActive(false);
         _quotaPanel.SetActive(false);
+    }
+    private void ShowDialoguePanel()
+    {
+        HideAllPanels();
+        _speakerPanel.SetActive(true);
+        _dialoguePanel.SetActive(true);
     }
 
     private void ShowQuestionsPanel()
     {
-        _speakerPanel.SetActive(false);
+        HideAllPanels();
+        _speakerPanel.SetActive(true);
         _dialoguePanel.SetActive(true);
         _questionsPanel.SetActive(true);
-        _soulSelectPanel.SetActive(false);
-        _decisionPanel.SetActive(false);
-        _quotaPanel.SetActive(false);
     }
 
     private void ShowSoulSelectPanel()
     {
-        _speakerPanel.SetActive(false);
-        _dialoguePanel.SetActive(false);
-        _questionsPanel.SetActive(false);
+        HideAllPanels();
         _soulSelectPanel.SetActive(true);
-        _decisionPanel.SetActive(false);
-        _quotaPanel.SetActive(false);
     }
 
     private void ShowDecisionPanel()
     {
-        _speakerPanel.SetActive(false);
-        _dialoguePanel.SetActive(false);
-        _questionsPanel.SetActive(false);
-        _soulSelectPanel.SetActive(false);
+        HideAllPanels();
         _decisionPanel.SetActive(true);
-        _quotaPanel.SetActive(false);
     }
 
     private void ShowQuotaPanel()
     {
-        _speakerPanel.SetActive(false);
-        _dialoguePanel.SetActive(false);
-        _questionsPanel.SetActive(false);
-        _soulSelectPanel.SetActive(true);
-        _decisionPanel.SetActive(false);
+        HideAllPanels();
         _quotaPanel.SetActive(true);
     }
     #endregion

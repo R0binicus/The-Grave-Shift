@@ -66,7 +66,7 @@ public class SoulsManager : MonoBehaviour
         if (IsFinishedJudging())
         {
             _soulsParent.SetActive(false);
-            EventManager.EventTrigger(EventType.END, SoulsInHell());
+            EventManager.EventTrigger(EventType.QUOTA, SoulsInHell());
         }
         else
         {
