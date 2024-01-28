@@ -72,6 +72,8 @@ public class GameplayManager : MonoBehaviour
         {
             _endScript = _quotaNotMetScript;
         }
+
+        End();
     }
 
     private void End()
