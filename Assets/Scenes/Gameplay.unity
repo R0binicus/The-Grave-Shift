@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 4900000, guid: 2dc45013af1ab44459484981099c8cc8, type: 3}
+  <Script>k__BackingField: {fileID: 4900000, guid: adf77b678738c58448eb7fb6222d6aac, type: 3}
 --- !u!1 &187065973 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
@@ -785,8 +785,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.031000018, y: 0.1207, z: 0}
-    m_Extent: {x: 2.3003001, y: 4.051, z: 0}
+    m_Center: {x: 0.027549982, y: 0.11765003, z: 0}
+    m_Extent: {x: 2.28515, y: 4.05135, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -1944,8 +1944,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.38265002, y: -0.11945009, z: 0}
-    m_Extent: {x: 3.6528502, y: 5.91615, z: 0}
+    m_Center: {x: -0.38734996, y: -0.1243, z: 0}
+    m_Extent: {x: 3.64495, y: 5.9148, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -2910,7 +2910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 4900000, guid: 989c37c1c75486c419d94af2dd51543d, type: 3}
+  <Script>k__BackingField: {fileID: 4900000, guid: 9347de75b320cf84caceb19d188d1973, type: 3}
 --- !u!1 &1128239082
 GameObject:
   m_ObjectHideFlags: 0
@@ -3148,7 +3148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 4900000, guid: d2f4c9fcc03ac9d4d9348f42d092deb8, type: 3}
+  <Script>k__BackingField: {fileID: 4900000, guid: 619c5fb0eabe74145a938c2a9da18d19, type: 3}
 --- !u!1 &1194923394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,8 +3215,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.40495002, y: 0.08220005, z: 0}
-    m_Extent: {x: 3.16125, y: 5.3477, z: 0}
+    m_Center: {x: 0.40189993, y: 0.07974982, z: 0}
+    m_Extent: {x: 3.1648002, y: 5.3470497, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -3332,8 +3332,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.17694998, y: 0.31605005, z: 0}
-    m_Extent: {x: 3.13905, y: 6.04315, z: 0}
+    m_Center: {x: -0.17569995, y: 0.3197, z: 0}
+    m_Extent: {x: 3.1341, y: 6.0362997, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -4270,7 +4270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 4900000, guid: 62a8bee3e390a2d4d9ac857afb250816, type: 3}
+  <Script>k__BackingField: {fileID: 4900000, guid: 35ad6951a1aade34095de49eb3cebde2, type: 3}
 --- !u!1 &1612959827
 GameObject:
   m_ObjectHideFlags: 0
@@ -4337,8 +4337,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.31674993, y: 0.06005001, z: 0}
-    m_Extent: {x: 4.20285, y: 5.91925, z: 0}
+    m_Center: {x: -0.31690013, y: 0.06669998, z: 0}
+    m_Extent: {x: 4.2068, y: 5.9168, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -4764,7 +4764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa2889455795334d8f00d9048ca6c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Script>k__BackingField: {fileID: 4900000, guid: b5f56d94512797149b704538d367c7f3, type: 3}
+  <Script>k__BackingField: {fileID: 4900000, guid: 20967ff6b9cfc5e4f8ddbd625ed2ab9c, type: 3}
 --- !u!1 &1719045457
 GameObject:
   m_ObjectHideFlags: 0

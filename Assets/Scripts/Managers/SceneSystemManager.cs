@@ -15,10 +15,12 @@ public class SceneSystemManager : MonoBehaviour
     Scene _currentLevel;
     int _numOfScenes; // Number of total scenes in the game
     int _mainMenuIndex;
-    //int _gameplayIndex;
+    int _titleIndex;
 
     [Header("Sound")]
     [SerializeField] SoundType _escSound;
+    [Header("Title Splash Screen")]
+    [SerializeField] float _showTitleFor;
 
     private void Awake()
     {
@@ -30,7 +32,8 @@ public class SceneSystemManager : MonoBehaviour
 
         // Get total number of scenes in game and indexes for main menu and gameplay scenes
         _numOfScenes = SceneManager.sceneCountInBuildSettings;
-        _mainMenuIndex = 1;
+        _titleIndex = 1;
+        _mainMenuIndex = 2;
 
         // Create level events
         EventManager.EventInitialise(EventType.LEVEL_STARTED);
@@ -64,13 +67,22 @@ public class SceneSystemManager : MonoBehaviour
             }
             else
             {
-                StartCoroutine(LoadScene(_mainMenuIndex));
-                StartCoroutine(_fader.NormalFadeIn());
+                StartCoroutine(Title());
             }
         #else
-            StartCoroutine(LoadScene(_mainMenuIndex));
-            StartCoroutine(_fader.NormalFadeIn());
+            StartCoroutine(Title());
         #endif
+    }
+
+    IEnumerator Title()
+    {
+        yield return StartCoroutine(LoadScene(_titleIndex));
+        yield return StartCoroutine(_fader.NormalFadeIn());
+        yield return new WaitForSeconds(_showTitleFor);
+        yield return StartCoroutine(_fader.NormalFadeOut());
+        yield return StartCoroutine(UnloadScene(_titleIndex));
+        yield return StartCoroutine(LoadScene(_mainMenuIndex));
+        yield return StartCoroutine(_fader.NormalFadeIn());
     }
 
     #region Game UI Response
