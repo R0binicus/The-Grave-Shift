@@ -2054,7 +2054,7 @@ MonoBehaviour:
   _heavenButton: {fileID: 401400926}
   _hellbutton: {fileID: 943534034}
   _redPointer: {fileID: 1037112657}
-  _redPointerSprite: {fileID: 0}
+  _redPointerSprite: {fileID: 1037112659}
   _nextDialogueSound: 3
   _nextDialogueSound2: 4
   _charactersPerSec: 20
@@ -2123,7 +2123,7 @@ GameObject:
   - component: {fileID: 979851393}
   - component: {fileID: 979851392}
   m_Layer: 0
-  m_Name: RegPointer
+  m_Name: I HATE YOU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2342,7 +2342,7 @@ GameObject:
   - component: {fileID: 1037112660}
   - component: {fileID: 1037112659}
   m_Layer: 5
-  m_Name: Image
+  m_Name: DecisionPointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2380,7 +2380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
