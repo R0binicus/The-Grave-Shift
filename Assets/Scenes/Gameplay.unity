@@ -207,6 +207,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &176154687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
+  m_PrefabInstance: {fileID: 629891276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &179220231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6350254414862614345, guid: 5f30f2f0b50405443945ed9ef8e6bc57, type: 3}
@@ -471,6 +476,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Script>k__BackingField: {fileID: 4900000, guid: 2dc45013af1ab44459484981099c8cc8, type: 3}
+--- !u!1 &187065973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
+  m_PrefabInstance: {fileID: 912214708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &196935026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -775,8 +785,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0273, y: 0.11979997, z: 0}
-    m_Extent: {x: 2.2996998, y: 4.0543, z: 0}
+    m_Center: {x: 0.025399923, y: 0.11220002, z: 0}
+    m_Extent: {x: 2.296, y: 4.0605, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -1179,6 +1189,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516266650}
   m_CullTransparentMesh: 1
+--- !u!1 &567181094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
+  m_PrefabInstance: {fileID: 196935026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &629749072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,8 +1944,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.38274992, y: -0.12199998, z: 0}
-    m_Extent: {x: 3.6480498, y: 5.9222, z: 0}
+    m_Center: {x: -0.38989997, y: -0.118149996, z: 0}
+    m_Extent: {x: 3.6491, y: 5.91805, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -2335,6 +2350,12 @@ MonoBehaviour:
   _hellbutton: {fileID: 943534034}
   _redPointer: {fileID: 1037112657}
   _redPointerSprite: {fileID: 1037112659}
+  _questionList:
+  - {fileID: 1931565744}
+  - {fileID: 176154687}
+  - {fileID: 1405656005}
+  - {fileID: 187065973}
+  - {fileID: 567181094}
   _nextDialogueSound: 3
   _nextDialogueSound2: 4
   _charactersPerSec: 20
@@ -3194,8 +3215,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.39565003, y: 0.088100195, z: 0}
-    m_Extent: {x: 3.16265, y: 5.3445997, z: 0}
+    m_Center: {x: 0.39630008, y: 0.0859499, z: 0}
+    m_Extent: {x: 3.1578, y: 5.34445, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -3311,8 +3332,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.17935002, y: 0.3145001, z: 0}
-    m_Extent: {x: 3.1473498, y: 6.0406, z: 0}
+    m_Center: {x: -0.18344998, y: 0.30775, z: 0}
+    m_Extent: {x: 3.13485, y: 6.0331497, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -3474,6 +3495,11 @@ Transform:
   - {fileID: 2070229382}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1405656005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
+  m_PrefabInstance: {fileID: 2054429585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1467557864
 GameObject:
   m_ObjectHideFlags: 0
@@ -4311,8 +4337,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.3220501, y: 0.061749935, z: 0}
-    m_Extent: {x: 4.20615, y: 5.91535, z: 0}
+    m_Center: {x: -0.3170501, y: 0.06360006, z: 0}
+    m_Extent: {x: 4.21535, y: 5.9195, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -5069,6 +5095,11 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1931565744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
+  m_PrefabInstance: {fileID: 2348906299976350743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2022692036
 GameObject:
   m_ObjectHideFlags: 0
