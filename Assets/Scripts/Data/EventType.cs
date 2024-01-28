@@ -24,6 +24,7 @@ public enum EventType
     DIALOGUE,
     QUESTIONS,
     DECISION,
+    QUOTA,
     END,
     PAUSE_TOGGLE,    
 

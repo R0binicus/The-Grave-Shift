@@ -67,6 +67,15 @@ public class InkManager : MonoBehaviour
     public void EndHandler(object data)
     {
         _state = GameplayState.END;
+
+        if (data == null)
+        {
+            Debug.LogError("InkManager SetScript has not received a text file!");
+        }
+
+        TextAsset script = (TextAsset)data;
+        SetScript(script);
+        NextLineHandler(null);
     }
 
     public void DialogueHandler(object data)
@@ -106,7 +115,7 @@ public class InkManager : MonoBehaviour
             }
             else if (_state == GameplayState.END)
             {
-                //EventManager.EventTrigger(Event)
+                EventManager.EventTrigger(EventType.QUIT_GAME, null);
             }
             else 
             {

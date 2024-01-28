@@ -15,12 +15,15 @@ public enum GameplayState
 public class GameplayManager : MonoBehaviour
 {
     [Header("Scripts")]
-    [SerializeField] private TextAsset _introText;
-    [SerializeField] private TextAsset _endText;
+    [SerializeField] private TextAsset _introScript;
+    [SerializeField] private TextAsset _quotaMetScript;
+    [SerializeField] private TextAsset _quotaNotMetScript;
+
     [Header("Quota")]
     [SerializeField] private int _hellQuota;
 
-    private GameplayState _state;
+    // Internal Data
+    private TextAsset _endScript;
 
     private void Awake()
     {
@@ -28,17 +31,18 @@ public class GameplayManager : MonoBehaviour
         EventManager.EventInitialise(EventType.DIALOGUE);
         EventManager.EventInitialise(EventType.SOULSELECT);
         EventManager.EventInitialise(EventType.DECISION);
+        EventManager.EventInitialise(EventType.QUOTA);
         EventManager.EventInitialise(EventType.END);
     }
 
     private void OnEnable()
     {
-        EventManager.EventSubscribe(EventType.END, End);
+        EventManager.EventSubscribe(EventType.QUOTA, Quota);
     }
 
     private void OnDisable()
     {
-        EventManager.EventUnsubscribe(EventType.END, End);
+        EventManager.EventUnsubscribe(EventType.QUOTA, Quota);
     }
 
     private void Start()
@@ -48,11 +52,10 @@ public class GameplayManager : MonoBehaviour
 
     private void Intro()
     {
-        _state = GameplayState.INTRO;
-        EventManager.EventTrigger(EventType.INTRO, _introText);
+        EventManager.EventTrigger(EventType.INTRO, _introScript);
     }
 
-    public void End(object data)
+    public void Quota(object data)
     {
         if (data == null)
         {
@@ -63,11 +66,21 @@ public class GameplayManager : MonoBehaviour
 
         if (soulsInHell >= _hellQuota)
         {
-            Debug.Log("QUOTA MET");
+            _endScript = _quotaMetScript;
         }
         else 
         {
-            Debug.Log("QUOTA NOT MET");
+            _endScript = _quotaNotMetScript;
         }
+    }
+
+    private void End()
+    {
+        if (_endScript == null)
+        {
+            Debug.LogError("End script not assigned!");
+        }
+
+        EventManager.EventTrigger(EventType.END, _endScript);
     }
 }

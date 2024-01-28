@@ -64,6 +64,7 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventSubscribe(EventType.DECISION, DecisionHandler);
         EventManager.EventSubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
         EventManager.EventSubscribe(EventType.SENDSETTING, SettingsSendHandler);
+        EventManager.EventSubscribe(EventType.END, EndHandler);
     }
 
     private void OnDisable()
@@ -75,6 +76,7 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventUnsubscribe(EventType.DECISION, DecisionHandler);
         EventManager.EventUnsubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
         EventManager.EventUnsubscribe(EventType.SENDSETTING, SettingsSendHandler);
+        EventManager.EventUnsubscribe(EventType.END, EndHandler);
     }
 
     private void Start()
@@ -193,32 +195,7 @@ public class GameplayUIManager : MonoBehaviour
         _typewriterCorutine = StartCoroutine(Typewriter());
     }
 
-    private IEnumerator Typewriter()
-    {
-        TMP_TextInfo textInfo = _dialogueText.textInfo;
-        yield return new WaitForSeconds(0.1f);
     
-        while (_currentCharacterIndex < textInfo.characterCount)
-        {
-            char character = textInfo.characterInfo[_currentCharacterIndex].character;
-
-            _dialogueText.maxVisibleCharacters++;
-
-            if (character == '?' || character == '.' || character == ',' || character == ':' ||
-                     character == ';' || character == '!' || character == '-') 
-            {
-                yield return _interpunctuationDelay;
-            }
-            else
-            {
-                yield return _simpleDelay;
-            }
-
-            _currentCharacterIndex++;
-        }
-        yield return null;
-    }
-
     public void QuestionsHandler(object data)
     {
         if (data == null)
@@ -259,6 +236,14 @@ public class GameplayUIManager : MonoBehaviour
         _decisionPanel.SetActive(true);
     }
 
+    public void EndHandler(object data)
+    {
+        _soulSelectPanel.SetActive(false);
+        _speakerPanel.SetActive(true);
+        _dialoguePanel.SetActive(true);
+        _decisionPanel.SetActive(false);
+    }
+
     public void SettingsSendHandler(object data)
     {
         if (data == null)
@@ -271,6 +256,33 @@ public class GameplayUIManager : MonoBehaviour
         _interpunctuationWait = new WaitForSeconds(_interpunctuationDelay);
     }
     #endregion
+
+    private IEnumerator Typewriter()
+    {
+        TMP_TextInfo textInfo = _dialogueText.textInfo;
+        yield return new WaitForSeconds(0.1f);
+    
+        while (_currentCharacterIndex < textInfo.characterCount)
+        {
+            char character = textInfo.characterInfo[_currentCharacterIndex].character;
+
+            _dialogueText.maxVisibleCharacters++;
+
+            if (character == '?' || character == '.' || character == ',' || character == ':' ||
+                     character == ';' || character == '!' || character == '-') 
+            {
+                yield return _interpunctuationDelay;
+            }
+            else
+            {
+                yield return _simpleDelay;
+            }
+
+            _currentCharacterIndex++;
+        }
+        yield return null;
+    }
+
 
     public void NextDialogueSound()
     {

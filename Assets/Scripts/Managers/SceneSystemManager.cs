@@ -16,7 +16,6 @@ public class SceneSystemManager : MonoBehaviour
     int _numOfScenes; // Number of total scenes in the game
     int _mainMenuIndex;
     //int _gameplayIndex;
-    const int _lastMainLevelIndex = 14;
 
     [Header("Sound")]
     [SerializeField] SoundType _escSound;
