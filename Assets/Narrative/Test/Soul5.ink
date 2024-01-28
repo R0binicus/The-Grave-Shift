@@ -55,7 +55,7 @@ So hard, I darn well died of it. #diane
 {questionsAsked5 == 3:
     -> End5
   - else:
-    -> Questions
+    -> Questions5
 }
 
 === Question3_5 ===
@@ -83,7 +83,7 @@ And it sure as hell weren’t me. #diane
 {questionsAsked5 == 3:
     -> End5
   - else:
-    -> Questions
+    -> Questions5
 }
 
 === Question5_5 ===
@@ -101,7 +101,6 @@ Got darn close to giving me my one final wish. #diane
 
 === End5 ===
 So... whaddaya think? #gravedigger #portrait: smile
-I... Hm... #gravedigger #portrait: eyes closed neutral
 It is not our role to pass judgement. #grim.
 Make your decision, arbiter. #grim
 -> END
