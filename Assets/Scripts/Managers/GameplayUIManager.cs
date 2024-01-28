@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.WSA;
 
 public class GameplayUIManager : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject _hellbutton;
     [SerializeField] private GameObject _redPointer;
     [SerializeField] private Image _redPointerSprite;
+    [SerializeField] private List<GameObject> _questionList;
 
     [Header("Sound")]
     [SerializeField] SoundType _nextDialogueSound;
@@ -151,6 +153,19 @@ public class GameplayUIManager : MonoBehaviour
         _questionsPanel.SetActive(false);
         _dialoguePanel.SetActive(true);
         EventManager.EventTrigger(EventType.GAMEPLAYUI_QUESTIONSELECTED, question);
+        GameObject activatedButton = _questionList[question];
+        activatedButton.GetComponent<Button>().enabled = false;
+        activatedButton.GetComponentInChildren<TextMeshProUGUI>().color = Color.HSVToRGB(0/360f, 0f, 0.5f);
+    }
+
+    public void ResetQuestions()
+    {
+        foreach (var question in _questionList)
+        {
+            GameObject activatedButton = question;
+            activatedButton.GetComponent<Button>().enabled = true;
+            activatedButton.GetComponentInChildren<TextMeshProUGUI>().color = Color.HSVToRGB(0/360f, 0f, 1f);
+        }
     }
 
     public void HeavenButton()
@@ -160,6 +175,7 @@ public class GameplayUIManager : MonoBehaviour
         Color fromColor = _redPointerSprite.color;
         Color toColor = Color.HSVToRGB(0/360f, 0f, 1f);
         LeanTween.value( _redPointer, setColorCallback, fromColor, toColor, .25f );
+        ResetQuestions();
     }
 
     public void HellButton()
@@ -169,6 +185,7 @@ public class GameplayUIManager : MonoBehaviour
         Color fromColor = _redPointerSprite.color;
         Color toColor = Color.HSVToRGB(0/360f, 0f, 1f);
         LeanTween.value( _redPointer, setColorCallback, fromColor, toColor, .25f );
+        ResetQuestions();
     }
     #endregion
 
