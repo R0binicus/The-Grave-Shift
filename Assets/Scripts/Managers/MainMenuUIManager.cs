@@ -113,8 +113,6 @@ public class MainMenuUIManager : MonoBehaviour
         }
         
         float setting = (float)data;
-        Debug.Log(_receiver);
-        Debug.Log(setting);
         if (_receiver == "SFX")
         {
             _receiver = "MUSIC";
