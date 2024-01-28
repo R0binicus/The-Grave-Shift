@@ -115,7 +115,7 @@ public class InkManager : MonoBehaviour
             }
             else if (_state == GameplayState.END)
             {
-                EventManager.EventTrigger(EventType.QUIT_GAME, null);
+                EventManager.EventTrigger(EventType.QUIT_LEVEL, null);
             }
             else 
             {
