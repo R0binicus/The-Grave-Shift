@@ -32,8 +32,8 @@ public class SceneSystemManager : MonoBehaviour
 
         // Get total number of scenes in game and indexes for main menu and gameplay scenes
         _numOfScenes = SceneManager.sceneCountInBuildSettings;
-        _titleIndex = 1;
-        _mainMenuIndex = 2;
+        _titleIndex = 3;
+        _mainMenuIndex = 1;
 
         // Create level events
         EventManager.EventInitialise(EventType.LEVEL_STARTED);

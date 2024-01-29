@@ -4920,10 +4920,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1874323737}
   m_HandleRect: {fileID: 1583370016}
   m_Direction: 0
-  m_MinValue: 1
-  m_MaxValue: 40
+  m_MinValue: 10
+  m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 20
+  m_Value: 40
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
