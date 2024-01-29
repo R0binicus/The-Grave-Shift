@@ -9,10 +9,6 @@ A certain number of souls must be brought to Hell tonight.
 You try your best to make sure they are deserving, but you never know how many you have to take.
 The quota is elusive, and you will not know til the work is done. 
 All you can do is decide is who to send where.
-+ [Onwards]
--> Onwards
-
-=== Onwards ===
 The graveyard stretches forever before you, shapes looming in and out of the dark.
 There are more tombstones, headstones, gravestones here than last time, noticeably piled on top of one another. 
 Every time you’re here, there seems to be more of them, lurking in the mist.
@@ -22,32 +18,18 @@ You brace yourself for the tirade of anger or pleading, but the presence in fron
 
 Ah. Was wondering when you was gonna show up. #gravedigger #portrait: smile
 Been a few nights, hasn’t it? #gravedigger #portrait: eyes closed smile
-+ [I guess.]
-    -> Guess
- + [I've been busy.]
-    -> Busy
+
+You shrug. You've been busy.
     
-=== Guess ===
 Don’t think I’m complaining. #gravedigger #portrait: smile
 We had our work to do. #gravedigger #portrait: eyes closed
--> Continuing
-
-=== Busy === 
-Haven’t we all. #gravedigger #portrait: pout
 You stopped countin’ ‘em, yet? #gravedigger #portrait: eyes closed
 You shake your head. It’s not exactly an option you have.
 Fair enough. #gravedigger #portrait: eyes closed smile
 Does get easier when y’do, though. #gravedigger #portrait: smile
--> Continuing
 
-=== Continuing ===
 There’ll be a few waitin’ for you tonight. #gravedigger #portrait: pout
-
-+ [How many are ready to pass on?]
-->  Many
-
-=== Many === 
-Not sure… #gravedigger #portrait: eyes closed
+How many exactly, I'm not sure… #gravedigger #portrait: eyes closed
 They pause to think, hand brushing over their chin.
 In the silence, you hear the jingling of metal, alongside thundering footsteps.
 They’re getting rapidly closer.
@@ -61,10 +43,8 @@ You’ve seen how busy I’ve been. #gravedigger #portrait: look away stressed
 I suppose I have. #grim #portrait: neutral
 How many can you take tonight? #grim #portrait: neutral
 
-+ [At most, five.]
--> Five
+You hold up a hand - five fingers.
 
-=== Five ===
 That ain’t many. #gravedigger #portrait: freakin
 It is some, at least. #grim #portrait: squint
 Do you know how many you have to take? #grim #portrait: squint
