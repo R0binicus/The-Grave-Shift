@@ -5,7 +5,7 @@ using UnityEngine;
 public class PersistentDataManager : MonoBehaviour
 {
     
-    private float _charactersPerSec = 20;
+    private float _charactersPerSec = 40;
     private void OnEnable()
     {
         EventManager.EventSubscribe(EventType.REQUESTSETTING, SettingsRequestHandler);

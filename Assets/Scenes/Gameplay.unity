@@ -733,18 +733,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _facialExpressions:
-  - _name: eyes closed
-    _sprite: {fileID: 21300000, guid: 92b3a8229d082014b8ba902d885d3725, type: 3}
-  - _name: eyes closed smile
-    _sprite: {fileID: 21300000, guid: 22cc3970a3ed35148908297bd69f5034, type: 3}
-  - _name: freakin
-    _sprite: {fileID: 21300000, guid: 8f13719651f159b4fa966f948f48eea7, type: 3}
-  - _name: look away
-    _sprite: {fileID: 21300000, guid: acb6d1b11736a4541bbc9088345c149f, type: 3}
-  - _name: pout
-    _sprite: {fileID: 21300000, guid: 5337faffe95d5dc4fb1eae94a55ea322, type: 3}
-  - _name: smile
-    _sprite: {fileID: 21300000, guid: f5a90829fd14e5248b821e3c340ab0fd, type: 3}
+  - <Name>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Name>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Name>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Name>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Name>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Name>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
 --- !u!1 &327012294
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,8 +843,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _facialExpressions:
-  - _name: default
-    _sprite: {fileID: 21300000, guid: 51a0f480ff9ddea40b72096c6d105cb4, type: 3}
+  - <Name>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
 --- !u!1 &340772924
 GameObject:
   m_ObjectHideFlags: 0
@@ -3769,14 +3769,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _facialExpressions:
-  - _name: displeased
-    _sprite: {fileID: 21300000, guid: 21109a9429af6134182057cc40c3ca17, type: 3}
-  - _name: eyes closed
-    _sprite: {fileID: 21300000, guid: 3a3694ebf2502a34b8adb6c2b9953c4a, type: 3}
-  - _name: neutral
-    _sprite: {fileID: 21300000, guid: c0f6ed8fd1b1b1c499d13a35c3ca4d3e, type: 3}
-  - _name: pleased
-    _sprite: {fileID: 21300000, guid: dfbe92921be6d4746ab69afd99123620, type: 3}
+  - <Name>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Name>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Name>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Name>k__BackingField: 
+    <Sprite>k__BackingField: {fileID: 0}
 --- !u!1 &1405656005 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
@@ -3867,18 +3867,6 @@ MonoBehaviour:
       - m_Target: {fileID: 952960294}
         m_TargetAssemblyTypeName: GameplayUIManager, Assembly-CSharp
         m_MethodName: NextLineButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 952960294}
-        m_TargetAssemblyTypeName: GameplayUIManager, Assembly-CSharp
-        m_MethodName: NextDialogueSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

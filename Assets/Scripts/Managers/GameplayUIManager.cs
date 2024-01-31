@@ -38,7 +38,7 @@ public class GameplayUIManager : MonoBehaviour
 
     // Typewriter data
     private int _currentCharacterIndex;
-    private Coroutine _typewriterCorutine;
+    private Coroutine _typewriterCoroutine;
 
     private WaitForSeconds _simpleDelay;
     private WaitForSeconds _interpunctuationWait;
@@ -46,8 +46,12 @@ public class GameplayUIManager : MonoBehaviour
     private LeanTweenType easeType = LeanTweenType.easeOutBounce;
 
     [Header("TypeWriter Settings")]
-    [SerializeField] private float _charactersPerSec = 20;
+    [SerializeField] private float _charactersPerSec = 80;
     [SerializeField] private float _interpunctuationDelay = 0.5f;
+
+    // Skipping functionality
+    private bool _typewriterRunning = false;
+    
 
     private void Awake()
     {
@@ -146,7 +150,15 @@ public class GameplayUIManager : MonoBehaviour
     #region BUTTONS
     public void NextLineButton()
     {
-        EventManager.EventTrigger(EventType.GAMEPLAYUI_NEXTLINE, null);
+        if (_typewriterRunning == true)
+        {
+            Skip();
+        }
+        else
+        {
+            EventManager.EventTrigger(EventType.SFX, _nextDialogueSound);
+            EventManager.EventTrigger(EventType.GAMEPLAYUI_NEXTLINE, null);
+        }
     }
 
     public void QuestionSelectedButton(int question)
@@ -227,15 +239,17 @@ public class GameplayUIManager : MonoBehaviour
 
         //Typewriter stuff
 
-        if (_typewriterCorutine != null)
+        if (_typewriterCoroutine != null)
         {
-            StopCoroutine(_typewriterCorutine);
+            _typewriterRunning = false;
+            StopCoroutine(_typewriterCoroutine);
         }
         _dialogueText.text = dialogue.Line;
         _dialogueText.maxVisibleCharacters = 0;
         _currentCharacterIndex = 0;
 
-        _typewriterCorutine = StartCoroutine(Typewriter());
+        _typewriterRunning = true;
+        _typewriterCoroutine = StartCoroutine(Typewriter());
     }
 
     
@@ -394,13 +408,15 @@ public class GameplayUIManager : MonoBehaviour
 
             _currentCharacterIndex++;
         }
+        _typewriterRunning = false;
         yield return null;
     }
 
-
-    public void NextDialogueSound()
+    private void Skip()
     {
-        EventManager.EventTrigger(EventType.SFX, _nextDialogueSound);
+        _typewriterRunning = false;
+        StopCoroutine(_typewriterCoroutine);
+        _dialogueText.maxVisibleCharacters = _dialogueText.textInfo.characterCount;
     }
 
     public void NextDialogueSound2()
