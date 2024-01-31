@@ -44,6 +44,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""78de6422-d406-4db5-8c9b-cd4425e1b633"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -66,6 +75,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SelectClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""781b7bb1-9d78-4d77-9624-e9a39c0897ba"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextDialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -655,6 +675,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_PauseToggle = m_Gameplay.FindAction("PauseToggle", throwIfNotFound: true);
         m_Gameplay_SelectClick = m_Gameplay.FindAction("SelectClick", throwIfNotFound: true);
+        m_Gameplay_NextDialogue = m_Gameplay.FindAction("NextDialogue", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -730,12 +751,14 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_PauseToggle;
     private readonly InputAction m_Gameplay_SelectClick;
+    private readonly InputAction m_Gameplay_NextDialogue;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
         public GameplayActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @PauseToggle => m_Wrapper.m_Gameplay_PauseToggle;
         public InputAction @SelectClick => m_Wrapper.m_Gameplay_SelectClick;
+        public InputAction @NextDialogue => m_Wrapper.m_Gameplay_NextDialogue;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -751,6 +774,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @SelectClick.started += instance.OnSelectClick;
             @SelectClick.performed += instance.OnSelectClick;
             @SelectClick.canceled += instance.OnSelectClick;
+            @NextDialogue.started += instance.OnNextDialogue;
+            @NextDialogue.performed += instance.OnNextDialogue;
+            @NextDialogue.canceled += instance.OnNextDialogue;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -761,6 +787,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @SelectClick.started -= instance.OnSelectClick;
             @SelectClick.performed -= instance.OnSelectClick;
             @SelectClick.canceled -= instance.OnSelectClick;
+            @NextDialogue.started -= instance.OnNextDialogue;
+            @NextDialogue.performed -= instance.OnNextDialogue;
+            @NextDialogue.canceled -= instance.OnNextDialogue;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -945,6 +974,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     {
         void OnPauseToggle(InputAction.CallbackContext context);
         void OnSelectClick(InputAction.CallbackContext context);
+        void OnNextDialogue(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

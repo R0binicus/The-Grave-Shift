@@ -67,4 +67,10 @@ public class InputManager : MonoBehaviour, InputActions.IGameplayActions
     {
         
     }
+
+    // If Space is pressed
+    public void OnNextDialogue(InputAction.CallbackContext context)
+    {
+        
+    }
 }
