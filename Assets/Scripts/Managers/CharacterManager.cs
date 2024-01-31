@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpriteManager : MonoBehaviour
+public class CharacterManager : MonoBehaviour
 {
     [Header("Characters")]
     [SerializeField] private Character _churchGrim;
@@ -15,6 +15,7 @@ public class SpriteManager : MonoBehaviour
 
     private void Awake()
     {
+        _characters = new Dictionary<string, Character>();
         _characters.Add("grim", _churchGrim);
         _characters.Add("gravedigger", _graveDigger);
         _characters.Add("soul", _soul);
