@@ -47,6 +47,6 @@ public enum EventType
     INK_INTRO,
     INK_SPEAKER,
     INK_LINES,
-    INK_TEXTEND,
+    INK_TOGGLE_CHARACTER,
     INK_QUESTIONS
 };

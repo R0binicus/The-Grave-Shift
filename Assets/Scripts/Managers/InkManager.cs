@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
+using System;
 
 public class InkData
 {
     public string Speaker;
+    public string Portrait;
     public string Line;
 
-    public InkData(string speaker, string line)
+    public InkData(string speaker, string portrait, string line)
     {   
         Speaker = speaker;
+        Portrait = portrait;
         Line = line;
     }
 }
@@ -18,12 +21,20 @@ public class InkData
 public class InkManager : MonoBehaviour
 {
     private Story _currentScript;
-    private InkData _dialogue;
+    private InkData _currentSpeaker;
+    private CharacterData _characterState;
     private GameplayState _state;
+
+    // Ink Script Data
+    private const string Action = "a:";
+    private const string Character = "c:";
+    private const string Portrait = "p:";
 
     private void Awake()
     {
-        _dialogue = new InkData("", "");
+        _currentSpeaker = new InkData("", "", "");
+        _characterState = new CharacterData("", false);
+        EventManager.EventInitialise(EventType.INK_TOGGLE_CHARACTER);
     }
 
     private void OnEnable()
@@ -88,18 +99,16 @@ public class InkManager : MonoBehaviour
 
     public void NextLineHandler(object data)
     {
+        // If there are lines to parse
         if (_currentScript.canContinue)
         {
-            string line = _currentScript.Continue();
+            _currentSpeaker.Line = _currentScript.Continue();
 
-            // If no questions are to be displayed
+            // If no questions are to be displayed, handle tags and send next text line
             if (_currentScript.currentChoices.Count == 0)
             {
-                string speaker = HandleTag(_currentScript.currentTags);
-
-                _dialogue.Speaker = speaker;
-                _dialogue.Line = line;
-                EventManager.EventTrigger(EventType.INK_LINES, _dialogue);
+                HandleTags(_currentScript.currentTags);
+                EventManager.EventTrigger(EventType.INK_LINES, _currentSpeaker);
             }
             // Display questions
             else
@@ -107,6 +116,7 @@ public class InkManager : MonoBehaviour
                 EventManager.EventTrigger(EventType.INK_QUESTIONS, _currentScript.currentChoices);
             }
         }
+        // If no more lines to parse, signal end of script
         else
         {
             if (_state == GameplayState.INTRO)
@@ -135,33 +145,60 @@ public class InkManager : MonoBehaviour
         NextLineHandler(null);
     }
 
-    public string HandleTag(List<string> currentTags)
+    public void HandleTags(List<string> currentTags)
     {
         if (currentTags.Count != 0)
         {
-            string speaker = currentTags[0].Trim();
-            switch(speaker)
+            foreach (string tag in currentTags)
             {
-                case "gravedigger":
-                    return "<font=\"Olde English Regular SDF\">G</font>ravedigger";
-                case "grim":
-                    return "<font=\"Olde English Regular SDF\">C</font>hurch Grim";
-                case "nina":
-                    return "<font=\"Olde English Regular SDF\">S</font>oul";
-                case "edward":
-                    return "<font=\"Olde English Regular SDF\">S</font>oul";
-                case "diane":
-                    return "<font=\"Olde English Regular SDF\">S</font>oul";
-                case "maureen":
-                    return "<font=\"Olde English Regular SDF\">S</font>oul";
-                case "kenneth":
-                    return "<font=\"Olde English Regular SDF\">S</font>oul";
-                default:
-                    return "";
+                // If tag is an action
+                if (tag.Contains(Action))
+                {
+                    if (tag.Contains("enter"))
+                    {
+                        _characterState.Character = tag.Remove(0, 8);
+                        _characterState.Toggle = true;
+                        EventManager.EventTrigger(EventType.INK_TOGGLE_CHARACTER, _characterState);
+                    }
+                    else if (tag.Contains("exit"))
+                    {
+                        _characterState.Character = tag.Remove(0, 7);
+                        _characterState.Toggle = false;
+                        EventManager.EventTrigger(EventType.INK_TOGGLE_CHARACTER, _characterState);
+                    }
+                    else if (tag.Contains("desc"))
+                    {
+                        _currentSpeaker.Speaker = "";
+                    }
+                }
+                // If tag is a character
+                else if (tag.Contains(Character))
+                {
+                    if (tag.Contains("grim"))
+                    {
+                        _currentSpeaker.Speaker = "Church Grim";
+                    }
+                    else if (tag.Contains("gravedigger"))
+                    {
+                        _currentSpeaker.Speaker = "Gravedigger";
+                    }
+                    else if (tag.Contains("nina") || tag.Contains("edward") || tag.Contains("diane")
+                        || tag.Contains("maureen") || tag.Contains("kenneth"))
+                    {
+                        _currentSpeaker.Speaker = "Soul";
+                    }
+                    else 
+                    {
+                        _currentSpeaker.Speaker = "";
+                    }
+                }
+                // If tag is a portrait
+                else if (tag.Contains(Portrait))
+                {
+                    // Remove p:
+                    _currentSpeaker.Portrait = tag.Remove(0, 2);
+                }
             }
         }
-
-        return null;
     }
 }
-

@@ -13,6 +13,7 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject _speakerPanel;
     [SerializeField] private GameObject _soulSelectPanel;
     [SerializeField] private GameObject _dialoguePanel;
+    [SerializeField] private GameObject _characterPanel;
     [SerializeField] private GameObject _questionsPanel;
     [SerializeField] private GameObject _decisionPanel;
     [SerializeField] private GameObject _quotaPanel;
@@ -113,6 +114,7 @@ public class GameplayUIManager : MonoBehaviour
         HideAllPanels();
     }
 
+    #region DECISION UI
     public void MoveDecisionPointer(int destination)
     {
         LeanTween.cancel(_redPointer);
@@ -146,6 +148,7 @@ public class GameplayUIManager : MonoBehaviour
     {
         _redPointerSprite.color = c;
     }
+    #endregion
 
     #region BUTTONS
     public void NextLineButton()
@@ -225,26 +228,18 @@ public class GameplayUIManager : MonoBehaviour
             Debug.LogError("TextSendHandler hasn't received an InkData");
         }
 
-        InkData dialogue = (InkData)data;
-        _speakerText.text = dialogue.Speaker;
-
-        if (_speakerText.text == null)
-        {
-            _speakerPanel.SetActive(false);
-        }
-        else
-        {
-            _speakerPanel.SetActive(true);
-        }
+        InkData currentSpeaker = (InkData)data;
+        
+        // Decide whether to show the speaker panel or not and fancify the first letter
+        SpeakerPanel(currentSpeaker.Speaker);
 
         //Typewriter stuff
-
         if (_typewriterCoroutine != null)
         {
             _typewriterRunning = false;
             StopCoroutine(_typewriterCoroutine);
         }
-        _dialogueText.text = dialogue.Line;
+        _dialogueText.text = currentSpeaker.Line;
         _dialogueText.maxVisibleCharacters = 0;
         _currentCharacterIndex = 0;
 
@@ -252,7 +247,6 @@ public class GameplayUIManager : MonoBehaviour
         _typewriterCoroutine = StartCoroutine(Typewriter());
     }
 
-    
     public void QuestionsHandler(object data)
     {
         if (data == null)
@@ -344,6 +338,7 @@ public class GameplayUIManager : MonoBehaviour
     {
         _speakerPanel.SetActive(false);
         _dialoguePanel.SetActive(false);
+        _characterPanel.SetActive(false);
         _questionsPanel.SetActive(false);
         _soulSelectPanel.SetActive(false);
         _decisionPanel.SetActive(false);
@@ -354,6 +349,21 @@ public class GameplayUIManager : MonoBehaviour
         HideAllPanels();
         _speakerPanel.SetActive(true);
         _dialoguePanel.SetActive(true);
+        _characterPanel.SetActive(true);
+    }
+
+    private void SpeakerPanel(string name)
+    {
+        _speakerText.text = FancyFirstLetter(name);
+
+        if (_speakerText.text == "")
+        {
+            _speakerPanel.SetActive(false);
+        }
+        else
+        {
+            _speakerPanel.SetActive(true);
+        }
     }
 
     private void ShowQuestionsPanel()
@@ -385,6 +395,7 @@ public class GameplayUIManager : MonoBehaviour
     }
     #endregion
 
+    #region TYPEWRITER
     private IEnumerator Typewriter()
     {
         TMP_TextInfo textInfo = _dialogueText.textInfo;
@@ -418,7 +429,22 @@ public class GameplayUIManager : MonoBehaviour
         StopCoroutine(_typewriterCoroutine);
         _dialogueText.maxVisibleCharacters = _dialogueText.textInfo.characterCount;
     }
-
+    #endregion
+    
+    private string FancyFirstLetter(string name)
+    {
+        switch(name)
+        {
+            case "gravedigger":
+                return "<font=\"Olde English Regular SDF\">G</font>ravedigger";
+            case "grim":
+                return "<font=\"Olde English Regular SDF\">C</font>hurch Grim";
+            case "soul":
+                return "<font=\"Olde English Regular SDF\">S</font>oul";
+            default:
+                return "";
+        }   
+    }
     public void NextDialogueSound2()
     {
         EventManager.EventTrigger(EventType.SFX, _nextDialogueSound2);

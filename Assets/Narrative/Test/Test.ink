@@ -3,28 +3,15 @@
 // p: - portrait
 
 #a:desc
-Crossing the bounds between the afterlife and life is never easy. 
-Part of the hellish experience is actually emerging from Hell, and the jarring change of temperature.
-You do this fairly regularly, but the sudden cool of the night air is always disorientating. 
-You stand now, in a graveyard, the moon shining bright in the sky above.
-The unfeeling fog drifts gently across your skin. It’s a familiar feeling.
-It reminds you that you have work to do, fiendish chores that have to be done.
-There’s a quota, after all.
-A certain number of souls must be brought to Hell tonight.
-You try your best to make sure they are deserving, but you never know how many you have to take.
-The quota is elusive, and you will not know til the work is done. 
-All you can do is decide is who to send where.
-The graveyard stretches forever before you, shapes looming in and out of the dark.
-There are more tombstones, headstones, gravestones here than last time, noticeably piled on top of one another. 
-Every time you’re here, there seems to be more of them, lurking in the mist.
-You can see a few spirits milling about, attached to these new fixtures of the graveyard. They haven’t noticed you yet, and for the better. You won’t be able to see them all tonight.
 As if summoned by your very thoughts, a figure begins to emerge from the fog.
 You brace yourself for the tirade of anger or pleading, but the presence in front of you seems very, very alive. 
 
-#a:enter gravedigger
+#a:enter
 #c:gravedigger
 #p:smile
 Ah. Was wondering when you was gonna show up.
+
+#c:gravedigger
 #p:eyes closed smile
 Been a few nights, hasn’t it?
 
@@ -34,8 +21,13 @@ You shrug. You've been busy.
 #c:gravedigger
 #p:smile
 Don’t think I’m complaining.
+
+#c:gravedigger 
 #p:eyes closed
 We had our work to do. 
+
+#c:gravedigger
+#p:eyes closed
 You stopped countin’ ‘em, yet?
 
 #a:desc
@@ -44,10 +36,16 @@ You shake your head. It’s not exactly an option you have.
 #c:gravedigger
 #p:eyes closed smile
 Fair enough. 
+
+#c:gravedigger
 #p:smile
 Does get easier when y’do, though. 
+
+#c:gravedigger
 #p:pout
 There’ll be a few waitin’ for you tonight. 
+
+#c:gravedigger
 #p:eyes closed
 How many exactly, I'm not sure… 
 
@@ -57,9 +55,9 @@ In the silence, you hear the jingling of metal, alongside thundering footsteps.
 They’re getting rapidly closer.
 A large black dog leaps out of the fog. The lantern it carries swings wildly until it is set by its side. 
 
-#a:enter grim
 #c:grim
 #p:neutral
+#a:enter
 Apologies for my lateness. I wasn’t sure you were going to be here tonight. 
 
 #c:gravedigger
@@ -85,6 +83,9 @@ You’ve seen how busy I’ve been.
 #c:grim
 #p:neutral
 I suppose I have. 
+
+#c:grim
+#p:neutral
 How many can you take tonight? 
 
 #a:desc
@@ -97,6 +98,9 @@ That ain’t many.
 #c:grim
 #p:squint
 It is some, at least. 
+
+#c:grim
+#p:squint
 Do you know how many you have to take? 
 
 #a:desc
