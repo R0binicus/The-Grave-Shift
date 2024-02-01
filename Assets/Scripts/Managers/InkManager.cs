@@ -143,19 +143,19 @@ public class InkManager : MonoBehaviour
             switch(speaker)
             {
                 case "gravedigger":
-                    return "Gravedigger";
+                    return "<font=\"Olde English Regular SDF\">G</font>ravedigger";
                 case "grim":
-                    return "Church Grim";
+                    return "<font=\"Olde English Regular SDF\">C</font>hurch Grim";
                 case "nina":
-                    return "Soul";
+                    return "<font=\"Olde English Regular SDF\">S</font>oul";
                 case "edward":
-                    return "Soul";
+                    return "<font=\"Olde English Regular SDF\">S</font>oul";
                 case "diane":
-                    return "Soul";
+                    return "<font=\"Olde English Regular SDF\">S</font>oul";
                 case "maureen":
-                    return "Soul";
+                    return "<font=\"Olde English Regular SDF\">S</font>oul";
                 case "kenneth":
-                    return "Soul";
+                    return "<font=\"Olde English Regular SDF\">S</font>oul";
                 default:
                     return "";
             }

@@ -823,6 +823,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2269473367723628952, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8749405010025187171, guid: dafffa1a9db1a77439c55747308e7bd2, type: 2}
     - target: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_Name
       value: QuestionButton (4)
@@ -903,8 +907,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.026499987, y: 0.11659992, z: 0}
-    m_Extent: {x: 2.2983, y: 4.0518, z: 0}
+    m_Center: {x: 0.027850032, y: 0.110850096, z: 0}
+    m_Extent: {x: 2.2867498, y: 4.05575, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -1628,6 +1632,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2269473367723628952, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8749405010025187171, guid: dafffa1a9db1a77439c55747308e7bd2, type: 2}
     - target: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_Name
       value: QuestionButton (1)
@@ -1810,8 +1818,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dafffa1a9db1a77439c55747308e7bd2, type: 2}
+  m_sharedMaterial: {fileID: 8749405010025187171, guid: dafffa1a9db1a77439c55747308e7bd2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2161,8 +2169,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.37985003, y: -0.11880016, z: 0}
-    m_Extent: {x: 3.6507502, y: 5.9136, z: 0}
+    m_Center: {x: -0.39300013, y: -0.125, z: 0}
+    m_Extent: {x: 3.651, y: 5.9162, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -2355,6 +2363,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2269473367723628952, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8749405010025187171, guid: dafffa1a9db1a77439c55747308e7bd2, type: 2}
     - target: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_Name
       value: QuestionButton (3)
@@ -2729,7 +2741,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Select a gravestone to judge
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dafffa1a9db1a77439c55747308e7bd2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2793,7 +2805,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1028583682
@@ -3547,8 +3559,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.39469993, y: 0.09069991, z: 0}
-    m_Extent: {x: 3.1625, y: 5.3499002, z: 0}
+    m_Center: {x: 0.40339994, y: 0.08395004, z: 0}
+    m_Extent: {x: 3.1615, y: 5.34555, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -3711,8 +3723,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.17155004, y: 0.3201499, z: 0}
-    m_Extent: {x: 3.13955, y: 6.03685, z: 0}
+    m_Center: {x: -0.17474997, y: 0.31130004, z: 0}
+    m_Extent: {x: 3.13655, y: 6.0290003, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -4251,7 +4263,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quota Met
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dafffa1a9db1a77439c55747308e7bd2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4315,7 +4327,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1548546133
@@ -4675,8 +4687,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.3208499, y: 0.062000036, z: 0}
-    m_Extent: {x: 4.20815, y: 5.9188004, z: 0}
+    m_Center: {x: -0.31870008, y: 0.06344986, z: 0}
+    m_Extent: {x: 4.2099, y: 5.91365, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -5162,8 +5174,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Test
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dafffa1a9db1a77439c55747308e7bd2, type: 2}
+  m_sharedMaterial: {fileID: 8749405010025187171, guid: dafffa1a9db1a77439c55747308e7bd2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5758,6 +5770,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2269473367723628952, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8749405010025187171, guid: dafffa1a9db1a77439c55747308e7bd2, type: 2}
     - target: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_Name
       value: QuestionButton (2)
@@ -6207,6 +6223,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 952960294}
+    - target: {fileID: 2269473367723628952, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8749405010025187171, guid: dafffa1a9db1a77439c55747308e7bd2, type: 2}
+    - target: {fileID: 2269473367723628952, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5784703139973559557, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_Name
       value: QuestionButton
