@@ -392,6 +392,7 @@ public class GameplayUIManager : MonoBehaviour
         _speakerPanel.SetActive(true);
         _dialoguePanel.SetActive(true);
         _questionsPanel.SetActive(true);
+        _characterPanel.SetActive(true);
     }
 
     private void ShowSoulSelectPanel()

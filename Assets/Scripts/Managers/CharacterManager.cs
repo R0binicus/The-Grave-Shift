@@ -43,6 +43,11 @@ public class CharacterManager : MonoBehaviour
     {
         EventManager.EventUnsubscribe(EventType.INK_TOGGLE_CHARACTER, ToggleCharacter);
         EventManager.EventUnsubscribe(EventType.INK_LINES, SetPortrait);
+
+        foreach (KeyValuePair<string, Character> character in _characters)
+        {
+            character.Value.DefaultExpression();
+        }
     }
 
     private void Start()

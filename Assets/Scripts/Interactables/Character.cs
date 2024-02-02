@@ -30,10 +30,16 @@ public class Character : MonoBehaviour
         {
             if (face.Name == expression)
             {
-                Debug.Log(face.Sprite);
                 _image.sprite = face.Sprite;
                 return;
             }
         }
-    }   
+
+        DefaultExpression();
+    } 
+
+    public void DefaultExpression()
+    {
+        _image.sprite = _facialExpressions[0].Sprite;
+    }  
 }
