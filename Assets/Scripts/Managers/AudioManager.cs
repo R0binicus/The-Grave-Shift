@@ -80,6 +80,11 @@ public class AudioManager : MonoBehaviour
             {
                 if (!CurrentSoundsList.Contains(sound))
                 {
+                    if (clipSound.randomisePitch)
+                    {
+                        source.pitch = 1f;
+                        source.pitch = UnityEngine.Random.Range(0.7f, 1.3f);
+                    }
                     source.PlayOneShot(clipSound.audioClip, clipSound.volume * _sfxVolume);
                     StartCoroutine(DoNotPlayMultipleOfSame(sound));
                 }
@@ -205,5 +210,6 @@ public class SoundAudioClip
 {
     public SoundType sound;
     public AudioClip audioClip;
+    public bool randomisePitch = false;
     [Range(0, 1)] public float volume = 1f;
 }

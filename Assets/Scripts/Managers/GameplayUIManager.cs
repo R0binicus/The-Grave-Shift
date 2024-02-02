@@ -4,6 +4,7 @@ using System.Linq;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
+using System;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -28,6 +29,9 @@ public class GameplayUIManager : MonoBehaviour
     [Header("Sound")]
     [SerializeField] SoundType _nextDialogueSound;
     [SerializeField] SoundType _nextDialogueSound2;
+    [SerializeField] SoundType _nextDialogueSound3;
+    [SerializeField] SoundType _decisionBellSound;
+    [SerializeField] SoundType _questionDialogueSound2;
 
     // Internal Data
     private TextMeshProUGUI _speakerText;
@@ -159,7 +163,23 @@ public class GameplayUIManager : MonoBehaviour
         }
         else
         {
-            EventManager.EventTrigger(EventType.SFX, _nextDialogueSound);
+            System.Random r = new System.Random();
+            int rInt = r.Next(1, 4);
+            switch(rInt) 
+            {
+                case 1:
+                    EventManager.EventTrigger(EventType.SFX, _nextDialogueSound);
+                    break;
+                case 2:
+                    EventManager.EventTrigger(EventType.SFX, _nextDialogueSound2);
+                    break;
+                case 3:
+                    EventManager.EventTrigger(EventType.SFX, _nextDialogueSound3);
+                    break;
+                default:
+                    Debug.LogError("RANDOM NUMBER NOT IN RANGE");
+                    break;
+            }
             EventManager.EventTrigger(EventType.GAMEPLAYUI_NEXTLINE, null);
         }
     }
@@ -445,8 +465,12 @@ public class GameplayUIManager : MonoBehaviour
                 return "";
         }   
     }
-    public void NextDialogueSound2()
+    public void QuestionDialogueSound()
     {
-        EventManager.EventTrigger(EventType.SFX, _nextDialogueSound2);
+        EventManager.EventTrigger(EventType.SFX, _questionDialogueSound2);
+    }
+    public void DecisionBellSound()
+    {
+        EventManager.EventTrigger(EventType.SFX, _decisionBellSound);
     }
 }

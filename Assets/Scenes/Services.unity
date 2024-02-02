@@ -1284,25 +1284,48 @@ MonoBehaviour:
   SoundAudioClipArray:
   - sound: 0
     audioClip: {fileID: 8300000, guid: d281efd631401db428b67bc76b35e444, type: 3}
+    randomisePitch: 0
     volume: 1
   - sound: 1
     audioClip: {fileID: 8300000, guid: 8a1bf0a99c0279f48be64954b4689477, type: 3}
+    randomisePitch: 0
     volume: 1
   - sound: 2
     audioClip: {fileID: 8300000, guid: cff684512d45c974a973a3b301ef5503, type: 3}
+    randomisePitch: 0
     volume: 1
   - sound: 3
     audioClip: {fileID: 8300000, guid: c60682aea0c45a143b0a32a076bbe79c, type: 3}
+    randomisePitch: 1
     volume: 1
   - sound: 4
     audioClip: {fileID: 8300000, guid: e775038f95a9a2a44a1d2cb67ecf782e, type: 3}
+    randomisePitch: 0
+    volume: 1
+  - sound: 5
+    audioClip: {fileID: 8300000, guid: a25a4c8b165606342814947429aa2c22, type: 3}
+    randomisePitch: 1
+    volume: 0.6
+  - sound: 6
+    audioClip: {fileID: 8300000, guid: 29ef059a90a585c44ab8ab7dac060fee, type: 3}
+    randomisePitch: 1
+    volume: 0.55
+  - sound: 7
+    audioClip: {fileID: 8300000, guid: 92120871b33ccea49b36d6ee8a19990a, type: 3}
+    randomisePitch: 0
+    volume: 1
+  - sound: 8
+    audioClip: {fileID: 8300000, guid: 6c88c35cdb7c2424f968b03972144b48, type: 3}
+    randomisePitch: 0
     volume: 1
   MusicAudioClipArray:
   - sound: 3
     audioClip: {fileID: 0}
+    randomisePitch: 0
     volume: 1
   - sound: 4
     audioClip: {fileID: 0}
+    randomisePitch: 0
     volume: 1
   _mixer: {fileID: 24100000, guid: d4520651c58a56f43989f6571f86d3ec, type: 2}
 --- !u!114 &1775386245

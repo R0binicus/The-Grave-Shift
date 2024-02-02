@@ -812,16 +812,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 952960294}
     - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuestionSelectedButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: NextDialogueSound2
       objectReference: {fileID: 0}
     - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -927,8 +919,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.03219998, y: 0.12170005, z: 0}
-    m_Extent: {x: 2.2891002, y: 4.0518, z: 0}
+    m_Center: {x: 0.03214991, y: 0.11405003, z: 0}
+    m_Extent: {x: 2.29275, y: 4.04715, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -1148,6 +1140,18 @@ MonoBehaviour:
         - m_Target: {fileID: 952960294}
           m_TargetAssemblyTypeName: GameplayUIManager, Assembly-CSharp
           m_MethodName: HeavenButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 952960294}
+          m_TargetAssemblyTypeName: GameplayUIManager, Assembly-CSharp
+          m_MethodName: DecisionBellSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1621,16 +1625,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 952960294}
     - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuestionSelectedButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: NextDialogueSound2
       objectReference: {fileID: 0}
     - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2189,8 +2185,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.38600004, y: -0.123649836, z: 0}
-    m_Extent: {x: 3.646, y: 5.91665, z: 0}
+    m_Center: {x: -0.38890004, y: -0.12440014, z: 0}
+    m_Extent: {x: 3.648, y: 5.9231, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -2352,16 +2348,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 952960294}
     - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuestionSelectedButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: NextDialogueSound2
       objectReference: {fileID: 0}
     - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2565,6 +2553,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 952960294}
+          m_TargetAssemblyTypeName: GameplayUIManager, Assembly-CSharp
+          m_MethodName: DecisionBellSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &952960292
 GameObject:
   m_ObjectHideFlags: 0
@@ -2632,7 +2632,10 @@ MonoBehaviour:
   - {fileID: 187065973}
   - {fileID: 567181094}
   _nextDialogueSound: 3
-  _nextDialogueSound2: 4
+  _nextDialogueSound2: 5
+  _nextDialogueSound3: 6
+  _decisionBellSound: 7
+  _questionDialogueSound2: 4
   _charactersPerSec: 20
   _interpunctuationDelay: 0.5
 --- !u!114 &952960295
@@ -3580,8 +3583,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.40145004, y: 0.07969999, z: 0}
-    m_Extent: {x: 3.1638498, y: 5.3458, z: 0}
+    m_Center: {x: 0.40579998, y: 0.08424997, z: 0}
+    m_Extent: {x: 3.1622, y: 5.34085, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -3744,8 +3747,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.18395007, y: 0.31330013, z: 0}
-    m_Extent: {x: 3.1426501, y: 6.0414, z: 0}
+    m_Center: {x: -0.17595005, y: 0.30430007, z: 0}
+    m_Extent: {x: 3.13675, y: 6.0389004, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -4708,8 +4711,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.31575012, y: 0.061399937, z: 0}
-    m_Extent: {x: 4.21005, y: 5.9181, z: 0}
+    m_Center: {x: -0.3173499, y: 0.058449984, z: 0}
+    m_Extent: {x: 4.20325, y: 5.92575, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -5760,16 +5763,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 952960294}
     - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuestionSelectedButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: NextDialogueSound2
       objectReference: {fileID: 0}
     - target: {fileID: 1770919687663999278, guid: a6138e9f9c4adb740a8ef7c579c36435, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
