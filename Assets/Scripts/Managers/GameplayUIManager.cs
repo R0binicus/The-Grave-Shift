@@ -278,14 +278,30 @@ public class GameplayUIManager : MonoBehaviour
 
         _speakerText.text = "Questions";
 
+        // Too many questions and not enough question text boxes!
         if (questions.Count > _questionsText.Count)
         {
             Debug.LogError("There are more questions than question buttons!");
         }
-
-        for (int i = 0; i < _questionsText.Count; i++)
+        // There are enough question text boxes
+        else 
         {
-            _questionsText[i].text = questions[i].text;
+            int i = 0; // questions text box index
+
+            foreach (Choice choice in questions)
+            {
+                _questionsText[i].text = choice.text;
+                i++;
+            }
+
+            if (i < _questionsText.Count - 1)
+            {
+                while (i < _questionsText.Count)
+                {
+                    _questionsText[i].text = "";
+                    i++;
+                }
+            }
         }
 
         ShowQuestionsPanel();
@@ -295,6 +311,7 @@ public class GameplayUIManager : MonoBehaviour
     {
         _dialogueText.text = "";
 
+        // Empty the question text boxes of old text
         foreach (TextMeshProUGUI text in _questionsText)
         {
             text.text = "";

@@ -28,14 +28,24 @@ Ah. Was wondering when you was gonna show up.
 #p:eyes closed smile
 Been a few nights, hasn’t it?
 
-#a:desc
-You shrug. You've been busy.
-
-#c:gravedigger
++ [I guess.]
+    -> Guess
+ + [I've been busy.]
+    -> Busy
+    
+=== Guess ===
+#c:gravedigger 
 #p:smile
-Don’t think I’m complaining.
+Don’t think I’m complaining. 
 #p:eyes closed
-We had our work to do. 
+We had our work to do.
+-> Continuing
+
+=== Busy === 
+#c:gravedigger
+#p:pout
+Haven’t we all.
+#p:eyes closed
 You stopped countin’ ‘em, yet?
 
 #a:desc
@@ -43,9 +53,13 @@ You shake your head. It’s not exactly an option you have.
 
 #c:gravedigger
 #p:eyes closed smile
-Fair enough. 
+Fair enough.
 #p:smile
-Does get easier when y’do, though. 
+Does get easier when y’do, though.
+-> Continuing
+
+=== Continuing ===
+#c:gravedigger
 #p:pout
 There’ll be a few waitin’ for you tonight. 
 #p:eyes closed
@@ -115,3 +129,4 @@ Night won't last forever. Better get started.
 You sigh, and turn your attention away from the minders of the graveyard.
 Who calls to you tonight? 
 You can only speak to each of them for a few moments - you've found three questions suits you best. 
+-> DONE
