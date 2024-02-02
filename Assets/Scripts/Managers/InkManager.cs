@@ -174,18 +174,14 @@ public class InkManager : MonoBehaviour
                 // If tag is a character
                 else if (tag.Contains(Character))
                 {
-                    if (tag.Contains("grim"))
+                    if (tag.Contains("grim") || tag.Contains("gravedigger"))
                     {
-                        _currentSpeaker.Speaker = "Church Grim";
-                    }
-                    else if (tag.Contains("gravedigger"))
-                    {
-                        _currentSpeaker.Speaker = "Gravedigger";
+                        _currentSpeaker.Speaker = tag.Remove(0, 2);
                     }
                     else if (tag.Contains("nina") || tag.Contains("edward") || tag.Contains("diane")
                         || tag.Contains("maureen") || tag.Contains("kenneth"))
                     {
-                        _currentSpeaker.Speaker = "Soul";
+                        _currentSpeaker.Speaker = "soul";
                     }
                     else 
                     {

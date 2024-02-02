@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public class FacialExpressions
@@ -16,11 +17,11 @@ public class Character : MonoBehaviour
     [SerializeField] private List<FacialExpressions> _facialExpressions;
 
     // Internal Data
-    private SpriteRenderer _spriteRenderer;
+    private Image _image;
 
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _image = GetComponent<Image>();
     }
 
     public void ShowExpression(string expression)
@@ -29,7 +30,8 @@ public class Character : MonoBehaviour
         {
             if (face.Name == expression)
             {
-                _spriteRenderer.sprite = face.Sprite;
+                Debug.Log(face.Sprite);
+                _image.sprite = face.Sprite;
                 return;
             }
         }

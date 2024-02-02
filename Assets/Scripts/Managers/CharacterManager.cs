@@ -45,6 +45,11 @@ public class CharacterManager : MonoBehaviour
         EventManager.EventUnsubscribe(EventType.INK_LINES, SetPortrait);
     }
 
+    private void Start()
+    {
+        HideAllCharacters();
+    }
+
     public void ToggleCharacter(object data)
     {
         if (data == null)
@@ -53,7 +58,6 @@ public class CharacterManager : MonoBehaviour
         }
 
         CharacterData characterState = (CharacterData)data;
-                    Debug.Log(characterState.Character);
 
         // Check if character exists, then toggle
         if (_characters.ContainsKey(characterState.Character))
@@ -70,7 +74,6 @@ public class CharacterManager : MonoBehaviour
         }
 
         InkData currentSpeaker = (InkData)data;
-
         // Check if character exists, then set portrait
         if (_characters.ContainsKey(currentSpeaker.Speaker))
         {

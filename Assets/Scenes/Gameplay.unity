@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &90035264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 71287e0e13ed1d540b9b2c211be8afc9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5a90829fd14e5248b821e3c340ab0fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -211,7 +211,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33308504a93fe24bbf520dfbf64e273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _facialExpressions: []
+  _facialExpressions:
+  - <Name>k__BackingField: eyes closed
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 92b3a8229d082014b8ba902d885d3725, type: 3}
+  - <Name>k__BackingField: eyes closed smile
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 22cc3970a3ed35148908297bd69f5034, type: 3}
+  - <Name>k__BackingField: freakin
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 8f13719651f159b4fa966f948f48eea7, type: 3}
+  - <Name>k__BackingField: look away stressed
+    <Sprite>k__BackingField: {fileID: 21300000, guid: acb6d1b11736a4541bbc9088345c149f, type: 3}
+  - <Name>k__BackingField: pout
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 5337faffe95d5dc4fb1eae94a55ea322, type: 3}
+  - <Name>k__BackingField: smile
+    <Sprite>k__BackingField: {fileID: 21300000, guid: f5a90829fd14e5248b821e3c340ab0fd, type: 3}
 --- !u!1 &94284603
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &94284604
 RectTransform:
   m_ObjectHideFlags: 0
@@ -300,7 +312,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33308504a93fe24bbf520dfbf64e273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _facialExpressions: []
+  _facialExpressions:
+  - <Name>k__BackingField: neutral
+    <Sprite>k__BackingField: {fileID: 21300000, guid: c0f6ed8fd1b1b1c499d13a35c3ca4d3e, type: 3}
+  - <Name>k__BackingField: displeased
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 21109a9429af6134182057cc40c3ca17, type: 3}
+  - <Name>k__BackingField: pleased
+    <Sprite>k__BackingField: {fileID: 21300000, guid: dfbe92921be6d4746ab69afd99123620, type: 3}
+  - <Name>k__BackingField: squint
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 3a3694ebf2502a34b8adb6c2b9953c4a, type: 3}
 --- !u!1 &171858150
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,8 +927,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.025900006, y: 0.110550046, z: 0}
-    m_Extent: {x: 2.2926002, y: 4.05495, z: 0}
+    m_Center: {x: 0.03219998, y: 0.12170005, z: 0}
+    m_Extent: {x: 2.2891002, y: 4.0518, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -2169,8 +2189,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.38549995, y: -0.12954998, z: 0}
-    m_Extent: {x: 3.6429, y: 5.91985, z: 0}
+    m_Center: {x: -0.38600004, y: -0.123649836, z: 0}
+    m_Extent: {x: 3.646, y: 5.91665, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -3560,8 +3580,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.39705002, y: 0.08704996, z: 0}
-    m_Extent: {x: 3.16755, y: 5.34105, z: 0}
+    m_Center: {x: 0.40145004, y: 0.07969999, z: 0}
+    m_Extent: {x: 3.1638498, y: 5.3458, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -3724,8 +3744,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.17554998, y: 0.3091998, z: 0}
-    m_Extent: {x: 3.13555, y: 6.0425, z: 0}
+    m_Center: {x: -0.18395007, y: 0.31330013, z: 0}
+    m_Extent: {x: 3.1426501, y: 6.0414, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -4688,8 +4708,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.31350005, y: 0.050899982, z: 0}
-    m_Extent: {x: 4.2042003, y: 5.9171, z: 0}
+    m_Center: {x: -0.31575012, y: 0.061399937, z: 0}
+    m_Extent: {x: 4.21005, y: 5.9181, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -5268,7 +5288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1799736209
 RectTransform:
   m_ObjectHideFlags: 0
