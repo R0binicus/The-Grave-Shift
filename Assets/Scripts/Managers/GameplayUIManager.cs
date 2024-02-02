@@ -17,7 +17,7 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject _characterPanel;
     [SerializeField] private GameObject _questionsPanel;
     [SerializeField] private GameObject _decisionPanel;
-    [SerializeField] private GameObject _quotaPanel;
+    //[SerializeField] private GameObject _quotaPanel;
 
     [Header("UI Objects")]
     [SerializeField] private GameObject _heavenButton;
@@ -38,8 +38,8 @@ public class GameplayUIManager : MonoBehaviour
     private TextMeshProUGUI _dialogueText;
     private List<Button> _questionsButtons;
     private List<TextMeshProUGUI> _questionsText;
-    private TextMeshProUGUI _quotaText;
-    private int _hellQuota;
+    //private TextMeshProUGUI _quotaText;
+    //private int _hellQuota;
 
     // Typewriter data
     private int _currentCharacterIndex;
@@ -65,7 +65,7 @@ public class GameplayUIManager : MonoBehaviour
 
         _simpleDelay = new WaitForSeconds(1/_charactersPerSec);
         _interpunctuationWait = new WaitForSeconds(_interpunctuationDelay);
-        _quotaText = _quotaPanel.GetComponentInChildren<TextMeshProUGUI>();
+        //_quotaText = _quotaPanel.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void OnEnable()
@@ -77,9 +77,9 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventSubscribe(EventType.DECISION, DecisionHandler);
         EventManager.EventSubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
         EventManager.EventSubscribe(EventType.SENDSETTING, SettingsSendHandler);
-        EventManager.EventSubscribe(EventType.QUOTA, QuotaHandler);
+        //EventManager.EventSubscribe(EventType.QUOTA, QuotaHandler);
         EventManager.EventSubscribe(EventType.END, EndHandler);
-        EventManager.EventSubscribe(EventType.QUOTASEND, QuotaSendHandler);
+        //EventManager.EventSubscribe(EventType.QUOTASEND, QuotaSendHandler);
     }
 
     private void OnDisable()
@@ -91,9 +91,9 @@ public class GameplayUIManager : MonoBehaviour
         EventManager.EventUnsubscribe(EventType.DECISION, DecisionHandler);
         EventManager.EventUnsubscribe(EventType.INK_QUESTIONS, QuestionsHandler);
         EventManager.EventUnsubscribe(EventType.SENDSETTING, SettingsSendHandler);
-        EventManager.EventUnsubscribe(EventType.QUOTA, QuotaHandler);
+        //EventManager.EventUnsubscribe(EventType.QUOTA, QuotaHandler);
         EventManager.EventUnsubscribe(EventType.END, EndHandler);
-        EventManager.EventUnsubscribe(EventType.QUOTASEND, QuotaSendHandler);
+        //EventManager.EventUnsubscribe(EventType.QUOTASEND, QuotaSendHandler);
     }
 
     private void Start()
@@ -303,41 +303,41 @@ public class GameplayUIManager : MonoBehaviour
         ShowDecisionPanel();
     }
 
-    public void QuotaHandler(object data)
-    {
-        Debug.Log("yes");
-        if (data == null)
-        {
-            Debug.LogError("QuotaHandler did not receive Questions!");
-        }
+    // public void QuotaHandler(object data)
+    // {
+    //     Debug.Log("yes");
+    //     if (data == null)
+    //     {
+    //         Debug.LogError("QuotaHandler did not receive Questions!");
+    //     }
 
-        int soulsInHell = (int)data;
+    //     int soulsInHell = (int)data;
 
-        if (soulsInHell >= _hellQuota)
-        {
-            _quotaText.text = "Quota was met...";
-        }
-        else 
-        {
-            _quotaText.text = "Quota was NOT met...";
-        }
+    //     if (soulsInHell >= _hellQuota)
+    //     {
+    //         _quotaText.text = "Quota was met...";
+    //     }
+    //     else 
+    //     {
+    //         _quotaText.text = "Quota was NOT met...";
+    //     }
 
-        ShowQuotaPanel();
-    }
+    //     ShowQuotaPanel();
+    // }
 
-    public void QuotaSendHandler(object data)
-    {
-        if (data == null)
-        {
-            Debug.LogError("QuotaSendHandler did not receive Questions!");
-        }
+    // public void QuotaSendHandler(object data)
+    // {
+    //     if (data == null)
+    //     {
+    //         Debug.LogError("QuotaSendHandler did not receive Questions!");
+    //     }
 
-        _hellQuota = (int)data;
-    }
+    //     _hellQuota = (int)data;
+    // }
 
     public void EndHandler(object data)
     {
-        //ShowDialoguePanel();
+        ShowDialoguePanel();
     }
 
     public void SettingsSendHandler(object data)
@@ -362,7 +362,7 @@ public class GameplayUIManager : MonoBehaviour
         _questionsPanel.SetActive(false);
         _soulSelectPanel.SetActive(false);
         _decisionPanel.SetActive(false);
-        _quotaPanel.SetActive(false);
+        //_quotaPanel.SetActive(false);
     }
     private void ShowDialoguePanel()
     {
@@ -407,13 +407,13 @@ public class GameplayUIManager : MonoBehaviour
         _decisionPanel.SetActive(true);
     }
 
-    private void ShowQuotaPanel()
-    {
-        HideAllPanels();
-        _quotaPanel.SetActive(true);
-        _speakerPanel.SetActive(true);
-        _dialoguePanel.SetActive(true);
-    }
+    // private void ShowQuotaPanel()
+    // {
+    //     HideAllPanels();
+    //     _quotaPanel.SetActive(true);
+    //     _speakerPanel.SetActive(true);
+    //     _dialoguePanel.SetActive(true);
+    // }
     #endregion
 
     #region TYPEWRITER
