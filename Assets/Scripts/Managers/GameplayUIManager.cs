@@ -211,7 +211,6 @@ public class GameplayUIManager : MonoBehaviour
         Color fromColor = _redPointerSprite.color;
         Color toColor = Color.HSVToRGB(0/360f, 0f, 1f);
         LeanTween.value( _redPointer, setColorCallback, fromColor, toColor, .25f );
-        ResetQuestions();
     }
 
     public void HellButton()
@@ -221,7 +220,6 @@ public class GameplayUIManager : MonoBehaviour
         Color fromColor = _redPointerSprite.color;
         Color toColor = Color.HSVToRGB(0/360f, 0f, 1f);
         LeanTween.value( _redPointer, setColorCallback, fromColor, toColor, .25f );
-        ResetQuestions();
     }
     #endregion
 
@@ -414,6 +412,7 @@ public class GameplayUIManager : MonoBehaviour
 
     private void ShowSoulSelectPanel()
     {
+        ResetQuestions();
         HideAllPanels();
         _soulSelectPanel.SetActive(true);
     }
