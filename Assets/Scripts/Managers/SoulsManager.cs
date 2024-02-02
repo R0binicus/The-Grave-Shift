@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum SoulStatus
 {
@@ -22,7 +23,6 @@ public class SoulsManager : MonoBehaviour
     private void Awake()
     {
         SoulsSetup();
-        _soulsParent.SetActive(false);
     }
 
     private void OnEnable()
@@ -65,18 +65,29 @@ public class SoulsManager : MonoBehaviour
 
         if (IsFinishedJudging())
         {
-            _soulsParent.SetActive(false);
+            // Make sure all souls are not interactable before moving on to ending
+            ToggleInteractableSouls(false);
             EventManager.EventTrigger(EventType.QUOTA, SoulsInHell());
         }
+        // Have all unjudged souls be available to interact with
         else
         {
-            _soulsParent.SetActive(true);
+            ToggleInteractableSouls(true);
         }
     }
 
     public void DialogueHandler(object data)
     {
-        _soulsParent.SetActive(false);
+        // Make sure no souls are interactable
+        ToggleInteractableSouls(false);
+    }
+
+    public void ToggleInteractableSouls(bool toggle)
+    {
+        foreach (Soul soul in _souls)
+        {
+            soul.Interactable(toggle);
+        }
     }
 
     public bool IsFinishedJudging()

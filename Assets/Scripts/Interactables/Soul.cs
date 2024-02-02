@@ -10,12 +10,12 @@ public class Soul : MonoBehaviour
     // Internal Data
     public SoulStatus Status { get; private set; } = SoulStatus.UNJUDGED;
 
-    private GravestoneHighlight _grave;
+    private GravestoneHighlight _graveHighlight;
     private SoulsManager _manager;
 
     private void Awake()
     {
-        _grave = GetComponent<GravestoneHighlight>();
+        _graveHighlight = GetComponent<GravestoneHighlight>();
     }
 
     public void SetManager(SoulsManager manager)
@@ -26,17 +26,30 @@ public class Soul : MonoBehaviour
     public void SelectedToJudge()
     {
         SetStatus(SoulStatus.JUDGING);
-        Judged(true);
+        _graveHighlight.Interactable(false);
         _manager.SoulSelected(this);
     }
 
+    // Set a Soul's judged status
     public void SetStatus(SoulStatus status)
     {
         Status = status;
+        _graveHighlight.ChangeHighlightColour();
     }
 
-    public void Judged(bool toggle)
+    public void Interactable(bool toggle)
     {
-        _grave.Judged(toggle);
+        if (toggle)
+        {
+            // Make sure already judged souls are not interactable
+            if (Status == SoulStatus.UNJUDGED)
+            {
+                _graveHighlight.Interactable(toggle);
+            }
+        }
+        else 
+        {
+            _graveHighlight.Interactable(toggle);
+        }
     }
 }
