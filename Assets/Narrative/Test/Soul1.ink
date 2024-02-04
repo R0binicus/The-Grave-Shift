@@ -16,7 +16,8 @@ A woman, whose life force drifts past your fingertips. She was buried not long a
 #p:eyes closed smile
 Hey, I know this one.
 
-#c:grim
+#c:grim 
+#p:neutral
 She’s been up a lot lately.
 She keeps speaking to me, telling me she has been lonely.
 No one visits her.
@@ -67,7 +68,8 @@ No one, I guess. I’m just me.
 I didn’t do anythin' wonderfully helpful, but nothin’ harmful, neither.
 I just went to work, went home, every day. Whenever I had to.
 
-#c:grim
+#c:grim 
+#p:pleased
 That is enough, to make you someone.
 
 #c:nina
@@ -157,7 +159,8 @@ So... whaddaya think?
 #p:eyes closed neutral
 I... Hm...
 
-#c:grim
+#c:grim 
+#p:squint
 It is not our role to pass judgement.
 Make your decision, arbiter.
 -> END

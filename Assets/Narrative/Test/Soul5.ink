@@ -3,16 +3,25 @@ VAR questionsAsked5 = 0
 -> Intro5
 
 === Intro5 ===
+#a:desc
 You touch a headstone, and call forth the spirit that resides within.
 A young woman grabs upwards, hauling herself back towards the land of the living.
-This one's death was meant to have been tragic. #gravedigger #portait: pout
-She certainly ain't happy about it. #gravedigger #portrait: look away stressed
-That isn't terribly uncommon. #grim #portrait: neutral
-I'm sure she will have more to say on the matter. #grim #portrait: displeased
+#c:gravedigger
+#p:pout
+This one's death was meant to have been tragic. 
+#p:look away stressed
+She certainly ain't happy about it. 
+#c:grim 
+#p:neutral
+That isn't terribly uncommon. 
+#p:displeased
+I'm sure she will have more to say on the matter. 
 -> Questions5
 
 === Questions5 ===
-What can I do you for, then? Come to help me out at all? #diane
+#a:enter soul
+#c:diane
+What can I do you for, then? Come to help me out at all? 
  + [Who were you?]
     ~ questionsAsked5 = questionsAsked5 + 1
     -> Question1_5
@@ -34,12 +43,13 @@ What can I do you for, then? Come to help me out at all? #diane
     -> Question5_5
 
 === Question1_5 ===
+#c:diane
 Name’s Diane. #diane
-That what you were asking? #diane
-Or who I was - what I did. #diane
-I just lived on the farm. #diane
-I looked after the animals, I cleaned the house, and I stayed home when I was meant to. #diane
-What else was I meant to do? #diane
+That what you were asking? 
+Or who I was - what I did. 
+I just lived on the farm. 
+I looked after the animals, I cleaned the house, and I stayed home when I was meant to. 
+What else was I meant to do? 
 
 
 {questionsAsked5 == 3:
@@ -49,12 +59,13 @@ What else was I meant to do? #diane
 }
 
 === Question2_5 ===
-The storms, they got real bad. #diane
-I think it’s the storm’s fault, anyway. #diane
-The dust got into everything. #diane
-My house, my chest, my throat. #diane
-Made it damned hard to breathe. #diane
-So hard, I darn well died of it. #diane
+#c:diane
+The storms, they got real bad. 
+I think it’s the storm’s fault, anyway. 
+The dust got into everything. 
+My house, my chest, my throat. 
+Made it damned hard to breathe. 
+So hard, I darn well died of it. 
 
 {questionsAsked5 == 3:
     -> End5
@@ -63,12 +74,13 @@ So hard, I darn well died of it. #diane
 }
 
 === Question3_5 ===
-The idea I could leave, one day. #diane
-I did my work, kept my head down, and hoped that one day one of ‘em would tell me it’d been enough. #diane
-That I could go. #diane
-My dear ol’ Pa wasn’t changing his mind, so I had to make sure someone else had the chance to. #diane
-And then they didn’t! #diane
-Because all I did was keep my damned head down. #diane
+#c:diane
+The idea I could leave, one day. 
+I did my work, kept my head down, and hoped that one day one of ‘em would tell me it’d been enough. 
+That I could go. 
+My dear ol’ Pa wasn’t changing his mind, so I had to make sure someone else had the chance to. 
+And then they didn’t! 
+Because all I did was keep my damned head down. 
 
 {questionsAsked5 == 3:
     -> End5
@@ -77,11 +89,12 @@ Because all I did was keep my damned head down. #diane
 }
 
 === Question4_5 ===
-I was hopin’ to get out more. #diane
-Travel and the like. Not everything can be fields and paddocks all the way down, right? #diane
-When my Pa finally got knocked off, I thought that’d make life easier. #diane
-That ain’t the way though. Just means someone else gets to make all the rules. #diane
-And it sure as hell weren’t me. #diane
+#c:diane
+I was hopin’ to get out more. 
+Travel and the like. Not everything can be fields and paddocks all the way down, right?
+When my Pa finally got knocked off, I thought that’d make life easier. 
+That ain’t the way though. Just means someone else gets to make all the rules. 
+And it sure as hell weren’t me. 
 
 
 {questionsAsked5 == 3:
@@ -91,11 +104,12 @@ And it sure as hell weren’t me. #diane
 }
 
 === Question5_5 ===
-Ha! Fuck no. #diane
-No one did me any damn good. #diane
-All I wanted was to get the hell outta there. #diane
-Least they buried me closer to the city. #diane
-Got darn close to giving me my one final wish. #diane
+#c:diane
+Ha! Fuck no. 
+No one did me any damn good. 
+All I wanted was to get the hell outta there. 
+Least they buried me closer to the city. 
+Got darn close to giving me my one final wish. 
 
 {questionsAsked5 == 3:
     -> End5
@@ -104,7 +118,12 @@ Got darn close to giving me my one final wish. #diane
 }
 
 === End5 ===
-So... whaddaya think? #gravedigger #portrait: smile
-It is not our role to pass judgement. #grim.
-Make your decision, arbiter. #grim
+#a:exit soul
+#c:gravedigger
+#p:smile
+So... whaddaya think? 
+#c:grim 
+#p:neutral
+It is not our role to pass judgement. 
+Make your decision, arbiter. 
 -> END

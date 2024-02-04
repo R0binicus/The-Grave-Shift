@@ -3,16 +3,23 @@ VAR questionsAsked3 = 0
 -> Intro3
 
 === Intro3 ===
+#a:desc
 You touch a headstone, and call forth the spirit that resides within.
 The soul seems younger. Hesitant.
-The funeral for this one was crowded. #gravedigger #smile
-Makes you feel kind of bad for him. #gravedigger #portrait: eyes closed frown
-He was clearly loved. #grim
+#c:gravedigger #p:smile
+The funeral for this one was crowded.
+#p:eyes closed neutral
+Makes you feel kind of bad for him. 
+#c:grim #p:neutral
+He was clearly loved. 
 
 -> Questions_3
 
 === Questions_3 ===
-Good evening. Nice to meet... you? #edward
+#a:enter soul
+#c:edward
+Good evening. Nice to meet... you? 
+#a:desc
 You smile a little.
 
  + [Who were you?]
@@ -37,12 +44,13 @@ You smile a little.
 
 
 === Question1_3 ===
-I was a student. Studying. #edward
-I guess that’s not really who I was, though... #edward
-It’s hard to think of anything else. I spent so much time just… in school, or studying. #edward
-It’s not exactly easy to become a doctor. #edward
-It was all going to be worth it. #edward
-Once I got through all this work, I’d actually get to start helping people. #edward
+#c:edward
+I was a student. I was studying, I mean. 
+I guess that’s not really who I was, though... 
+It’s hard to think of anything else. I spent so much time just… in school, or studying. 
+It’s not exactly easy to become a doctor. 
+It was all going to be worth it.
+Once I got through all this work, I’d actually get to start helping people. 
 
 {questionsAsked3 == 3:
     -> End3
@@ -51,12 +59,13 @@ Once I got through all this work, I’d actually get to start helping people. #e
 }
 
 === Question2_3 ===
-An accident, I think. #edward
-I don’t know why anyone would... would do this, on purpose. #edward
-There was a car, and it was going rather fast. #edward
-They shouldn’t do that, and definitely not where people are walking! #edward
-Maybe they didn’t see me that late at night. #edward
-I just thought they’d go around me. But I suppose not. #edward
+#c:edward
+An accident, I think.
+I don’t know why anyone would... would do this, on purpose. 
+There was a car, and it was going rather fast. 
+They shouldn’t do that, and definitely not where people are walking! 
+Maybe they didn’t see me that late at night. 
+I just thought they’d go around me. But I suppose not. 
 
 
 {questionsAsked3 == 3:
@@ -65,11 +74,13 @@ I just thought they’d go around me. But I suppose not. #edward
     -> Questions_3
 }
 
-=== Question3_3 ===
-Um... That’s a big question. #edward
-I don’t really know if I can answer it. #edward
-Maybe if I had more time, but.. #edward
-Is that okay? #edward
+=== Question3_3 ==+
+#c:edward
+Um... That’s a big question. 
+I don’t really know if I can answer it. 
+Maybe if I had more time, but.. 
+Is that okay? '
+#a:desc
 You nod. There isn’t really any other choice. 
 
 {questionsAsked3 == 3:
@@ -79,12 +90,16 @@ You nod. There isn’t really any other choice.
 }
 
 === Question4_3 ===
-I wouldn’t want to be dead! #edward
-The gravedigger snickers softly. #gravedigger #portrait: eyes closed smile
-Sorry. If that’s impolite. #edward
-I simply wish that people had been a little more careful. #edward
-What did they even need a car for? And why did they need to travel that quickly? #edward
-I was just walking home. #edward
+#c:edward
+Well I bloody sure wouldn't want to be dead! 
+#a:desc
+#p:smile
+The gravedigger snickers softly. 
+#c:edward
+Sorry. If that’s impolite. 
+I simply wish that people had been a little more careful. 
+There's no need for anyone to be driving that fast. 
+I was just walking home.
 
 {questionsAsked3 == 3:
     -> End3
@@ -93,12 +108,13 @@ I was just walking home. #edward
 }
 
 === Question5_3 ===
-Everyone, I think. #edward
-There’s so many people that I wish I’d spoken to more. #edward
-I didn’t say enough to… to anyone, I don’t think. #edward
-People I was too shy to say hi to, people I didn’t speak up for. #edward
-It’s too late for all that now, and...#edward
-I miss the idea that I could try.#edward
+#c:edward
+Everyone, I think.
+There’s so many people that I wish I’d spoken to more. 
+I didn’t say enough to… to anyone, I don’t think. 
+People I was too shy to say hi to, people I didn’t speak up for. 
+It’s too late for all that now, and...
+I miss the idea that I could try.
 
 {questionsAsked3 == 3:
     -> End3
@@ -107,7 +123,14 @@ I miss the idea that I could try.#edward
 }
 
 === End3 ===
-Poor kid. Really thought he was gonna do great stuff, huh? #gravedigger #portrait: frown
-One would hope so. His confidence is... endearing. #grim
-What d'you think, then? #gravedigger #portrait: smile
+#a:exit soul
+#c:gravedigger 
+#p:pout
+Poor kid. Really thought he was gonna do great stuff, huh? 
+#c:grim 
+#p:squint
+One would hope so. His confidence is... endearing. 
+#c:gravedigger
+#p:smile
+What d'you think, then? 
 -> END
