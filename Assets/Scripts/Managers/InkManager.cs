@@ -24,6 +24,7 @@ public class InkManager : MonoBehaviour
     private InkData _currentSpeaker;
     private CharacterData _characterState;
     private GameplayState _state;
+    private bool _questionsToShow = false;
 
     // Ink Script Data
     private const string Action = "a:";
@@ -99,24 +100,27 @@ public class InkManager : MonoBehaviour
 
     public void NextLineHandler(object data)
     {
-        // If there are lines to parse
-        if (_currentScript.canContinue)
+        // If there are lines to parse and no questions
+        if (_currentScript.canContinue && !_questionsToShow)
         {
             _currentSpeaker.Line = _currentScript.Continue();
 
             // If no questions are to be displayed, handle tags and send next text line
-            if (_currentScript.currentChoices.Count == 0)
+            if (_currentScript.currentChoices.Count != 0)
             {
-                HandleTags(_currentScript.currentTags);
-                EventManager.EventTrigger(EventType.INK_LINES, _currentSpeaker);
+                _questionsToShow = true;
             }
-            // Display questions
-            else
-            {
-                EventManager.EventTrigger(EventType.INK_QUESTIONS, _currentScript.currentChoices);
-            }
+            
+            HandleTags(_currentScript.currentTags);
+            EventManager.EventTrigger(EventType.INK_LINES, _currentSpeaker);
         }
-        // If no more lines to parse, signal end of script
+        // Display questions and don't continue into the Ink file
+        else if (_questionsToShow)
+        {
+            EventManager.EventTrigger(EventType.INK_QUESTIONS, _currentScript.currentChoices);
+            _questionsToShow = false;
+        }
+        // If no more lines to parse and no questions, signal end of script
         else
         {
             if (_state == GameplayState.INTRO)
@@ -157,7 +161,6 @@ public class InkManager : MonoBehaviour
                     if (tag.Contains("enter"))
                     {
                         _characterState.Character = tag.Remove(0, 8);
-                        Debug.Log("help");
                         _characterState.Toggle = true;
                         EventManager.EventTrigger(EventType.INK_TOGGLE_CHARACTER, _characterState);
                     }
