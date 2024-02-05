@@ -4,22 +4,20 @@
 
 #a:desc
 Crossing the bounds between the afterlife and life is never easy. 
-Part of the hellish experience is actually emerging from Hell, and the jarring change of temperature.
-You do this fairly regularly, but the sudden cool of the night air is always disorientating. 
-You stand now, in a graveyard, the moon shining bright in the sky above.
-The unfeeling fog drifts gently across your skin. It’s a familiar feeling.
+You do this fairly regularly, ascending from Hell, but the sudden cool of the night air is always disorientating. 
+You stand now in a graveyard, the moon shining bright in the sky above. The gentle fog drifts across your skin. 
 It reminds you that you have work to do, fiendish chores that have to be done.
-There’s a quota, after all.
-A certain number of souls must be brought to Hell tonight.
-You try your best to make sure they are deserving, but you never know how many you have to take.
+There’s a quota, after all. A certain number of souls must be brought to Hell tonight.
+You try your best to make sure they are deserving of eternal punishment, but you never know how many you have to take.
 The quota is elusive, and you will not know til the work is done. 
-All you can do is decide is who to send where.
+All you can do is decide who to send where.
+...
 The graveyard stretches forever before you, shapes looming in and out of the dark.
 There are more tombstones, headstones, gravestones here than last time, noticeably piled on top of one another. 
 Every time you’re here, there seems to be more of them, lurking in the mist.
-You can see a few spirits milling about, attached to these new fixtures of the graveyard. They haven’t noticed you yet, and for the better. You won’t be able to see them all tonight.
-As if summoned by your very thoughts, a figure begins to emerge from the fog.
-You brace yourself for the tirade of anger or pleading, but the presence in front of you seems very, very alive. 
+You can see a few spirits milling about. They haven't noticed you yet - good. You won’t be able to attend to them all tonight. 
+As you think, a figure begins to emerge from the fog.
+You brace yourself for the undead tirade but the presence in front of you seems very, very alive. 
 
 #a:enter gravedigger
 #c:gravedigger
