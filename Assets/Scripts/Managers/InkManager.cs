@@ -157,6 +157,7 @@ public class InkManager : MonoBehaviour
                     if (tag.Contains("enter"))
                     {
                         _characterState.Character = tag.Remove(0, 8);
+                        Debug.Log("help");
                         _characterState.Toggle = true;
                         EventManager.EventTrigger(EventType.INK_TOGGLE_CHARACTER, _characterState);
                     }

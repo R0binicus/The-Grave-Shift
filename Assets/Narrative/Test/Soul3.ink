@@ -74,7 +74,7 @@ I just thought they’d go around me. But I suppose not.
     -> Questions_3
 }
 
-=== Question3_3 ==+
+=== Question3_3 ===
 #c:edward
 Um... That’s a big question. 
 I don’t really know if I can answer it. 

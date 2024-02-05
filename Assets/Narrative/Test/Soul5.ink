@@ -16,12 +16,15 @@ She certainly ain't happy about it.
 That isn't terribly uncommon. 
 #p:displeased
 I'm sure she will have more to say on the matter. 
--> Questions5
 
-=== Questions5 ===
 #a:enter soul
 #c:diane
 What can I do you for, then? Come to help me out at all? 
+
+-> Questions5
+
+=== Questions5 ===
+
  + [Who were you?]
     ~ questionsAsked5 = questionsAsked5 + 1
     -> Question1_5
