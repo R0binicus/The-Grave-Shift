@@ -190,19 +190,19 @@ public class MainMenuUIManager : MonoBehaviour
             _settingsPanel.SetActive(true);
         }
     }
-    public void SFXChanger(float UpdatedRange)
+    public void SFXChanger(float updatedRange)
     {
-        EventManager.EventTrigger(EventType.SFXVOLUME, UpdatedRange);
+        EventManager.EventTrigger(EventType.SFXVOLUME, updatedRange);
     }
 
-    public void MusicChanger(float UpdatedRange)
+    public void MusicChanger(float updatedRange)
     {
-        EventManager.EventTrigger(EventType.MUSICVOLUME, UpdatedRange);
+        EventManager.EventTrigger(EventType.MUSICVOLUME, updatedRange);
     }
 
-    public void TextSpeedChanger(float UpdatedRange)
+    public void TextSpeedChanger(float updatedRange)
     {
-        EventManager.EventTrigger(EventType.TEXTSPEED, UpdatedRange);
-        _textSpeedDisplay.text = UpdatedRange.ToString();
+        EventManager.EventTrigger(EventType.TEXTSPEED, updatedRange);
+        _textSpeedDisplay.text = "Characters Per Second: " + updatedRange.ToString();
     }
 }
