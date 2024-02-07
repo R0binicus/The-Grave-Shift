@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class PersistentDataManager : MonoBehaviour
 {
-    
     private float _charactersPerSec = 40;
+    private int _resolutionWidth = 1440;
+
+    private void Awake()
+    {
+        EventManager.EventInitialise(EventType.REQUESTSETTING);
+        EventManager.EventInitialise(EventType.SENDSETTING);
+    }
     private void OnEnable()
     {
         EventManager.EventSubscribe(EventType.REQUESTSETTING, SettingsRequestHandler);
         EventManager.EventSubscribe(EventType.TEXTSPEED, TextSpeedHandler);
+        EventManager.EventSubscribe(EventType.WINDOWRESOLUTION, WindowResolutionHandler);
     }
 
     private void OnDisable()
     {
         EventManager.EventUnsubscribe(EventType.REQUESTSETTING, SettingsRequestHandler);
         EventManager.EventUnsubscribe(EventType.TEXTSPEED, TextSpeedHandler);
+        EventManager.EventUnsubscribe(EventType.WINDOWRESOLUTION, WindowResolutionHandler);
     }
 
     // Start is called before the first frame update
@@ -39,9 +47,10 @@ public class PersistentDataManager : MonoBehaviour
 
         string setting = (string)data;
 
-        if (setting == "SPEED")
+        if (setting == "MENU")
         {
-            EventManager.EventTrigger(EventType.SENDSETTING, _charactersPerSec);
+            SettingsData tempSettings = new SettingsData(0f,0f,_charactersPerSec,_resolutionWidth);
+            EventManager.EventTrigger(EventType.SENDSETTING, tempSettings);
         }
     }
 
@@ -53,5 +62,15 @@ public class PersistentDataManager : MonoBehaviour
         }
 
         _charactersPerSec = (float)data;
+    }
+
+    public void WindowResolutionHandler(object data)
+    {
+        if (data == null)
+        {
+            Debug.LogError("WindowResolutionHandler is null!");
+        }
+
+        _resolutionWidth = (int)data;
     }
 }

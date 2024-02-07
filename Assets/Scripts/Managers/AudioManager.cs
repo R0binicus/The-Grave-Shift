@@ -194,13 +194,10 @@ public class AudioManager : MonoBehaviour
 
         string setting = (string)data;
 
-        if (setting == "SFX")
+        if (setting == "SOUND")
         {
-            EventManager.EventTrigger(EventType.SENDSETTING, _sfxVolume);
-        }
-        else if (setting == "MUSIC")
-        {
-            EventManager.EventTrigger(EventType.SENDSETTING, _musicVolume);
+            SettingsData tempSettings = new SettingsData(_sfxVolume,_musicVolume,0f,0);
+            EventManager.EventTrigger(EventType.SENDSETTING, tempSettings);
         }
     }
 }

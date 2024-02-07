@@ -10,6 +10,9 @@ public class MainMenuUIManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] GameObject _settingsPanel; 
     [SerializeField] Toggle _fullscreenToggle; 
+    [SerializeField] Toggle _largeResolutionToggle; 
+    [SerializeField] Toggle _medResolutionToggle; 
+    [SerializeField] Toggle _smallResolutionToggle; 
     [SerializeField] Slider _sfxSlider; 
     [SerializeField] Slider _musicSlider; 
     [SerializeField] Slider _textSpeedSlider; 
@@ -26,16 +29,17 @@ public class MainMenuUIManager : MonoBehaviour
     private string _receiver;
     private bool _buttonPressed = false; // Stops multiple clicking of same button
 
+    private int _resolutionWidth;
+
     #region Init
 
     private void Awake()
     {
         EventManager.EventInitialise(EventType.MAINMENUEVENT);
-        EventManager.EventInitialise(EventType.REQUESTSETTING);
-        EventManager.EventInitialise(EventType.SENDSETTING);
         EventManager.EventInitialise(EventType.SFXVOLUME);
         EventManager.EventInitialise(EventType.MUSICVOLUME);
         EventManager.EventInitialise(EventType.TEXTSPEED);
+        EventManager.EventInitialise(EventType.WINDOWRESOLUTION);
     }
 
     private void OnEnable()
@@ -57,23 +61,29 @@ public class MainMenuUIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        _receiver = "SFX";
+        _receiver = "SOUND";
+        EventManager.EventTrigger(EventType.REQUESTSETTING, _receiver);
+        _receiver = "MENU";
         EventManager.EventTrigger(EventType.REQUESTSETTING, _receiver);
 
-        //_sfxSlider.value = ;
-        //_musicSlider.value = ;
-        if(Screen.fullScreen == true)
+        switch (_resolutionWidth)
         {
-            _fullscreenToggle.SetIsOnWithoutNotify(true);
-        }
-        else 
-        { 
-           _fullscreenToggle.SetIsOnWithoutNotify(false);
-        }
-
-        foreach (var child in transform)
-        {
-            
+            case 2048:
+                if (Screen.fullScreen == true)
+                {
+                    _fullscreenToggle.SetIsOnWithoutNotify(true);
+                }
+                else
+                {
+                    _largeResolutionToggle.SetIsOnWithoutNotify(true);
+                }
+            break;
+            case 1440:
+                _medResolutionToggle.SetIsOnWithoutNotify(true);
+            break;
+            case 1024:
+                _smallResolutionToggle.SetIsOnWithoutNotify(true);
+            break;
         }
     }
     #endregion
@@ -111,27 +121,24 @@ public class MainMenuUIManager : MonoBehaviour
         {
             Debug.LogError("SettingsSendHandler is null!");
         }
-        
-        float setting = (float)data;
-        if (_receiver == "SFX")
+
+        SettingsData tempSettings = (SettingsData)data;
+
+        if (tempSettings.SFX != 0f)
         {
-            _receiver = "MUSIC";
-            _sfxSlider.value = setting;
-            EventManager.EventTrigger(EventType.REQUESTSETTING, _receiver);
+            _sfxSlider.value = tempSettings.SFX;
         }
-        else if (_receiver == "MUSIC")
+        if (tempSettings.Music != 0f)
         {
-            _receiver = "SPEED";
-            _musicSlider.value = setting;
-            EventManager.EventTrigger(EventType.REQUESTSETTING, _receiver);
+            _musicSlider.value = tempSettings.Music;
         }
-        else if (_receiver == "SPEED")
+        if (tempSettings.CharactersPerSec != 0f)
         {
-            _textSpeedSlider.value = setting;
+            _textSpeedSlider.value = tempSettings.CharactersPerSec;
         }
-        else
+        if (tempSettings.ResolutionWidth != 0)
         {
-            Debug.Log("WTF SettingsSendHandler");
+            _resolutionWidth = tempSettings.ResolutionWidth;
         }
     }
 
@@ -204,5 +211,64 @@ public class MainMenuUIManager : MonoBehaviour
     {
         EventManager.EventTrigger(EventType.TEXTSPEED, updatedRange);
         _textSpeedDisplay.text = "Characters Per Second: " + updatedRange.ToString();
+    }
+
+    public void WindowChanger(int mode)
+    {
+        switch (mode)
+        {
+            case 0:
+                //_fullscreenToggle.SetIsOnWithoutNotify(true);
+                _largeResolutionToggle.SetIsOnWithoutNotify(false);
+                _medResolutionToggle.SetIsOnWithoutNotify(false);
+                _smallResolutionToggle.SetIsOnWithoutNotify(false);
+                Screen.SetResolution(2048, 1536, true);
+                _resolutionWidth = 2048;
+                EventManager.EventTrigger(EventType.WINDOWRESOLUTION, _resolutionWidth);
+                _fullscreenToggle.interactable = false;
+                _largeResolutionToggle.interactable = true;
+                _medResolutionToggle.interactable = true;
+                _smallResolutionToggle.interactable = true;
+            break;
+            case 1:
+                _fullscreenToggle.SetIsOnWithoutNotify(false);
+                //_largeResolutionToggle.SetIsOnWithoutNotify(true);
+                _medResolutionToggle.SetIsOnWithoutNotify(false);
+                _smallResolutionToggle.SetIsOnWithoutNotify(false);
+                Screen.SetResolution(2048, 1536, false);
+                _resolutionWidth = 2048;
+                EventManager.EventTrigger(EventType.WINDOWRESOLUTION, _resolutionWidth);
+                _fullscreenToggle.interactable = true;
+                _largeResolutionToggle.interactable = false;
+                _medResolutionToggle.interactable = true;
+                _smallResolutionToggle.interactable = true;
+            break;
+            case 2:
+                _fullscreenToggle.SetIsOnWithoutNotify(false);
+                _largeResolutionToggle.SetIsOnWithoutNotify(false);
+                //_medResolutionToggle.SetIsOnWithoutNotify(true);
+                _smallResolutionToggle.SetIsOnWithoutNotify(false);
+                Screen.SetResolution(1440, 1080, false);
+                _resolutionWidth = 1440;
+                EventManager.EventTrigger(EventType.WINDOWRESOLUTION, _resolutionWidth);
+                _fullscreenToggle.interactable = true;
+                _largeResolutionToggle.interactable = true;
+                _medResolutionToggle.interactable = false;
+                _smallResolutionToggle.interactable = true;
+            break;
+            case 3:
+                _fullscreenToggle.SetIsOnWithoutNotify(false);
+                _largeResolutionToggle.SetIsOnWithoutNotify(false);
+                _medResolutionToggle.SetIsOnWithoutNotify(false);
+                //_smallResolutionToggle.SetIsOnWithoutNotify(true);
+                Screen.SetResolution(1024, 768, false);
+                _resolutionWidth = 1024;
+                EventManager.EventTrigger(EventType.WINDOWRESOLUTION, _resolutionWidth);
+                _fullscreenToggle.interactable = true;
+                _largeResolutionToggle.interactable = true;
+                _medResolutionToggle.interactable = true;
+                _smallResolutionToggle.interactable = false;
+            break;
+        }
     }
 }

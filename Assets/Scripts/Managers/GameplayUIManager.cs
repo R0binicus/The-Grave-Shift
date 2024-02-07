@@ -98,7 +98,7 @@ public class GameplayUIManager : MonoBehaviour
 
     private void Start()
     {
-        EventManager.EventTrigger(EventType.REQUESTSETTING, "SPEED");
+        EventManager.EventTrigger(EventType.REQUESTSETTING, "MENU");
     }
 
     private void InitUI()
@@ -361,10 +361,14 @@ public class GameplayUIManager : MonoBehaviour
         {
             Debug.LogError("SettingsSendHandler is null!");
         }
+        SettingsData tempSettings = (SettingsData)data;
 
-        _charactersPerSec = (float)data;
-        _simpleDelay = new WaitForSeconds(1/_charactersPerSec);
-        _interpunctuationWait = new WaitForSeconds(_interpunctuationDelay);
+        if (tempSettings.CharactersPerSec != 0f)
+        {
+            _charactersPerSec = tempSettings.CharactersPerSec;
+            _simpleDelay = new WaitForSeconds(1/_charactersPerSec);
+            _interpunctuationWait = new WaitForSeconds(_interpunctuationDelay);
+        }
     }
     #endregion
 

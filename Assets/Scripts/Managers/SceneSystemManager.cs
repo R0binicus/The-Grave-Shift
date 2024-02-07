@@ -72,6 +72,8 @@ public class SceneSystemManager : MonoBehaviour
         #else
             StartCoroutine(Title());
         #endif
+
+        
     }
 
     IEnumerator Title()
