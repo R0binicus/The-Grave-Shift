@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Threshold-GameJam.sln"
+    "dotnet.defaultSolution": "The-Grave-Shift.sln"
 }
